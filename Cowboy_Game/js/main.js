@@ -1,3 +1,4 @@
+window.onload = function() {
 // Create our 'main' state that will contain the game
 var mainState = {
     preload: function() { 
@@ -107,3 +108,4 @@ addRowOfPipes: function() {
 this.score += 1;
 this.labelScore.text = this.score;  		
 },
+};
