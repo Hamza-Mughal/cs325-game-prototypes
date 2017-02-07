@@ -37,5 +37,6 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
+		earth.tilePosition.y += 2;
     }
 };
