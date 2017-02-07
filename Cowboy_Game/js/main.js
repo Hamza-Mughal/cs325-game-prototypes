@@ -51,16 +51,6 @@ window.onload = function() {
 		
 		createEnemies();
 		
-        bullets = game.add.group();
-        bullets.enableBody = true;
-        bullets.physicsBodyType = Phaser.Physics.ARCADE;
-        bullets.createMultiple(30, 'bullet');
-        bullets.setAll('anchor.x', 1);
-        bullets.setAll('anchor.y', 0.5);
-        bullets.setAll('scale.x', -0.1);
-        bullets.setAll('scale.y', 0.1);
-        bullets.setAll('outOfBoundsKill', true);
-        bullets.setAll('checkWorldBounds', true);
 		
 		
 		
@@ -72,37 +62,19 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-		 game.input.keyboard.addKeyCapture(Phaser.Keyboard.UP);
+		
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
+		player.body.velocity.y = 0;
 		if(input.left.isDown){
 			player.body.velocity.x = -350;
 		}
 		if(input.right.isDown){
 			player.body.velocity.x = 350;
 		}
-  if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
-        {
-            fireBullet(this);
-        }
-    }
-    function fireBullet (scope)
-    {
-
-        if (game.time.now > bulletTime)
-        {
-
-            bullet = bullets.getFirstExists(false);
-
-            if (bullet)
-            {
-
-                bullet.reset(scope.player.x + 80, scope.player.y);
-                bullet.body.velocity.x = 400;
-                bulletTime = game.time.now + 400;
-            }
-        }
-
+		if(input.up.isDown){
+			player.body.velocity.y = -350;
+		}
     }
 	
 	function createEnemies(){
