@@ -60,7 +60,7 @@ window.onload = function() {
 		bullets.setAll('outOfBoundsKill', true);
 		bullets.setAll('checkWorldBounds', true);
 		
-		fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		fireButton = game.input.keyboard.createCursorKeys();
 		
 		
     }
@@ -80,13 +80,13 @@ window.onload = function() {
 		if(input.right.isDown){
 			player.body.velocity.x = 350;
 		}
-		if(fireButton.isDown){
+		if(fireButton.up.isDown){
 			fireBullet();
 		}
     }
 	function fireBullet(){
 		if(game.time.now > bulletTime){
-			var bullet = bullets.getFirstExists(false);
+			bullet = bullets.getFirstExists(false);
 			if(bullet){
 				bullet.reset(player.x, player.y);
 				bullet.body.velocity.y = -400;
