@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.CARVAS, 'gameDiv', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.CANVAS, 'gameDiv', { preload: preload, create: create, update: update } );
     var earth;
     function preload() {
 		game.load.image('earth', "assets/mbe_earth.jpg");
@@ -22,7 +22,7 @@ window.onload = function() {
     var bouncy;
     
     function create() {
-		earth = game.add.tillSprite(0,0,800,600,'earth');
+		earth = game.add.tilleSprite(0,0,800,600,'earth');
     }
     
     function update() {
