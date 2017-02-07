@@ -15,9 +15,12 @@ window.onload = function() {
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     var earth;
+	var player;
+	var input;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
+		game.load.image('player', 'asserts/cowbow.png');
     }
     
     var bouncy;
@@ -29,6 +32,10 @@ window.onload = function() {
         var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
         text.anchor.setTo( 0.5, 0.0 );
 		earth = game.add.tileSprite(0,0,800,600,'earthi');
+		
+		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
+		game.physics.enable(player,Phaser.Physics.ARCADE);
+		input = game.input.keyboard.createCursorKeys();
     }
     
     function update() {
@@ -38,5 +45,12 @@ window.onload = function() {
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
 		earth.tilePosition.y += 2;
+		
+		if(input.left.isDown){
+			player.body.velocity.x = -350;
+		}
+		if(input.right.isDown){
+			player.body.velocity.x = 350;
+		}
     }
 };
