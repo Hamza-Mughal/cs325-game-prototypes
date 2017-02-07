@@ -23,6 +23,8 @@ window.onload = function() {
 	var fireButton;
 	
 	var enemies;
+	
+	
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -62,6 +64,8 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
+		game.physics.arcade.overlap(player,enemies,collisionHandler,null,this);
+		
 		
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
@@ -74,6 +78,9 @@ window.onload = function() {
 		}
 		if(input.up.isDown){
 			player.body.velocity.y = -350;
+		}
+		if(input.up.isDown){
+			player.body.velocity.y = 350;
 		}
     }
 	
@@ -92,5 +99,8 @@ window.onload = function() {
 	}
 	function descend(){
 		enemies.y += 10;
+	}
+	function collisionHandler(player, enemy){
+		enemy.kill();
 	}
 };
