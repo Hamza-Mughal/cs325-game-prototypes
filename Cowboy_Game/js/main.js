@@ -60,7 +60,6 @@ window.onload = function() {
 		bullets.setAll('outOfBoundsKill', true);
 		bullets.setAll('checkWorldBounds', true);
 		
-		fireButton = game.input.keyboard.createCursorKeys();
 		
 		
     }
@@ -80,7 +79,7 @@ window.onload = function() {
 		if(input.right.isDown){
 			player.body.velocity.x = 350;
 		}
-		if(fireButton.up.isDown){
+		if(input.up.isDown){
 			fireBullet();
 		}
     }
