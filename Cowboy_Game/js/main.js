@@ -1,4 +1,3 @@
-window.onload = function() {
     // You might want to start with a template that uses GameStates:
     //     https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic
     
@@ -33,6 +32,7 @@ game.load.image('bird', 'assets/bird.png');
     if (this.bird.y < 0 || this.bird.y > 490)
         this.restartGame();	   // It contains the game's logic   
     },
+};
 	jump: function() {
     // Add a vertical velocity to the bird
     this.bird.body.velocity.y = -350;
@@ -43,7 +43,6 @@ restartGame: function() {
     // Start the 'main' state, which restarts the game
     game.state.start('main');
 },
-};
 
 // Initialize Phaser, and create a 400px by 490px game
 var game = new Phaser.Game(400, 490);
@@ -53,7 +52,3 @@ game.state.add('main', mainState);
 
 // Start the state to actually start the game
 game.state.start('main');
-
-
-
-};
