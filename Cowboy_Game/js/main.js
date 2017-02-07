@@ -20,7 +20,7 @@ window.onload = function() {
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
-		game.load.image('player', 'asserts/cowboy.png');
+		game.load.image('player', 'assets/cowboy.png');
     }
     
     var bouncy;
