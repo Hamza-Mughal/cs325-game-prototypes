@@ -12,41 +12,48 @@ window.onload = function() {
     // All loading functions will typically all be found inside "preload()".
     
     "use strict";
-    
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
-    
-    function preload() {
-        // Load an image and call it 'logo'.
-        game.load.image( 'logo', 'assets/phaser.png' );
-    }
-    
-    var bouncy;
-    
-    function create() {
-        // Create a sprite at the center of the screen using the 'logo' image.
-        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
-        // Anchor the sprite at its center, as opposed to its top-left corner.
-        // so it will be truly centered.
-        bouncy.anchor.setTo( 0.5, 0.5 );
-        
-        // Turn on the arcade physics engine for this sprite.
-        game.physics.enable( bouncy, Phaser.Physics.ARCADE );
-        // Make it bounce off of the world bounds.
-        bouncy.body.collideWorldBounds = true;
-        
-        // Add some text using a CSS style.
-        // Center it in X, and position its top 15 pixels from the top of the world.
-        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
-        text.anchor.setTo( 0.5, 0.0 );
-    }
-    
-    function update() {
-        // Accelerate the 'logo' sprite towards the cursor,
-        // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-        // in X or Y.
-        // This function returns the rotation angle that makes it visually match its
-        // new trajectory.
-        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, this.game.input.activePointer, 500, 500, 500 );
-    }
+    var mainState = {
+    preload: function() { 
+        // This function will be executed at the beginning     
+game.load.image('bird', 'assets/bird.png');       
+	  // That's where we load the images and sounds 
+    },
+
+    create: function() { 
+        // This function is called after the preload function     
+      // Call the 'restartGame' function
+    if (this.bird.y < 0 || this.bird.y > 490)
+        this.restartGame();
+    // Here we set up the game, display sprites, etc.  
+    },
+
+    update: function() {
+        // This function is called 60 times per second    
+       
+    if (this.bird.y < 0 || this.bird.y > 490)
+        this.restartGame();	   // It contains the game's logic   
+    },
+	jump: function() {
+    // Add a vertical velocity to the bird
+    this.bird.body.velocity.y = -350;
+},
+
+// Restart the game
+restartGame: function() {
+    // Start the 'main' state, which restarts the game
+    game.state.start('main');
+},
+};
+
+// Initialize Phaser, and create a 400px by 490px game
+var game = new Phaser.Game(400, 490);
+
+// Add the 'mainState' and call it 'main'
+game.state.add('main', mainState); 
+
+// Start the state to actually start the game
+game.state.start('main');
+
+
+
 };
