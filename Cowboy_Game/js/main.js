@@ -41,13 +41,14 @@ window.onload = function() {
 		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
+		
 		bullets = game.add.group();
 		bullets.enableBody = true;
 		bullets.physicsBodyType = Phaser.Physics.ARCADE;
 		bullets.createMultiple(30, 'bullet');
 		bullets.setAll('anchor.x', 0.5);
 		bullets.setAll('anchor.y', 1);
-		bullets.setAll('outofBoundsKill', true);
+		bullets.setAll('outOfBoundsKill', true);
 		bullets.setAll('checkWorldBounds', true);
 		
 		fire = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
