@@ -79,7 +79,7 @@ window.onload = function() {
 		if(input.up.isDown){
 			player.body.velocity.y = -350;
 		}
-		if(input.up.isDown){
+		if(input.down.isDown){
 			player.body.velocity.y = 350;
 		}
     }
