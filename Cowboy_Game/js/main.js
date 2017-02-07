@@ -17,10 +17,15 @@ window.onload = function() {
     var earth;
 	var player;
 	var input;
+	
+	var bullets;
+	var bulletTime = 0;
+	var fire;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
 		game.load.image('player', 'assets/cowboy.png');
+		game.load.image('bullet', 'assets/bulletbill.jpg');
     }
     
     var bouncy;
@@ -36,6 +41,16 @@ window.onload = function() {
 		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
+		bullets = game.add.group();
+		bullets.enableBody = true;
+		bullets.physicsBodyType = Phaser.Physics.ARCADE;
+		bullets.createMultiple(30, 'bullet');
+		bullets.setAll('anchor.x', 0.5);
+		bullets.setAll('anchor.y', 1);
+		bullets.setAll('outofBoundsKill', true);
+		bullets.setAll('checkWorldBounds', true);
+		
+		fire = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     }
     
     function update() {
@@ -53,5 +68,18 @@ window.onload = function() {
 		if(input.right.isDown){
 			player.body.velocity.x = 350;
 		}
+		if(fire.isDown){
+			fireBullet();
+		}
     }
+	function fireBullet(){
+		if(game.time.now > bulletTime){
+			bullet = bullets.getFirstExists(false);
+			if(bullet){
+				bullet.reset(player.x + 14,player.y);
+				bullet.body.velocity.y = -400;
+				bulletTime = game.time.now + 200;
+			}
+		}
+	}
 };
