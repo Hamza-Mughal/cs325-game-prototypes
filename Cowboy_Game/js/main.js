@@ -44,8 +44,9 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-		earth.tilePosition.y += 2;
 		
+		earth.tilePosition.y += 2;
+		player.body.velocity.x = 0;
 		if(input.left.isDown){
 			player.body.velocity.x = -350;
 		}
