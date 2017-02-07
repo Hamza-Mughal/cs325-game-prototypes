@@ -5,7 +5,7 @@ var spacefield;
 var mainState = {
  preload:function(){
 
-  game.load.image('earth',"assets/mbe_earth.jpg");
+  game.load.image('earth','assets/mbe_earth.jpg');
 
  },
 
@@ -19,7 +19,7 @@ var mainState = {
 
 
 
- },
+ }
 
 
 }
