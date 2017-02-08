@@ -98,7 +98,8 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			winText.visible = true;
-			
+			music.pause();
+			night = game.sound.play('frida');
 		}
     }
 	
@@ -121,8 +122,6 @@ window.onload = function() {
 	function collisionHandler(player, enemy){
 		enemy.kill();
 		score+=100;
-		music.pause();
-		night = game.sound.play('frida');
 		// effect = game.sound.play('bing');
 	}
 };
