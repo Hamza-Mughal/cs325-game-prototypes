@@ -119,6 +119,6 @@ window.onload = function() {
 	function collisionHandler(player, enemy){
 		enemy.kill();
 		score+=100;
-		effect = game.sound.play('bing');
+		// effect = game.sound.play('bing');
 	}
 };
