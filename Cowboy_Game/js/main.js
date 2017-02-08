@@ -52,6 +52,8 @@ window.onload = function() {
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
 		
+		player.body.collideWorldBounds=true;
+		
 		enemies = game.add.group();
 		enemies.enableBody = true;
 		enemies.physicsBodyType = Phaser.Physics.ARCADE;
