@@ -29,6 +29,7 @@ window.onload = function() {
 	var winText;
 	
 	var music;
+	var effect;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -36,6 +37,7 @@ window.onload = function() {
 		game.load.image('bullet', 'assets/bulletbill.png');
 		game.load.image('enemy', 'assets/asteroid.jpg');
 		game.load.audio('bongo', 'assets/guile.mp3');
+		game.load.audio('bing', 'assets/bong.mp3');
     }
     
     var bouncy;
@@ -117,5 +119,6 @@ window.onload = function() {
 	function collisionHandler(player, enemy){
 		enemy.kill();
 		score+=100;
+		effect = game.sound.play('bing');
 	}
 };
