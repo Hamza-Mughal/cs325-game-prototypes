@@ -35,7 +35,7 @@ window.onload = function() {
 		game.load.image('player', 'assets/cowboy.png');
 		game.load.image('bullet', 'assets/bulletbill.png');
 		game.load.image('enemy', 'assets/asteroid.jpg');
-		game.load.audio('bongo', 'assets/bongo.mp3');
+		game.load.audio('bongo', 'assets/guile.mp3');
     }
     
     var bouncy;
