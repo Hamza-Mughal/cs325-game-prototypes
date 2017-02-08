@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update , render: render } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     var earth;
 	var player;
 	var input;
@@ -47,12 +47,6 @@ window.onload = function() {
 		
 		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
-		
-		player.body.collideWorldBounds=true;
-        player.body.gravity.x = game.rnd.integerInRange(-50, 50);
-        player.body.gravity.y = 100 + Math.random() * 100;
-        player.body.bounce.setTo(0.9, 0.9);
-		
 		input = game.input.keyboard.createCursorKeys();
 		
 		enemies = game.add.group();
@@ -95,7 +89,7 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			winText.visible = true;
-			scoreText.visible = false;
+			
 		}
     }
 	
