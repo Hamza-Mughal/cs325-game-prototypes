@@ -61,7 +61,7 @@ window.onload = function() {
 		createEnemies();
 		
 		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
-		winText = game.add.text(game.world.centerX, game.world.centerY, 'You Won!', {font:'32px Arial', fill: '#fff'});
+		winText = game.add.text(game.world.centerX-20, game.world.centerY, 'You Saved Earth from a Fiery Doom!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
 		
 		music = game.sound.play('bongo');
