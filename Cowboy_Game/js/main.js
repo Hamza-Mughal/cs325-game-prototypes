@@ -24,7 +24,9 @@ window.onload = function() {
 	
 	var enemies;
 	
-	
+	var score = 0;
+	var scoreText;
+	var winText;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -53,7 +55,9 @@ window.onload = function() {
 		
 		createEnemies();
 		
-		
+		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
+		winText = game.add.text(game.world.centerX, game.world.centerY, 'You Won!', {font:'32px Arial', fill: '#fff'});
+		winText.visible = false;
 		
 		
     }
@@ -82,6 +86,11 @@ window.onload = function() {
 		if(input.down.isDown){
 			player.body.velocity.y = 350;
 		}
+		scoreText.text = 'Score:' + score;
+		if(score == 4000){
+			winText.visible = true;
+			scoreText.visible = false;
+		}
     }
 	
 	function createEnemies(){
@@ -102,5 +111,6 @@ window.onload = function() {
 	}
 	function collisionHandler(player, enemy){
 		enemy.kill();
+		score+=100;
 	}
 };
