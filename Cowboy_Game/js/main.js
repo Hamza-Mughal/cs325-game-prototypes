@@ -98,8 +98,6 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			winText.visible = true;
-			music.pause();
-			night = game.sound.play('frida');
 		}
     }
 	
