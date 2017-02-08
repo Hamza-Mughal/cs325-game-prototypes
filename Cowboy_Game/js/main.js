@@ -27,12 +27,15 @@ window.onload = function() {
 	var score = 0;
 	var scoreText;
 	var winText;
+	
+	var music;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
 		game.load.image('player', 'assets/cowboy.png');
 		game.load.image('bullet', 'assets/bulletbill.png');
 		game.load.image('enemy', 'assets/asteroid.jpg');
+		game.load.audio('bongo', 'assets/bongo.mp3');
     }
     
     var bouncy;
@@ -59,7 +62,7 @@ window.onload = function() {
 		winText = game.add.text(game.world.centerX, game.world.centerY, 'You Won!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
 		
-		
+		music = game.sound.play('bongo');
     }
     
     function update() {
