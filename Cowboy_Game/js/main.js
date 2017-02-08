@@ -83,7 +83,7 @@ var fireButton;
     weapon.fireRate = 60;
 
 	    //  Tell the Weapon to track the 'player' Sprite, offset by 14px horizontally, 0 vertically
-    weapon.trackSprite(sprite, 14, 0);
+    weapon.trackSprite(player, 14, 0);
 
     cursors = this.input.keyboard.createCursorKeys();
 
