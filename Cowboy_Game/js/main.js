@@ -30,6 +30,7 @@ window.onload = function() {
 	
 	var music;
 	var effect;
+	var night;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -38,6 +39,7 @@ window.onload = function() {
 		game.load.image('enemy', 'assets/asteroid.jpg');
 		game.load.audio('bongo', 'assets/guile.mp3');
 		game.load.audio('bing', 'assets/bong.mp3');
+		game.load.audio('frida', 'assets/friday.mp3');
     }
     
     var bouncy;
@@ -119,6 +121,8 @@ window.onload = function() {
 	function collisionHandler(player, enemy){
 		enemy.kill();
 		score+=100;
+		music.pause();
+		night = game.sound.play('frida');
 		// effect = game.sound.play('bing');
 	}
 };
