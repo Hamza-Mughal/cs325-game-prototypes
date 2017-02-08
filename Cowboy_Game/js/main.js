@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update , render: render } );
     var earth;
 	var player;
 	var input;
@@ -27,6 +27,14 @@ window.onload = function() {
 	var score = 0;
 	var scoreText;
 	var winText;
+	
+	
+	
+	var sprite;
+var weapon;
+var cursors;
+var fireButton;
+
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -60,6 +68,27 @@ window.onload = function() {
 		winText.visible = false;
 		
 		
+		weapon = game.add.weapon(30, 'bullet');
+
+    //  The bullet will be automatically killed when it leaves the world bounds
+    weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+
+    //  Because our bullet is drawn facing up, we need to offset its rotation:
+    weapon.bulletAngleOffset = 90;
+
+    //  The speed at which the bullet is fired
+    weapon.bulletSpeed = 400;
+
+    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+    weapon.fireRate = 60;
+
+	    //  Tell the Weapon to track the 'player' Sprite, offset by 14px horizontally, 0 vertically
+    weapon.trackSprite(sprite, 14, 0);
+
+    cursors = this.input.keyboard.createCursorKeys();
+
+    fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+		
     }
     
     function update() {
@@ -86,6 +115,10 @@ window.onload = function() {
 		if(input.down.isDown){
 			player.body.velocity.y = 350;
 		}
+		    if (fireButton.isDown)
+    {
+        weapon.fire();
+    }
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			winText.visible = true;
@@ -113,4 +146,9 @@ window.onload = function() {
 		enemy.kill();
 		score+=100;
 	}
+	function render() {
+
+    weapon.debug();
+
+}
 };
