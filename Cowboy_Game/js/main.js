@@ -100,6 +100,7 @@ window.onload = function() {
 			createEnemies2();
 			player.x = game.world.centerX;
 			player.y = game.world.centerY + 200;
+			score+=500;
 			winText.visible = true;
 		}
     }
