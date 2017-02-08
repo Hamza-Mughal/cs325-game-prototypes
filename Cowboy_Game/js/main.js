@@ -101,8 +101,18 @@ window.onload = function() {
 			player.x = game.world.centerX;
 			player.y = game.world.centerY + 200;
 			score+=500;
+			// winText.visible = true;
+		}
+		if(score == 11700){
+			createEnemies3();
+			player.x = game.world.centerX;
+			player.y = game.world.centerY + 200;
+			score+=500;			
+		}
+		if(score == 23400){
 			winText.visible = true;
 		}
+		
     }
 	
 	function createEnemies(){
