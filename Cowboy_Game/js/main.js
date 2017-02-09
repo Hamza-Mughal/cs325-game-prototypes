@@ -84,16 +84,16 @@ window.onload = function() {
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
 		if(input.left.isDown){
-			player.body.velocity.x = -350;
+			player.body.velocity.x = -300;
 		}
 		if(input.right.isDown){
-			player.body.velocity.x = 350;
+			player.body.velocity.x = 300;
 		}
 		if(input.up.isDown){
-			player.body.velocity.y = -350;
+			player.body.velocity.y = -300;
 		}
 		if(input.down.isDown){
-			player.body.velocity.y = 350;
+			player.body.velocity.y = 300;
 		}
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
