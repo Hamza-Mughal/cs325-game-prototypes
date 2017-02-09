@@ -57,12 +57,7 @@ window.onload = function() {
 		input = game.input.keyboard.createCursorKeys();
 		
 		player.body.collideWorldBounds=true;
-		    player.body.collideWorldBounds = true;
-    
-    //  This sets the image bounce energy for the horizontal  and vertical vectors (as an x,y point). "1" is 100% energy return
-    player.body.bounce.set(0.8);
-
-    player.body.gravity.set(0, 180);
+		
 		enemies = game.add.group();
 		enemies.enableBody = true;
 		enemies.physicsBodyType = Phaser.Physics.ARCADE;
