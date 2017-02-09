@@ -36,7 +36,7 @@ window.onload = function() {
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
 		game.load.image('player', 'assets/cowboy.png');
 		game.load.image('bullet', 'assets/bulletbill.png');
-		game.load.image('enemy', 'assets/asteroid.jpg');
+		game.load.image('enemy', 'assets/asteroid.png');
 		game.load.audio('bongo', 'assets/guile.mp3');
 		game.load.audio('bing', 'assets/bong.mp3');
 		game.load.audio('frida', 'assets/friday.mp3');
@@ -113,6 +113,7 @@ window.onload = function() {
 			winText.visible = true;
 			music.pause;
 			night = game.sound.play('frida');
+			score += 1;
 		}
 		
     }
