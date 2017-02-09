@@ -121,11 +121,11 @@ window.onload = function() {
 	function createEnemies(){
 		for(var y = 0; y < 4; y++){
 			for(var x = 0; x< 10; x++){
-				var enemy = enemies.create(x*68, y*50,'enemy');
-				enemy.anchor.setTo(0.9, 0.5);
+				var enemy = enemies.create(x*60, y*50,'enemy');
+				enemy.anchor.setTo(0.8, 0.5);
 			}
 		}
-		enemies.x = 200;
+		enemies.x = 180;
 		enemies.y = 50;
 		
 		var tween = game.add.tween(enemies).to({x:200}, 2000,Phaser.Easing.Linear.None,true,0,1000,true);
