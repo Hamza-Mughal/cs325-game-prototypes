@@ -121,8 +121,8 @@ window.onload = function() {
 	function createEnemies(){
 		for(var y = 0; y < 4; y++){
 			for(var x = 0; x< 10; x++){
-				var enemy = enemies.create(x*58, y*50,'enemy');
-				enemy.anchor.setTo(0.7, 0.5);
+				var enemy = enemies.create(x*68, y*50,'enemy');
+				enemy.anchor.setTo(0.9, 0.5);
 			}
 		}
 		enemies.x = 200;
