@@ -122,7 +122,7 @@ window.onload = function() {
 		for(var y = 0; y < 4; y++){
 			for(var x = 0; x< 10; x++){
 				var enemy = enemies.create(x*48, y*50,'enemy');
-				enemy.anchor.setTo(1.0, 0.5);
+				enemy.anchor.setTo(0.5, 0.5);
 			}
 		}
 		enemies.x = 100;
