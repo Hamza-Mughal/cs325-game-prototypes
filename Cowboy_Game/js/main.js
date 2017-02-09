@@ -111,6 +111,8 @@ window.onload = function() {
 		}
 		if(score == 23400){
 			winText.visible = true;
+			music.pause;
+			night = game.sound.play('frida');
 		}
 		
     }
