@@ -24,12 +24,36 @@ window.onload = function() {
     var bouncy;
     var room;
 	var player;
+	var input;
+	var speed = 0;
     function create() {
 		room = game.add.tileSprite(0,0,800,600,'room');
 		player = game.add.sprite(570,100,'gown');
+		input = game.input.keyboard.createCursorKeys();
+		game.physics.startSystem(Phaser.Physics.P2JS);
+		game.physics.p2.enable(player,false);
+		
     }
     
     function update() {
-
+                if (input.up.isDown && velocity <= 400) {
+                        velocity+=7;
+                }
+                else {
+                    if (velocity >= 7)
+                        velocity -= 7;
+                }
+                        
+                /*Set X and Y Speed of Velocity*/
+                player.body.velocity.x = velocity * Math.cos((player.angle-90)*0.01745);
+                player.body.velocity.y = velocity * Math.sin((player.angle-90)*0.01745);
+                
+                /*Rotation of Car*/
+                if (input.isDown)
+                    player.body.angularVelocity = -5*(velocity/1000);
+                else if (input.right.isDown)
+                    player.body.angularVelocity = 5*(velocity/1000);
+                else
+                    player.body.angularVelocity = 0;
     }
 };
