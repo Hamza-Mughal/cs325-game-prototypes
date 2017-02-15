@@ -24,13 +24,26 @@ window.onload = function() {
     var bouncy;
     var room;
 	var player;
+	var input;
     function create() {
 		room = game.add.tileSprite(0,0,800,600,'room');
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.world.enableBody = true;
 		player = game.add.sprite(70, 100, 'gown');
+		player.body.gravity.y = 600;
+		input = game.input.keyboard.createCursorKeys();
     }
     
     function update() {
+	if (input.left.isDown) 
+    player.body.velocity.x = -200;
+else if (input.right.isDown) 
+    player.body.velocity.x = 200;
+else 
+    player.body.velocity.x = 0;
+
+// Make the player jump if he is touching the ground
+if (input.up.isDown && player.body.touching.down) 
+    player.body.velocity.y = -250;	
     }
 };
