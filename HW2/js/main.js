@@ -19,6 +19,7 @@ window.onload = function() {
         // Load an image and call it 'logo'.
         game.load.image( 'room', 'assets/room.jpg' );
 		game.load.image( 'gown', 'assets/gown.jpg' );
+		game.load.image( 'brick', 'assets/brick.jpg' );
     }
     
     var bouncy;
@@ -52,22 +53,22 @@ for (var i = 0; i < level.length; i++) {
 
         // Create a wall and add it to the 'walls' group
         if (level[i][j] == 'x') {
-            var wall = game.add.sprite(30+20*j, 30+20*i, 'wall');
-            this.walls.add(wall);
+            var wall = game.add.sprite(30+20*j, 30+20*i, 'brick');
+            wall.add(wall);
             wall.body.immovable = true; 
         }
 
         // Create a coin and add it to the 'coins' group
-        else if (level[i][j] == 'o') {
-            var coin = game.add.sprite(30+20*j, 30+20*i, 'coin');
-            this.coins.add(coin);
-        }
+     //   else if (level[i][j] == 'o') {
+     //       var coin = game.add.sprite(30+20*j, 30+20*i, 'coin');
+     //       this.coins.add(coin);
+     //   }
 
         // Create a enemy and add it to the 'enemies' group
-        else if (level[i][j] == '!') {
-            var enemy = game.add.sprite(30+20*j, 30+20*i, 'enemy');
-            this.enemies.add(enemy);
-        }
+       // else if (level[i][j] == '!') {
+       //     var enemy = game.add.sprite(30+20*j, 30+20*i, 'enemy');
+       //     this.enemies.add(enemy);
+       // }
     }
 }
 game.physics.arcade.collide(player, wall);
