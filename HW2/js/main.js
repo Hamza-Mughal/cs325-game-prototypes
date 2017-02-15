@@ -25,7 +25,7 @@ window.onload = function() {
     var room;
 	var player;
     function create() {
-		earth = game.add.tileSprite(0,0,800,600,'earthi');
+		room = game.add.tileSprite(0,0,800,600,'room');
 		player = game.add.sprite(570,100,'gown');
     }
     
