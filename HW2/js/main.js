@@ -36,24 +36,24 @@ window.onload = function() {
     }
     
     function update() {
-                if (input.up.isDown && velocity <= 400) {
-                        velocity+=7;
-                }
-                else {
-                    if (velocity >= 7)
-                        velocity -= 7;
-                }
+     //           if (input.up.isDown && velocity <= 400) {
+     //                   velocity+=7;
+    //            }
+     //           else {
+     //               if (velocity >= 7)
+     //                   velocity -= 7;
+     //           }
                         
                 /*Set X and Y Speed of Velocity*/
-                player.body.velocity.x = velocity * Math.cos((player.angle-90)*0.01745);
-                player.body.velocity.y = velocity * Math.sin((player.angle-90)*0.01745);
+     //           player.body.velocity.x = velocity * Math.cos((player.angle-90)*0.01745);
+     //           player.body.velocity.y = velocity * Math.sin((player.angle-90)*0.01745);
                 
                 /*Rotation of Car*/
-                if (input.isDown)
-                    player.body.angularVelocity = -5*(velocity/1000);
-                else if (input.right.isDown)
-                    player.body.angularVelocity = 5*(velocity/1000);
-                else
-                    player.body.angularVelocity = 0;
+     //           if (input.isDown)
+     //               player.body.angularVelocity = -5*(velocity/1000);
+     //           else if (input.right.isDown)
+     //               player.body.angularVelocity = 5*(velocity/1000);
+     //           else
+     //               player.body.angularVelocity = 0;
     }
 };
