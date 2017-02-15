@@ -25,6 +25,9 @@ window.onload = function() {
     var room;
 	var player;
 	var input;
+	var wall;
+	var heart;
+	var death;
     function create() {
 		room = game.add.tileSprite(0,0,800,600,'room');
 		game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -32,18 +35,53 @@ window.onload = function() {
 		player = game.add.sprite(70, 100, 'gown');
 		player.body.gravity.y = 600;
 		input = game.input.keyboard.createCursorKeys();
+		wall = game.add.group();
+		heart = game.add.group();
+		death = game.add.group();
+		var level = [
+    'xxxxxxxxxxxxxxxxxxxxxx',
+    '!         !          x',
+    '!                 o  x',
+    '!         o          x',
+    '!                    x',
+    '!     o   !    x     x',
+    'xxxxxxxxxxxxxxxx!!!!!x',
+];
+for (var i = 0; i < level.length; i++) {
+    for (var j = 0; j < level[i].length; j++) {
+
+        // Create a wall and add it to the 'walls' group
+        if (level[i][j] == 'x') {
+            var wall = game.add.sprite(30+20*j, 30+20*i, 'wall');
+            this.walls.add(wall);
+            wall.body.immovable = true; 
+        }
+
+        // Create a coin and add it to the 'coins' group
+        else if (level[i][j] == 'o') {
+            var coin = game.add.sprite(30+20*j, 30+20*i, 'coin');
+            this.coins.add(coin);
+        }
+
+        // Create a enemy and add it to the 'enemies' group
+        else if (level[i][j] == '!') {
+            var enemy = game.add.sprite(30+20*j, 30+20*i, 'enemy');
+            this.enemies.add(enemy);
+        }
+    }
+}
+game.physics.arcade.collide(player, wall);
     }
     
     function update() {
 	if (input.left.isDown) 
-    player.body.velocity.x = -200;
-else if (input.right.isDown) 
-    player.body.velocity.x = 200;
-else 
-    player.body.velocity.x = 0;
+		player.body.velocity.x = -200;
+	else if (input.right.isDown) 
+		player.body.velocity.x = 200;
+	else 
+		player.body.velocity.x = 0;
 
-// Make the player jump if he is touching the ground
-if (input.up.isDown && player.body.touching.down) 
-    player.body.velocity.y = -250;	
+	if (input.up.isDown && player.body.touching.down) 
+		player.body.velocity.y = -250;	
     }
 };
