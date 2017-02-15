@@ -18,12 +18,17 @@ window.onload = function() {
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'room', 'assets/room.jpg' );
+		game.load.image( 'gown', 'assets/gown.jpg' );
     }
     
     var bouncy;
     var room;
+	var player;
     function create() {
 		room = game.add.tileSprite(0,0,800,600,'room');
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.world.enableBody = true;
+		player = game.add.sprite(70, 100, 'gown');
     }
     
     function update() {
