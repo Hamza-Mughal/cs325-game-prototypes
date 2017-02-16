@@ -21,11 +21,13 @@ window.onload = function() {
 	
 	var needle;
 	var bulletTime = 0;
+	var steto;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
 		game.load.image('doctor', 'assets/doctor.jpg');
 		game.load.image('needle', 'assets/needle.png');
+		game.load.image('stet', 'assets/stet.png');
     }
 	
     
@@ -49,7 +51,10 @@ window.onload = function() {
 		needle.bulletSpeed = 400;
 		needle.trackSprite(player, 60, 50, true);
 		
-	
+		steto = game.add.weapon(5, 'stet');
+	    steto.bulletSpeed = -200;
+		steto.fireRate = 300;
+		steto.trackSprite(enemy, 60, 50, true);
     }
     
     function update() {
@@ -74,7 +79,11 @@ window.onload = function() {
 		}
 		if(input.right.isDown){
 			needle.fire();
-		}		
+		}
+		steto.fire();
+		
+		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
+		game.physics.arcade.overlap(steto,player,collisionHandler2,null,this);
     }
 function render() {
 
@@ -84,4 +93,8 @@ function collisionHandler(needle, enemy){
 	enemy.kill();
 	// effect = game.sound.play('bing');
 	}
+function collisionHandler2(steto, player){
+	player.kill();
+	// effect = game.sound.play('bing');
+	}	
 };
