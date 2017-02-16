@@ -32,23 +32,14 @@ window.onload = function() {
 		player = game.add.sprite(570,100,'gown');
 		player.body.collideWorldBounds=true;
 		input = game.input.keyboard.createCursorKeys();
-		player.body.maxVelocity.x= 500;
-		player.body.maxVelocity.y= 500;
-		player.body.acceleration.x= 4;
     }
     
     function update() {
-		if(input.left.isDown){
-			player.body.acceleration.x += 4;
-		}
-		if(input.right.isDown){
-			player.body.acceleration.x += 4;
-		}
 		if(input.up.isDown){
-			player.body.acceleration.x += 4;
+			player.body.velocity.y = -300;
 		}
 		if(input.down.isDown){
-			player.body.acceleration.x += 4;
+			player.body.velocity.y = 300;
 		}		
     }
 };
