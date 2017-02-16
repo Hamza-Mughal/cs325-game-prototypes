@@ -14,16 +14,16 @@ window.onload = function() {
     "use strict";
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
-    var back;
+    var room;
 	
     function preload() {
-		game.load.image( 'room', 'assets/room.jpg' );
+		game.load.image('roomi', 'assets/room.jpg');
     }
 	
     
     function create() {
-		game.physics.enable(player,Phaser.Physics.ARCADE);
-		back = game.add.tileSprite(0,0,800,600,'room');
+		// game.physics.enable(player,Phaser.Physics.ARCADE);
+		back = game.add.tileSprite(0,0,800,600,'roomi');
     }
     
     function update() {
