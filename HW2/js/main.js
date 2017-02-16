@@ -15,17 +15,17 @@ window.onload = function() {
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     var room;
-	var player;
+	var player
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
-		game.load.image('play', 'assets/gown.jpg');
+		game.load.image('player', 'assets/gown.jpg');
     }
 	
     
     function create() {
 		// game.physics.enable(player,Phaser.Physics.ARCADE);
 		back = game.add.tileSprite(0,0,800,600,'roomi');
-		player = game.add.sprite(game.world.centerX - 200, game.world.centerY + 200, 'play');
+		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
     }
     
     function update() {
