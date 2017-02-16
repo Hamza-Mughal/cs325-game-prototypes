@@ -23,12 +23,18 @@ window.onload = function() {
 	var bulletTime = 0;
 	var steto;
 	var bullets;
+	
+	var winText;
+	var loseText;
+	
+	var music;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
 		game.load.image('doctor', 'assets/doctor.jpg');
 		game.load.image('needle', 'assets/needle.png');
 		game.load.image('stet', 'assets/stet.png');
+		game.load.audio('running', 'assets/running.mp3');
     }
 	
     
@@ -56,6 +62,14 @@ window.onload = function() {
 	    steto.bulletSpeed = -200;
 		steto.fireRate = 300;
 		steto.trackSprite(enemy, 60, 50, true);
+		
+		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You rescued your organs!', {font:'32px Arial', fill: '#fff'});
+		winText.visible = false;
+		
+		loseText = game.add.text(game.world.centerX-300, game.world.centerY, 'You lost your organs!', {font:'32px Arial', fill: '#fff'});
+		loseText.visible = false;
+		
+		music = game.sound.play('running');
     }
     
     function update() {
@@ -92,10 +106,14 @@ function render() {
 }
 function collisionHandler(){
 	enemy.kill();
+	winText.visible = true;
 	// effect = game.sound.play('bing');
 	}
 function collisionHandler2(){
 	player.kill();
+    player.bullets.visible= false;
+    enemy.bullets.visible= false;	
+	loseText.visible = true;
 	// effect = game.sound.play('bing');
 	}	
 };
