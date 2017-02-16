@@ -49,7 +49,7 @@ window.onload = function() {
 	  enemy.body.velocity.x = 0;
       enemy.body.velocity.y = 0;
 	     if(Math.random() >.5){
-			enemy.body.velocity.y = Math.random()*1500;
+			enemy.body.velocity.y = Math.random()*3500;
 			enemy.body.velocity.x = Math.random()*200;
 		}
 		else{
