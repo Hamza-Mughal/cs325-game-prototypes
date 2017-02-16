@@ -58,6 +58,7 @@ window.onload = function() {
 		needle.bulletSpeed = 400;
 		needle.trackSprite(player, 60, 50, true);
 		
+		steto = game.add.group();
 		steto = game.add.weapon(5, 'stet');
 	    steto.bulletSpeed = -200;
 		steto.fireRate = 300;
@@ -112,7 +113,6 @@ function collisionHandler(){
 function collisionHandler2(){
 	player.kill();
 	loseText.visible = true;
-	destroyBullet(needle);
 	// effect = game.sound.play('bing');
 	}	
 };
