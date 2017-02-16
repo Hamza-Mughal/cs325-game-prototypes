@@ -26,7 +26,7 @@ window.onload = function() {
     function create() {
 		// game.physics.enable(player,Phaser.Physics.ARCADE);
 		room = game.add.tileSprite(0,0,800,600,'roomi');
-		player = game.add.sprite(game.world.centerX-400, game.world.centerY+200, 'player');
+		player = game.add.sprite(game.world.centerX-300, game.world.centerY+150, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
 		player.body.collideWorldBounds=true;
