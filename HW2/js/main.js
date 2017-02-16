@@ -26,6 +26,7 @@ window.onload = function() {
 	
 	var winText;
 	var loseText;
+	var loseText2;
 	
 	var music;
 	
@@ -69,12 +70,13 @@ window.onload = function() {
 		steto.fireRate = 300;
 		steto.trackSprite(enemy, 60, 50, true);
 		
-		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You rescued your organs!', {font:'32px Arial', fill: '#fff'});
+		winText = game.add.text(game.world.centerX, game.world.centerY, 'You rescued your organs!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
 		
-		loseText = game.add.text(game.world.centerX-300, game.world.centerY, 'You lost your organs!', {font:'32px Arial', fill: '#fff'});
+		loseText = game.add.text(game.world.centerX, game.world.centerY, 'The Evil Doctor Vargas', {font:'32px Arial', fill: '#fff'});
 		loseText.visible = false;
-		
+		loseText2 = game.add.text(game.world.centerX, game.world.centerY+50, 'Got Away With Your Organs!', {font:'32px Arial', fill: '#fff'});
+		loseText2.visible = false;		
 		music = game.sound.play('running');
 		
 		livesText = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
@@ -127,6 +129,7 @@ function collisionHandler(){
 function collisionHandler2(){
 	player.kill();
 	loseText.visible = true;
+	loseText2.visible = true;
 	// effect = game.sound.play('bing');
 	}	
 };
