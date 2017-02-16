@@ -79,7 +79,7 @@ window.onload = function() {
     
     function update() {
 		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
-		lives.text = 'Enemy lives: ' + live;
+		lives.text = 'Enemy lives: ' + lives;
 		player.body.velocity.y = 0;
 		if(input.up.isDown){
 			player.body.velocity.y = -300;
