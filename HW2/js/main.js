@@ -43,7 +43,7 @@ window.onload = function() {
 		
 		needle = game.add.weapon(1, 'needle');
 		needle.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-		needle.bulletAngleOffset = 90;
+		needle.bulletAngleOffset = 0;
 		needle.bulletSpeed = 400;
 		needle.trackSprite(player, 14, 0);
 		
