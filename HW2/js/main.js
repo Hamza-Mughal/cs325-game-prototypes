@@ -49,12 +49,12 @@ window.onload = function() {
 	  enemy.body.velocity.x = 0;
       enemy.body.velocity.y = 0;
 	     if(Math.random() >.5){
-			enemy.body.velocity.y = Math.random()*1000;
+			enemy.body.velocity.y = Math.random()*1500;
 			enemy.body.velocity.x = Math.random()*200;
 		}
 		else{
-			enemy.body.velocity.y = -(Math.random()*1500);
-			enemy.body.velocity.x = -(Math.random()*200);
+			enemy.body.velocity.y = -(Math.random()*3000);
+			enemy.body.velocity.x = -(Math.random()*400);
 		}
     }
 };
