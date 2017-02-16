@@ -89,11 +89,11 @@ function render() {
 
     needle.debug();
 }
-function collisionHandler(needle, enemy){
+function collisionHandler(){
 	enemy.kill();
 	// effect = game.sound.play('bing');
 	}
-function collisionHandler2(steto, player){
+function collisionHandler2(){
 	player.kill();
 	// effect = game.sound.play('bing');
 	}	
