@@ -16,6 +16,7 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     var room;
 	var player;
+	var input;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
@@ -26,8 +27,18 @@ window.onload = function() {
 		// game.physics.enable(player,Phaser.Physics.ARCADE);
 		room = game.add.tileSprite(0,0,800,600,'roomi');
 		player = game.add.sprite(game.world.centerX-400, game.world.centerY+200, 'player');
+		game.physics.enable(player,Phaser.Physics.ARCADE);
+		input = game.input.keyboard.createCursorKeys();
+		player.body.collideWorldBounds=true;
     }
     
     function update() {
+		player.body.velocity.y = 0;
+		if(input.up.isDown){
+			player.body.velocity.y = -300;
+		}
+		if(input.down.isDown){
+			player.body.velocity.y = 300;
+		}
     }
 };
