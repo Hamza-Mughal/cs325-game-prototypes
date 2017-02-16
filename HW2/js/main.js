@@ -74,12 +74,12 @@ window.onload = function() {
 		
 		music = game.sound.play('running');
 		
-		lives = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
+		lives = game.add.text(0,550,'Enemy lives:', {font:'32px Arial', fill: '#000000'});
     }
     
     function update() {
 		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
-		
+		lives.text = 'Enemy lives: ' + live;
 		player.body.velocity.y = 0;
 		if(input.up.isDown){
 			player.body.velocity.y = -300;
