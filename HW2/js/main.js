@@ -13,11 +13,12 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render } );
     var room;
 	var player;
 	var input;
 	var enemy;
+	
 	var needle;
 	var bulletTime = 0;
     function preload() {
@@ -40,14 +41,12 @@ window.onload = function() {
 		game.physics.enable(enemy,Phaser.Physics.ARCADE);
 		enemy.body.collideWorldBounds=true;
 		
-		needle = game.add.group();
-		needle.enableBody = true;
-		needle.physicsBodyType = Phaser.Physics.ARCADE;
-		needle.createMultiple(30, 'needle');
-	    needle.setAll('anchor.x', 0.5);
-		needle.setAll('anchor.y', 1);
-		needle.setAll('outOfBoundsKill', true);
-		needle.setAll('checkWorldBounds', true);	
+		needle = game.add.weapon(1, 'needle');
+		needle.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		needle.bulletSpeed = 400;
+		needle.trackSprite(player, 14, 0);
+		
+	
     }
     
     function update() {
@@ -69,22 +68,12 @@ window.onload = function() {
 			enemy.body.velocity.x = -(Math.random()*400);
 		}
 		if(input.right.isDown){
-			fire();
+			needle.fire();
 		}		
     }
-	function fire(){
-		    if (game.time.now > bulletTime)
-    {
-        //  Grab the first bullet we can from the pool
-        bullet = needle.getFirstExists(false);
+function render() {
 
-        if (bullet)
-        {
-            //  And fire it
-            bullet.reset(player.x, player.y + 8);
-            bullet.body.velocity.y = -400;
-            bulletTime = game.time.now + 200;
-        }
-    }
-	}
+    needle.debug();
+
+}
 };
