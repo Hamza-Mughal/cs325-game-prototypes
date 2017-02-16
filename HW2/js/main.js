@@ -27,33 +27,28 @@ window.onload = function() {
 	var input;
 	var speed = 0;
     function create() {
+		game.physics.enable(player,Phaser.Physics.ARCADE);
 		room = game.add.tileSprite(0,0,800,600,'room');
 		player = game.add.sprite(570,100,'gown');
+		player.body.collideWorldBounds=true;
 		input = game.input.keyboard.createCursorKeys();
-		game.physics.startSystem(Phaser.Physics.P2JS);
-		game.physics.p2.enable(player,false);
-		player.body.angle = 90;
+		player.body.maxVelocity.x= 500;
+		player.body.maxVelocity.y= 500;
+		player.body.acceleration.x= 4;
     }
     
     function update() {
-                if (input.up.isDown && velocity <= 400) {
-                       velocity+=7;
-              }
-               else {
-                   if (velocity >= 7)
-                       velocity -= 7;
-                }
-                        
-                /*Set X and Y Speed of Velocity*/
-                player.body.velocity.x = velocity * Math.cos((player.angle-90)*0.01745);
-               player.body.velocity.y = velocity * Math.sin((player.angle-90)*0.01745);
-                
-                /*Rotation of Car*/
-     //           if (input.isDown)
-     //               player.body.angularVelocity = -5*(velocity/1000);
-     //           else if (input.right.isDown)
-     //               player.body.angularVelocity = 5*(velocity/1000);
-     //           else
-     //               player.body.angularVelocity = 0;
+		if(input.left.isDown){
+			player.body.acceleration.x += 4;
+		}
+		if(input.right.isDown){
+			player.body.acceleration.x += 4;
+		}
+		if(input.up.isDown){
+			player.body.acceleration.x += 4;
+		}
+		if(input.down.isDown){
+			player.body.acceleration.x += 4;
+		}		
     }
 };
