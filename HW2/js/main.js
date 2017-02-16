@@ -51,22 +51,22 @@ window.onload = function() {
     }
     
     function update() {
-		player.body.velocity.y = 0;
+		player.body.velocity.x = 0;
 		if(input.up.isDown){
-			player.body.velocity.y = -300;
+			player.body.velocity.x = -300;
 		}
 		if(input.down.isDown){
-			player.body.velocity.y = 300;
+			player.body.velocity.x = 300;
 		}
 	  enemy.body.velocity.x = 0;
       enemy.body.velocity.y = 0;
 	     if(Math.random() >.5){
-			enemy.body.velocity.y = Math.random()*3200;
-			enemy.body.velocity.x = Math.random()*500;
+			enemy.body.velocity.x = Math.random()*3200;
+			enemy.body.velocity.y = Math.random()*500;
 		}
 		else{
-			enemy.body.velocity.y = -(Math.random()*3000);
-			enemy.body.velocity.x = -(Math.random()*400);
+			enemy.body.velocity.x = -(Math.random()*3000);
+			enemy.body.velocity.y = -(Math.random()*400);
 		}
 		if(input.right.isDown){
 			needle.fire();
