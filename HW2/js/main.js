@@ -14,33 +14,18 @@ window.onload = function() {
     "use strict";
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
-    
+    var back;
+	
     function preload() {
-        // Load an image and call it 'logo'.
-        game.load.image( 'room', 'assets/room.jpg' );
-		game.load.image( 'gown', 'assets/gown.jpg' );
+		game.load.image( 'room', 'assets/room.jpg' );
     }
+	
     
-    var bouncy;
-    var room;
-	var player;
-	var input;
-	var speed = 0;
     function create() {
 		game.physics.enable(player,Phaser.Physics.ARCADE);
-		room = game.add.tileSprite(0,0,800,600,'room');
-		player = game.add.sprite(570,100,'gown');
-		player.body.collideWorldBounds=true;
-		input = game.input.keyboard.createCursorKeys();
+		back = game.add.tileSprite(0,0,800,600,'room');
     }
     
     function update() {
-		player.body.velocity.y = 0;
-		if(input.up.isDown){
-			player.body.velocity.y = -300;
-		}
-		if(input.down.isDown){
-			player.body.velocity.y = 300;
-		}		
     }
 };
