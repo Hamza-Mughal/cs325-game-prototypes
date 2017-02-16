@@ -111,6 +111,7 @@ function render() {
     needle.debug();
 }
 function collisionHandler(){
+	needle.kill();
 	lives = lives - 1;
 	if(lives == 0){
 	enemy.kill();
