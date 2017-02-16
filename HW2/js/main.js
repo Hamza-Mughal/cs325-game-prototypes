@@ -40,6 +40,8 @@ window.onload = function() {
 		enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
 		game.physics.enable(enemy,Phaser.Physics.ARCADE);
 		enemy.body.collideWorldBounds=true;
+		enemy.enableBody = true;
+		enemy.physicsBodyType = Phaser.Physics.ARCADE;
 		
 		needle = game.add.weapon(1, 'needle');
 		needle.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -80,7 +82,6 @@ function render() {
 }
 function collisionHandler(needle, enemy){
 	enemy.kill();
-	score+=100;
 	// effect = game.sound.play('bing');
 	}
 };
