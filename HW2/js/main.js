@@ -50,7 +50,7 @@ window.onload = function() {
       enemy.body.velocity.y = 0;
 	     if(Math.random() >.5){
 			enemy.body.velocity.y = Math.random()*3200;
-			enemy.body.velocity.x = Math.random()*600;
+			enemy.body.velocity.x = Math.random()*500;
 		}
 		else{
 			enemy.body.velocity.y = -(Math.random()*3000);
