@@ -17,9 +17,11 @@ window.onload = function() {
     var room;
 	var player;
 	var input;
+	var enemy;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
+		game.load.image('doctor', 'assets/doctor.jpg');
     }
 	
     
@@ -30,6 +32,8 @@ window.onload = function() {
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
 		player.body.collideWorldBounds=true;
+		enemy = game.add.sprite(game.world.centerX+400, game.world.centerY+200, 'doctor');
+		enemy.body.collideWorldBounds=true;
     }
     
     function update() {
@@ -39,6 +43,16 @@ window.onload = function() {
 		}
 		if(input.down.isDown){
 			player.body.velocity.y = 300;
+		}
+	  enemy.body.velocity.x = 0;
+      enemy.body.velocity.y = 0;
+	     if(Math.random() >.5){
+			enemy.body.velocity.y = Math.random()*1000;
+			enemy.body.velocity.x = Math.random()*200;
+		}
+		else{
+			enemy.body.velocity.y = Math.random()*1000;
+			enemy.body.velocity.x = Math.random()*200;
 		}
     }
 };
