@@ -74,7 +74,7 @@ window.onload = function() {
 		
 		music = game.sound.play('running');
 		
-		lives = game.add.text(0,550,'Enemy lives:', {font:'32px Arial', fill: '#000000'});
+		lives = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
     }
     
     function update() {
