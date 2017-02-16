@@ -25,7 +25,7 @@ window.onload = function() {
     function create() {
 		// game.physics.enable(player,Phaser.Physics.ARCADE);
 		back = game.add.tileSprite(0,0,800,600,'roomi');
-		player = game.add.sprite(0, 300, 'play');
+		player = game.add.sprite(game.world.centerX - 200, game.world.centerY + 200, 'play');
     }
     
     function update() {
