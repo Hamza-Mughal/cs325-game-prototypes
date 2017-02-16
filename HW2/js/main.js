@@ -111,8 +111,6 @@ function collisionHandler(){
 	}
 function collisionHandler2(){
 	player.kill();
-    player.bullets.visible= false;
-    enemy.bullets.visible= false;	
 	loseText.visible = true;
 	// effect = game.sound.play('bing');
 	}	
