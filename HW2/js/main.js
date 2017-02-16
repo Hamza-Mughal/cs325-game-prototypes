@@ -33,8 +33,8 @@ window.onload = function() {
 	var lives = 3;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
-		game.load.image('player', 'assets/gown.jpg');
-		game.load.image('doctor', 'assets/doctor.jpg');
+		game.load.image('player', 'assets/gown.png');
+		game.load.image('doctor', 'assets/doctor.png');
 		game.load.image('needle', 'assets/needle.png');
 		game.load.image('stet', 'assets/stet.png');
 		game.load.audio('running', 'assets/running.mp3');
