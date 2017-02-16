@@ -22,6 +22,7 @@ window.onload = function() {
 	var needle;
 	var bulletTime = 0;
 	var steto;
+	var bullets;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
@@ -82,8 +83,8 @@ window.onload = function() {
 		}
 		steto.fire();
 		
-		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
-		game.physics.arcade.overlap(steto,player,collisionHandler2,null,this);
+		game.physics.arcade.overlap(needle.bullets,enemy,collisionHandler,null,this);
+		game.physics.arcade.overlap(steto.bullets,player,collisionHandler2,null,this);
     }
 function render() {
 
