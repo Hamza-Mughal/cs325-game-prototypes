@@ -35,6 +35,7 @@ window.onload = function() {
     }
     
     function update() {
+		player.body.velocity.y = 0;
 		if(input.up.isDown){
 			player.body.velocity.y = -300;
 		}
