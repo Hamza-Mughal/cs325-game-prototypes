@@ -31,6 +31,8 @@ window.onload = function() {
 	
 	var livesText;
 	var lives = 3;
+	
+	var bool = true;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.png');
@@ -105,15 +107,21 @@ window.onload = function() {
 		
 		game.physics.arcade.overlap(needle.bullets,enemy,collisionHandler,null,this);
 		game.physics.arcade.overlap(steto.bullets,player,collisionHandler2,null,this);
+		
+		if(lives == 0 && bool == true){
+		enemy.kill();
+		winText.visible = true;
+		bool = false;
+		}
     }
 function render() {
 
     needle.debug();
 }
 function collisionHandler(){
-	enemy.kill();
-	winText.visible = true;
-	lives = 0;
+	//enemy.kill();
+	//winText.visible = true;
+	lives--;
 	// effect = game.sound.play('bing');
 	}
 function collisionHandler2(){
