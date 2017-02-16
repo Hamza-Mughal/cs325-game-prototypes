@@ -112,6 +112,7 @@ function collisionHandler(){
 function collisionHandler2(){
 	player.kill();
 	loseText.visible = true;
+	destroyBullet(needle);
 	// effect = game.sound.play('bing');
 	}	
 };
