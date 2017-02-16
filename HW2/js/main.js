@@ -51,8 +51,8 @@ window.onload = function() {
 			enemy.body.velocity.x = Math.random()*200;
 		}
 		else{
-			enemy.body.velocity.y = Math.random()*1000;
-			enemy.body.velocity.x = Math.random()*200;
+			enemy.body.velocity.y = -(Math.random()*500);
+			enemy.body.velocity.x = -(Math.random()*200);
 		}
     }
 };
