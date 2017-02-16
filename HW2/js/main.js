@@ -51,6 +51,8 @@ window.onload = function() {
     }
     
     function update() {
+		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
+		
 		player.body.velocity.y = 0;
 		if(input.up.isDown){
 			player.body.velocity.y = -300;
@@ -75,6 +77,10 @@ window.onload = function() {
 function render() {
 
     needle.debug();
-
 }
+function collisionHandler(needle, enemy){
+	enemy.kill();
+	score+=100;
+	// effect = game.sound.play('bing');
+	}
 };
