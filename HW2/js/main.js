@@ -111,11 +111,9 @@ function render() {
     needle.debug();
 }
 function collisionHandler(){
-	lives = lives - 1;
-	if(lives == 0){
 	enemy.kill();
 	winText.visible = true;
-	}
+	lives = 0;
 	// effect = game.sound.play('bing');
 	}
 function collisionHandler2(){
