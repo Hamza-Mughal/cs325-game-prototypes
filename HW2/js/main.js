@@ -18,10 +18,13 @@ window.onload = function() {
 	var player;
 	var input;
 	var enemy;
+	var needle;
+	var bulletTime = 0;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
 		game.load.image('doctor', 'assets/doctor.jpg');
+		game.load.image('needle', 'assets/needle.png');
     }
 	
     
@@ -36,6 +39,15 @@ window.onload = function() {
 		enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
 		game.physics.enable(enemy,Phaser.Physics.ARCADE);
 		enemy.body.collideWorldBounds=true;
+		
+		needle = game.add.group();
+		needle.enableBody = true;
+		needle.physicsBodyType = Phaser.Physics.ARCADE;
+		needle.createMultiple(30, 'needle');
+	    needle.setAll('anchor.x', 0.5);
+		needle.setAll('anchor.y', 1);
+		needle.setAll('outOfBoundsKill', true);
+		needle.setAll('checkWorldBounds', true);	
     }
     
     function update() {
@@ -56,5 +68,23 @@ window.onload = function() {
 			enemy.body.velocity.y = -(Math.random()*3000);
 			enemy.body.velocity.x = -(Math.random()*400);
 		}
+		if(input.right.isDown){
+			fire();
+		}		
     }
+	function fire(){
+		    if (game.time.now > bulletTime)
+    {
+        //  Grab the first bullet we can from the pool
+        bullet = needle.getFirstExists(false);
+
+        if (bullet)
+        {
+            //  And fire it
+            bullet.reset(player.x, player.y + 8);
+            bullet.body.velocity.y = -400;
+            bulletTime = game.time.now + 200;
+        }
+    }
+	}
 };
