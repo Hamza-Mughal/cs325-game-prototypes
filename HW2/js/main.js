@@ -33,7 +33,7 @@ window.onload = function() {
 		input = game.input.keyboard.createCursorKeys();
 		player.body.collideWorldBounds=true;
 		
-		enemy = game.add.sprite(game.world.centerX, game.world.centerY+200, 'doctor');
+		enemy = game.add.sprite(game.world.centerX+300, game.world.centerY+200, 'doctor');
 		game.physics.enable(enemy,Phaser.Physics.ARCADE);
 		enemy.body.collideWorldBounds=true;
     }
