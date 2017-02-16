@@ -28,6 +28,8 @@ window.onload = function() {
 	var loseText;
 	
 	var music;
+	
+	var lives = 3;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
 		game.load.image('player', 'assets/gown.jpg');
@@ -71,6 +73,8 @@ window.onload = function() {
 		loseText.visible = false;
 		
 		music = game.sound.play('running');
+		
+		lives = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
     }
     
     function update() {
