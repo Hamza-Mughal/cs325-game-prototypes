@@ -29,6 +29,7 @@ window.onload = function() {
 	
 	var music;
 	
+	var livesText;
 	var lives = 3;
     function preload() {
 		game.load.image('roomi', 'assets/room.jpg');
@@ -74,12 +75,12 @@ window.onload = function() {
 		
 		music = game.sound.play('running');
 		
-		lives = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
+		livesTest = game.add.text(0,550,'Enemy lives: ', {font:'32px Arial', fill: '#000000'});
     }
     
     function update() {
 		game.physics.arcade.overlap(needle,enemy,collisionHandler,null,this);
-		lives.text = 'Enemy lives: ' + lives;
+		livesText.text = 'Enemy lives: ' + lives;
 		player.body.velocity.y = 0;
 		if(input.up.isDown){
 			player.body.velocity.y = -300;
