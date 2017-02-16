@@ -73,9 +73,9 @@ window.onload = function() {
 		winText = game.add.text(game.world.centerX, game.world.centerY, 'You rescued your organs!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
 		
-		loseText = game.add.text(game.world.centerX, game.world.centerY, 'The Evil Doctor Vargas', {font:'32px Arial', fill: '#fff'});
+		loseText = game.add.text(game.world.centerX-150, game.world.centerY, 'The Evil Doctor Vargas', {font:'32px Arial', fill: '#000000'});
 		loseText.visible = false;
-		loseText2 = game.add.text(game.world.centerX, game.world.centerY+50, 'Got Away With Your Organs!', {font:'32px Arial', fill: '#fff'});
+		loseText2 = game.add.text(game.world.centerX-200, game.world.centerY+50, 'Got Away With Your Organs!', {font:'32px Arial', fill: '#000000'});
 		loseText2.visible = false;		
 		music = game.sound.play('running');
 		
