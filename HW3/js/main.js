@@ -19,7 +19,6 @@ var mainState = {
 	
 	this.fires = game.add.group();
 	
-	this.fires1 = game.add.group();
 	
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	
@@ -60,16 +59,15 @@ var mainState = {
 	},
 	
 	addFire1: function(x,y){
-		var fire = game.add.sprite(x,y, 'banana');
+		var b = game.add.sprite(x,y, 'banana');
 		
-		this.fires1.add(fire);
 		
-		game.physics.arcade.enable(fire);
+		game.physics.arcade.enable(b);
 		
-		fire.body.velocity.x = -200;
+		b.body.velocity.x = -200;
 		
-		fire.checkWorldBounds = true;
-		fire.outOfBoundsKill = true;		
+		b.checkWorldBounds = true;
+		b.outOfBoundsKill = true;		
 	},	
 	
 	addRowOfFires: function() {
@@ -85,7 +83,7 @@ var mainState = {
         if (i != hole && i != hole + 1){ 
 		this.addFire(400, i * 60 + 10);}
 		if(i==hole){
-			this.addFire1(300, 300);
+			this.addFire1(400, i * 60 + 10);
 		}			
 	},
 };
