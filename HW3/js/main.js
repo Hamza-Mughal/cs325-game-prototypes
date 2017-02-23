@@ -3,7 +3,6 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
-	game.load.image('banana', 'assets/Banana.png');
     },
 
     create: function() { 
@@ -18,7 +17,6 @@ var mainState = {
 	this.input.onDown.add(this.jump, this); // mouse click
 	
 	this.fires = game.add.group();
-	this.bananas = game.add.group();
 	
 	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
 	
@@ -43,17 +41,7 @@ var mainState = {
 	this.audi.pause();
     game.state.start('main');
 	},
-	addBanana: function(x,y){
-		var banana = game.add.sprite(x,y, 'banana');
-		this.bananas.add(banana);
-		game.physics.arcade.enable(banana);
-		
-		banana.body.velocity.x = -200;
-		
-		banana.checkWorldBounds = true;
-		banana.outOfBoundsKill = true;		
-		
-	},
+	
 	addFire: function(x,y){
 		var fire = game.add.sprite(x,y, 'fire');
 		
@@ -77,9 +65,6 @@ var mainState = {
     // Add the 6 pipes 
     // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 9; i++)
-		if(i == hole){
-			addBanana(400, i * 60 + 10);
-			}
         if (i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);   
 	},
