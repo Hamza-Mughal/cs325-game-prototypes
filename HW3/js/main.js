@@ -6,7 +6,7 @@ var mainState = {
     },
 
     create: function() { 
-	game.stage.backgroundColor = '#71c5cf';
+	game.stage.backgroundColor = '#94fcc0';
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	
 	this.bravo = game.add.sprite(100, 245, 'bravo');
