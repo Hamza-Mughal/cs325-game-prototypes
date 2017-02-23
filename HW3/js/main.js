@@ -3,7 +3,6 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
-	game.load.image('banana', 'assets/banana.png');
     },
 
     create: function() { 
@@ -19,18 +18,13 @@ var mainState = {
 	
 	this.fires = game.add.group();
 	
-	this.fires1 = game.add.group();
-	
-	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
-	
-	this.timer1 = game.time.events.loop(1250, this.addFire1(350,350), this); 
+	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
-	
     },
 
     update: function() {
@@ -61,19 +55,6 @@ var mainState = {
 		fire.outOfBoundsKill = true;		
 	},
 	
-	addFire1: function(x,y){
-		var b = game.add.sprite(x,y, 'banana');
-		this.fires1.add(b);
-
-		game.physics.arcade.enable(b);
-		
-		b.body.velocity.x = -200;
-		
-		
-		b.checkWorldBounds = true;
-		b.outOfBoundsKill = true;		
-	},	
-	
 	addRowOfFires: function() {
 	 this.score += 1;
 	this.labelScore.text = this.score;  
@@ -84,8 +65,8 @@ var mainState = {
     // Add the 6 pipes 
     // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 9; i++)
-        if (i != hole && i != hole + 1){ 
-		this.addFire(400, i * 60 + 10);}			
+        if (i != hole && i != hole + 1) 
+            this.addFire(400, i * 60 + 10);   
 	},
 };
 
