@@ -18,11 +18,15 @@ var mainState = {
 	this.fires = game.add.group();
 	
 	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
+	
+	this.score = 0;
+	this.labelScore = game.add.text(20, 20, "0", { font: "30px Arial", fill: "#ff0000" });  	
     },
 
     update: function() {
     if (this.bravo.y < 0 || this.bravo.y > 490)
         this.restartGame();
+	game.physics.arcade.overlap(this.bird, this.pipes, this.restartGame, null, this);
     },
 	
 	jump: function() {
@@ -48,6 +52,9 @@ var mainState = {
 	},
 	
 	addRowOfFires: function() {
+		
+		this.score += 1;
+	this.labelScore.text = this.score; 
     // Randomly pick a number between 1 and 5
     // This will be the hole position
     var hole = Math.floor(Math.random() * 5) + 1;
