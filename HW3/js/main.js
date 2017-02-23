@@ -19,6 +19,7 @@ var mainState = {
 	
 	this.fires = game.add.group();
 	
+	this.fires1 = game.add.group();
 	
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	
@@ -62,6 +63,7 @@ var mainState = {
 	
 	addFire1: function(x,y){
 		var b = game.add.sprite(x,y, 'banana');
+		this.fires1.add(b);
 
 		game.physics.arcade.enable(b);
 		
