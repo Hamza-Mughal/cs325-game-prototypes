@@ -22,9 +22,7 @@ var mainState = {
 	this.fires = game.add.group();
 	
 	this.fakefires = game.add.group();
-	if(bool){
-	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
-	}
+
 	
 
 	this.audi = game.sound.play('ricco');
@@ -32,6 +30,9 @@ var mainState = {
     },
 
     update: function() {
+		if(bool){
+	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
+	}	
 	game.physics.arcade.overlap(this.bravo, this.fires, this.gainPoint, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
