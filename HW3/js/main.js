@@ -3,6 +3,7 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
+	game.load.audio('jump', 'assets/jump.wav'); 
     },
 
     create: function() { 
@@ -25,6 +26,7 @@ var mainState = {
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
+	this.jump = game.add.audio('jump'); 
     },
 
     update: function() {
@@ -34,11 +36,11 @@ var mainState = {
     },
 	
 	jump: function() {
-    // Add a vertical velocity to the bird
+	this.jump.play(); 
     this.bravo.body.velocity.y = -350;
+	
 	},
 	restartGame: function() {
-    // Start the 'main' state, which restarts the game
 	this.audi.pause();
     game.state.start('main');
 	},
