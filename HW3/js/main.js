@@ -12,9 +12,7 @@ var mainState = {
 	this.bravo = game.add.sprite(100, 245, 'bravo');
 	game.physics.arcade.enable(this.bravo);
 	this.bravo.body.gravity.y = 1000;  
-	var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	spaceKey.onDown.add(this.jump, this);
-	this.input.onDown.add(this.jump, this); // mouse click
+	this.input.onDown.add(this.jump, this); 
 	
 	this.fires = game.add.group();
 	
@@ -28,7 +26,7 @@ var mainState = {
     },
 
     update: function() {
-		game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
+	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
     },
@@ -56,25 +54,17 @@ var mainState = {
 	},
 	
 	addRowOfFires: function() {
-	 this.score += 1;
+	this.score += 1;
 	this.labelScore.text = this.score;  
-    // Randomly pick a number between 1 and 5
-    // This will be the hole position
     var hole = Math.floor(Math.random() * 6) + 1;
-
-    // Add the 6 pipes 
-    // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 9; i++)
         if (i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);   
 	},
 };
 
-// Initialize Phaser, and create a 400px by 490px game
 var game = new Phaser.Game(800, 600);
 
-// Add the 'mainState' and call it 'main'
 game.state.add('main', mainState); 
 
-// Start the state to actually start the game
 game.state.start('main');
