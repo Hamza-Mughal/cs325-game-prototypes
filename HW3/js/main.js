@@ -2,6 +2,7 @@ var mainState = {
     preload: function() { 
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
+	game.load.audio('ricco', 'assets/ricco.mp3');
     },
 
     create: function() { 
@@ -21,7 +22,10 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(20, 20, "0", 
-{ font: "30px Arial", fill: "#ffffff" });  	
+{ font: "30px Arial", fill: "#ffffff" });
+
+	this.audio = game.add.audio('jump'); game.sound.play('ricco');
+	this.audio.play();
     },
 
     update: function() {
