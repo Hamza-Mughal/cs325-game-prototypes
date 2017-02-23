@@ -29,7 +29,7 @@ var mainState = {
 
     update: function() {
 		game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
-    if (this.bravo.y < 0 || this.bravo.y > 490)
+    if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
     },
 	
