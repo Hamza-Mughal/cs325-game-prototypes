@@ -3,7 +3,7 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
-	game.load.image('banana', 'assets/banana.png');
+	game.load.image('banana', 'assets/Banana.png');
     },
 
     create: function() { 
