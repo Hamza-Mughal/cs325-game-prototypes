@@ -24,7 +24,7 @@ var mainState = {
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 	
-
+	spawnDoc();
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
