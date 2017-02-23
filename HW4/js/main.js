@@ -6,6 +6,8 @@ var mainState = {
     },
 
     create: function() { 
+	var bool = true;
+	
 	game.stage.backgroundColor = '#94fcc0';
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	
@@ -20,7 +22,7 @@ var mainState = {
 	this.fires = game.add.group();
 	
 	this.fakefires = game.add.group();
-	if(score < 500){
+	if(bool){
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	}
 	
@@ -33,6 +35,10 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.gainPoint, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
+	
+	if(this.score > 500){
+		this.bool = false;
+	}
     },
 	
 	jump: function() {
