@@ -50,7 +50,8 @@ var mainState = {
 		fire.body.velocity.x = -200;
 		
 		fire.checkWorldBounds = true;
-		fire.outOfBoundsKill = true;		
+		fire.outOfBoundsKill = true;
+			fire.visible = false;
 	},
 	addFakeFire: function(x,y){
 		var fire = game.add.sprite(x,y, 'fire');
