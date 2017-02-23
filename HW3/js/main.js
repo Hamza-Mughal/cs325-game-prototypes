@@ -18,7 +18,7 @@ var mainState = {
 	this.input.onDown.add(this.jump, this); // mouse click
 	
 	this.fires = game.add.group();
-	
+	this.bananas = game.add.group();
 	
 	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
 	
@@ -45,7 +45,7 @@ var mainState = {
 	},
 	addBanana: function(x,y){
 		var banana = game.add.sprite(x,y, 'banana');
-		
+		this.bananas.add(banana);
 		game.physics.arcade.enable(banana);
 		
 		banana.body.velocity.x = -200;
