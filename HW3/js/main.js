@@ -18,7 +18,7 @@ var mainState = {
 	
 	this.fakefires = game.add.group();
 	
-	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
+	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
@@ -69,8 +69,8 @@ var mainState = {
 	addRowOfFires: function() {
 	this.score += 1;
 	this.labelScore.text = this.score;  
-    var hole = Math.floor(Math.random() * 6) + 1;
-    for (var i = 0; i < 9; i++)
+    var hole = Math.floor(Math.random() * 7) + 1;
+    for (var i = 0; i < 10; i++)
         if (i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);
         if (i == hole || i == hole + 1) 
