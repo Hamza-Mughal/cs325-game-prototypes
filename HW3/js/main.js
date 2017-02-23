@@ -24,8 +24,8 @@ var mainState = {
 	this.labelScore = game.add.text(20, 20, "0", 
 { font: "30px Arial", fill: "#ffffff" });
 
-	this.audio = game.add.audio('jump'); game.sound.play('ricco');
-	this.audio.play();
+	this.audi = game.sound.play('ricco');
+	this.audi.play();
     },
 
     update: function() {
