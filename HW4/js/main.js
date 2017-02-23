@@ -14,14 +14,16 @@ var mainState = {
 	this.bravo.body.gravity.y = 1000;  
 	this.input.onDown.add(this.jump, this); 
 	
+	this.score = 0;
+	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
+	
 	this.fires = game.add.group();
 	
 	this.fakefires = game.add.group();
-	
+	if(score < 500){
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
+	}
 	
-	this.score = 0;
-	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
