@@ -10,14 +10,15 @@ var mainState = {
 	this.bravo = game.add.sprite(100, 245, 'bravo');
 	game.physics.arcade.enable(this.bravo);
 	this.bravo.body.gravity.y = 1000;  
-    var spaceKey = game.input.keyboard.addKey(
-                    Phaser.Keyboard.SPACEBAR);
-    spaceKey.onDown.add(this.jump, this);  	
+	var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+ 	
     },
 
     update: function() {
-    if (this.bravo.y < 0 || this.bravo.y > 490)
-        this.restartGame();
+    if (this.bravo.y < 0 || this.bravo.y > 490){
+	this.restartGame();}
+	
+	spaceKey.onDown.add(this.jump, this); 
     },
 	
 	jump: function() {
