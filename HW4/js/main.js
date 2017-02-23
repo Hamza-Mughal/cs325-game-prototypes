@@ -3,6 +3,7 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
+	game.load.image('doctor', 'assets/doctor.png');
     },
 
     create: function() { 
@@ -22,6 +23,12 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
+	
+	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
+	this.game.physics.enable(enemy,Phaser.Physics.ARCADE);
+	this.enemy.body.collideWorldBounds=true;
+	this.enemy.enableBody = true;
+	this.enemy.physicsBodyType = Phaser.Physics.ARCADE;
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
