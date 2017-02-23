@@ -3,7 +3,6 @@ var mainState = {
 	game.load.image('bravo' , 'assets/bravo.png');
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
-	game.load.audio('jump', 'assets/jump.wav'); 
     },
 
     create: function() { 
@@ -26,7 +25,6 @@ var mainState = {
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
-	this.jump = game.sound.audio('jump'); 
     },
 
     update: function() {
@@ -36,7 +34,6 @@ var mainState = {
     },
 	
 	jump: function() {
-	this.jump.play(); 
     this.bravo.body.velocity.y = -350;
 	
 	},
