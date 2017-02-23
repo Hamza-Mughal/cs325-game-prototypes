@@ -28,9 +28,6 @@ var mainState = {
     },
 
     update: function() {
-		if(score >= 1){
-			gameover();
-		}
 		game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
@@ -70,11 +67,6 @@ var mainState = {
     for (var i = 0; i < 9; i++)
         if (i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);   
-	},
-	gameover: function(){
-		game.world.removeAll();
-		this.stateText.text = "YOU WON!";
-		this.stateText.visible = true;
 	},
 };
 
