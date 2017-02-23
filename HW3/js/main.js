@@ -26,7 +26,7 @@ var mainState = {
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
-	this.jump = game.add.audio('jump'); 
+	this.jump = game.sound.audio('jump'); 
     },
 
     update: function() {
