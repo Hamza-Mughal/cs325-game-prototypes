@@ -45,7 +45,7 @@ var mainState = {
 	gainPoint: function(){
 	this.score += 1;
 	this.labelScore.text = this.score;
-	this.fires.destroy();
+	this.fire.kill();
 	},
 	
 	addFire: function(x,y){
