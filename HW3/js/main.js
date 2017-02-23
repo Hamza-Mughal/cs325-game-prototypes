@@ -84,7 +84,7 @@ var mainState = {
         if (i != hole && i != hole + 1){ 
 		this.addFire(400, i * 60 + 10);}
 		if(i==hole){
-			this.addFire1(20, 20);
+			this.addFire1(300, 300);
 		}			
 	},
 };
