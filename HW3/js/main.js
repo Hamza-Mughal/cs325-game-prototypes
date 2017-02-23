@@ -52,6 +52,17 @@ var mainState = {
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;		
 	},
+	addFakeFire: function(x,y){
+		var fire = game.add.sprite(x,y, 'fire');
+		
+		
+		game.physics.arcade.enable(fire);
+		
+		fire.body.velocity.x = -200;
+		
+		fire.checkWorldBounds = true;
+		fire.outOfBoundsKill = true;		
+	},	
 	
 	addRowOfFires: function() {
 	this.score += 1;
@@ -59,7 +70,9 @@ var mainState = {
     var hole = Math.floor(Math.random() * 6) + 1;
     for (var i = 0; i < 9; i++)
         if (i != hole && i != hole + 1) 
-            this.addFire(400, i * 60 + 10);   
+            this.addFire(400, i * 60 + 10);
+        if (i == hole && i == hole + 1) 
+            this.addFakeFire(400, i * 60 + 10); 		
 	},
 };
 
