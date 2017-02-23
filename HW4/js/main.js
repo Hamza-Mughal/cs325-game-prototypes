@@ -28,7 +28,7 @@ var mainState = {
     },
 
     update: function() {
-	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
+	game.physics.arcade.overlap(this.bravo, this.fires, this.gainPoint, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartGame();
     },
@@ -45,7 +45,7 @@ var mainState = {
 	gainPoint: function(){
 	this.score += 1;
 	this.labelScore.text = this.score;  		
-	}
+	},
 	
 	addFire: function(x,y){
 		var fire = game.add.sprite(x,y, 'fire');
