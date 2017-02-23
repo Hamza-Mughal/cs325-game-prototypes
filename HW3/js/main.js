@@ -21,8 +21,7 @@ var mainState = {
 	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
 	
 	this.score = 0;
-	this.labelScore = game.add.text(20, 20, "0", 
-{ font: "30px Arial", fill: "#ffffff" });
+	this.labelScore = game.add.text(20, 20, "0", { font: "30px Arial", fill: "#ffffff" });
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -40,6 +39,7 @@ var mainState = {
 	},
 	restartGame: function() {
     // Start the 'main' state, which restarts the game
+	this.audi.pause();
     game.state.start('main');
 	},
 	
