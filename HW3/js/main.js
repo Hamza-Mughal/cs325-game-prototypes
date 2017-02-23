@@ -59,7 +59,7 @@ var mainState = {
 
     // Add the 6 pipes 
     // With one big hole at position 'hole' and 'hole + 1'
-    for (var i = 0; i < 8; i++)
+    for (var i = 0; i < 9; i++)
         if (i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);   
 },
