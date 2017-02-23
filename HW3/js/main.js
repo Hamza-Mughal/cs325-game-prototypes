@@ -67,6 +67,7 @@ var mainState = {
 		
 		b.body.velocity.x = -200;
 		
+		
 		b.checkWorldBounds = true;
 		b.outOfBoundsKill = true;		
 	},	
