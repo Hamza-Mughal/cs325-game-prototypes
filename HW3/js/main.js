@@ -11,7 +11,8 @@ var mainState = {
 	game.physics.arcade.enable(this.bravo);
 	this.bravo.body.gravity.y = 1000;  
 	var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	spaceKey.onDown.add(this.jump, this);  	
+	spaceKey.onDown.add(this.jump, this);
+	this.input.onDown.add(this.jump, this);
     },
 
     update: function() {
