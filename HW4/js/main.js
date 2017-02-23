@@ -24,11 +24,7 @@ var mainState = {
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 	
-	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
-	this.game.physics.enable(enemy,Phaser.Physics.ARCADE);
-	this.enemy.body.collideWorldBounds=true;
-	this.enemy.enableBody = true;
-	this.enemy.physicsBodyType = Phaser.Physics.ARCADE;
+
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -53,6 +49,14 @@ var mainState = {
 	this.score += 1;
 	this.labelScore.text = this.score;
 	},
+	
+	spawnDoc: function(){
+	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
+	this.game.physics.enable(enemy,Phaser.Physics.ARCADE);
+	this.enemy.body.collideWorldBounds=true;
+	this.enemy.enableBody = true;
+	this.enemy.physicsBodyType = Phaser.Physics.ARCADE;
+	},	
 	
 	addFire: function(x,y){
 		var fire = game.add.sprite(x,y, 'fire');
