@@ -56,6 +56,8 @@ var mainState = {
 	},
 	
 	addRowOfFires: function() {
+	this.score += 1;
+	this.labelScore.text = this.score;  
     // Randomly pick a number between 1 and 5
     // This will be the hole position
     var hole = Math.floor(Math.random() * 5) + 1;
