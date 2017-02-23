@@ -11,19 +11,17 @@ var mainState = {
 	game.physics.arcade.enable(this.bravo);
 	this.bravo.body.gravity.y = 1000;  
 	var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
- 	
+	spaceKey.onDown.add(this.jump, this);  	
     },
 
     update: function() {
-    if (this.bravo.y < 0 || this.bravo.y > 490){
-	this.restartGame();}
-	
-	spaceKey.onDown.add(this.jump, this); 
+    if (this.bravo.y < 0 || this.bravo.y > 490)
+        this.restartGame();
     },
 	
 	jump: function() {
     // Add a vertical velocity to the bird
-    this.bird.body.velocity.y = -350;
+    this.bravo.body.velocity.y = -350;
 	},
 	restartGame: function() {
     // Start the 'main' state, which restarts the game
