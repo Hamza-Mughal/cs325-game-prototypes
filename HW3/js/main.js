@@ -28,6 +28,7 @@ var mainState = {
 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
+	
     },
 
     update: function() {
