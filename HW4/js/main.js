@@ -45,7 +45,6 @@ var mainState = {
 	gainPoint: function(){
 	this.score += 1;
 	this.labelScore.text = this.score;
-	this.fires.kill();
 	},
 	
 	addFire: function(x,y){
@@ -66,7 +65,7 @@ var mainState = {
 	this.labelScore.text = this.score;  
     var hole = Math.floor(Math.random() * 7) + 1;
     for (var i = 0; i < 10; i++)
-        if (i != hole && i != hole + 1) 
+        if (i != hole-1 && i != hole && i != hole + 1) 
             this.addFire(400, i * 60 + 10);		
 	},
 };
