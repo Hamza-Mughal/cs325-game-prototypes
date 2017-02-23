@@ -21,7 +21,7 @@ var mainState = {
 	
 	this.fires1 = game.add.group();
 	
-	this.timer = game.time.events.loop(1500, this.addRowOfFires, this); 
+	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
