@@ -36,7 +36,7 @@ var mainState = {
 	this.steto.bulletSpeed = -200;
 	this.steto.fireRate = 300;	
 	this.steto.trackSprite(this.enemy, 60, 50, true);	
-	
+	this.steto.fire();	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -52,8 +52,7 @@ var mainState = {
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
-		}
-	this.steto.fire();
+		
     },
 	
 	jump: function() {
