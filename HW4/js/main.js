@@ -4,6 +4,7 @@ var mainState = {
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/doctor.png');
+	game.load.image('stet', 'assets/stet.png');	
     },
 
     create: function() { 
@@ -30,6 +31,12 @@ var mainState = {
 	this.enemy.body.velocity.x = 0;
     this.enemy.body.velocity.y = 0;
 	
+	this.steto = game.add.group();
+	this.steto = game.add.weapon(5, 'stet');
+	this.steto.bulletSpeed = -200;
+	this.steto.fireRate = 300;	
+	this.steto.trackSprite(enemy, 60, 50, true);	
+	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -38,8 +45,6 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
-	
-
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
 			this.enemy.body.velocity.x = Math.random()*500;
@@ -48,6 +53,7 @@ var mainState = {
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
+	this.steto.fire();
     },
 	
 	jump: function() {
