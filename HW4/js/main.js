@@ -58,6 +58,7 @@ var mainState = {
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
     //game.state.start('main');
+	
 	},
 	
 	restartG: function() {
