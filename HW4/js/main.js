@@ -4,6 +4,7 @@ var mainState = {
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/doctor.png');
+	game.load.image('banana', 'assets/banana.png');
     },
 
     create: function() { 
@@ -58,7 +59,6 @@ var mainState = {
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
     //game.state.start('main');
-	
 	},
 	
 	restartG: function() {
@@ -78,6 +78,15 @@ var mainState = {
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
 	},
+	addBanana: function(){
+		var banana = game.add.sprite(500,400, 'banana');
+		game.physics.arcade.enable(banana);
+		
+		banana.body.velocity.x = -200;
+		
+		banana.checkWorldBounds = true;
+		banana.outOfBoundsKill = true;		
+	},	
 	
 	addRowOfFires: function() {
 	this.score += 1;
