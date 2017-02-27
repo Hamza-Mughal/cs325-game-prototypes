@@ -92,7 +92,7 @@ this.timer1 = game.time.events.loop(2000, this.addBanana1, this);
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana1: function(){
-		var banana = game.add.sprite(600,200, 'banana');
+		var banana = game.add.sprite(700,400, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
