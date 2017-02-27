@@ -32,11 +32,7 @@ var mainState = {
     this.enemy.body.velocity.y = 0;
 	
 	this.steto = game.add.group();
-	this.steto = game.add.weapon(5, 'stet');
-	this.steto.bulletSpeed = -200;
-	this.steto.fireRate = 300;	
-	this.steto.trackSprite(this.enemy, 60, 50, true);	
-	this.steto.fire();	
+	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -48,6 +44,7 @@ var mainState = {
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
 			this.enemy.body.velocity.x = Math.random()*500;
+			gun(Math.random()*500, Math.random()*3200);
 		}
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
@@ -68,6 +65,26 @@ var mainState = {
 	restartG: function() {
 	this.audi.pause();
     game.state.start('main');
+	},	
+	
+	gun: function(x,y){
+		var fire = game.add.sprite(x,y, 'fire');
+		
+		this.fires.add(fire);
+		
+		game.physics.arcade.enable(fire);
+		
+		fire.body.velocity.x = -200;
+		
+		fire.checkWorldBounds = true;
+		fire.outOfBoundsKill = true;
+		
+		
+	this.steto1 = game.add.sprite(x,y , 'stet');
+	this.steto.add(steto1);
+	steto1.body.velocity.x = -200;
+	steto1.checkWorldBounds = true;
+	steto1.outOfBoundsKill = true;			
 	},	
 	
 	addFire: function(x,y){
