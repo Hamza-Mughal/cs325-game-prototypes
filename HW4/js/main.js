@@ -21,7 +21,7 @@ var mainState = {
 	this.Banana = game.add.group();
 	
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
-	this.timer1 = game.time.events.loop(1000, this.addBanana, this);
+	this.timer1 = game.time.events.loop(1500, this.addBanana, this);
 this.timer1 = game.time.events.loop(2000, this.addBanana1, this); 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
@@ -92,7 +92,7 @@ this.timer1 = game.time.events.loop(2000, this.addBanana1, this);
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana1: function(){
-		var banana = game.add.sprite(200,200, 'banana');
+		var banana = game.add.sprite(200,500, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
