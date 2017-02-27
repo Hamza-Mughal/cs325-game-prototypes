@@ -37,6 +37,7 @@ var mainState = {
 
     update: function() {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
+	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
