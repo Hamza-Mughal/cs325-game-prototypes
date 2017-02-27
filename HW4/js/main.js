@@ -4,7 +4,6 @@ var mainState = {
 	game.load.image('fire', 'assets/fire.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/doctor.png');
-	game.load.image('stet', 'assets/stet.png');	
     },
 
     create: function() { 
@@ -31,8 +30,6 @@ var mainState = {
 	this.enemy.body.velocity.x = 0;
     this.enemy.body.velocity.y = 0;
 	
-	this.steto = game.add.group();
-	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -41,15 +38,16 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
+	
+
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
 			this.enemy.body.velocity.x = Math.random()*500;
-			gun(Math.random()*500, Math.random()*3200);
 		}
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
-		
+		}
     },
 	
 	jump: function() {
@@ -65,26 +63,6 @@ var mainState = {
 	restartG: function() {
 	this.audi.pause();
     game.state.start('main');
-	},	
-	
-	gun: function(x,y){
-		var fire = game.add.sprite(x,y, 'fire');
-		
-		this.fires.add(fire);
-		
-		game.physics.arcade.enable(fire);
-		
-		fire.body.velocity.x = -200;
-		
-		fire.checkWorldBounds = true;
-		fire.outOfBoundsKill = true;
-		
-		
-	this.steto1 = game.add.sprite(x,y , 'stet');
-	this.steto.add(steto1);
-	steto1.body.velocity.x = -200;
-	steto1.checkWorldBounds = true;
-	steto1.outOfBoundsKill = true;			
 	},	
 	
 	addFire: function(x,y){
