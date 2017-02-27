@@ -18,7 +18,7 @@ var mainState = {
 	
 	this.fires = game.add.group();
 	
-	this.fakefires = game.add.group();
+	this.Banana = game.add.group();
 	
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	this.timer1 = game.time.events.loop(1750, this.addBanana, this); 
@@ -80,6 +80,8 @@ var mainState = {
 	},
 	addBanana: function(){
 		var banana = game.add.sprite(500,400, 'banana');
+		
+		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
 		banana.body.velocity.x = -200;
