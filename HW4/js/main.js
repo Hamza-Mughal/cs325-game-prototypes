@@ -62,7 +62,7 @@ var mainState = {
     this.bravo.body.velocity.y = -350;
 	},
 	destroyBanana: function() {
-    if(this.bool == true && score >= 250){
+    if(this.bool == true && this.score >= 250){
 		this.bool = false;
 		this.Banana.kill();
 	}
