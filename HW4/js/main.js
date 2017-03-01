@@ -33,11 +33,10 @@ var mainState = {
 	this.enemy.body.velocity.x = 0;
     this.enemy.body.velocity.y = 0;
 	
-	var bool = true;
+	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
-	weapon.onDown.add(this.destroyBanana, this);
+	weapon.onDown.add(this.restartG1, this);
 
-	var input = game.input.keyboard.createCursorKeys();
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -60,9 +59,8 @@ var mainState = {
 		}
 
 	if(this.score > 500){
-		if(this.input.down.isDown){
 		game.world.removeAll();
-		}
+		this.bool = true;
 	}		
     },
 	
@@ -88,9 +86,16 @@ var mainState = {
     //game.state.start('main');
 	},
 	
+	
 	restartG: function() {
 	this.audi.pause();
     game.state.start('main');
+	},
+	restartG1: function() {
+	if(bool == true){
+	this.audi.pause();
+    game.state.start('main');
+	}
 	},	
 	
 	addFire: function(x,y){
