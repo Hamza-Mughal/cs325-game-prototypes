@@ -41,10 +41,11 @@ var mainState = {
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
 	this.beginSound = game.add.audio('go'); 
-	this.beginSound.play(); 
+	//this.beginSound.play(); 
 	
 	this.deathSound = game.add.audio('shoulder');
 	
+	var s = true;
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -73,9 +74,15 @@ var mainState = {
 		
 	}		
     },
-	
+	playSound: function() {
+	if(this.s == true){
+    this.s = false;
+	this.beginSound.play();
+	}	
+	},	
 	jump: function() {
     this.bravo.body.velocity.y = -350;
+	playSound();
 	},
 	destroyBanana: function() {
     if(this.bool == true && this.score >= 250){
