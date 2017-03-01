@@ -98,6 +98,8 @@ var mainState = {
 	
 	
 	restartG: function() {
+	this.bravo.kill();
+	this.bravo.destroy();
 	this.deathSound.play();	
 	this.audi.pause();
 	game.time.events.add(Phaser.Timer.SECOND * 4, restartGa, this);
