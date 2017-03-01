@@ -59,8 +59,11 @@ var mainState = {
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
+
 	if(this.score > 500){
+		if(weapon1.input.isDown){
 		game.world.removeAll();
+		}
 	}		
     },
 	
@@ -71,6 +74,7 @@ var mainState = {
     if(this.bool == true && this.score >= 250){
 		this.bool = false;
 		this.Banana.destroy();
+		this.Banana.kill();
 	}
 	},
 	winGame: function() {
