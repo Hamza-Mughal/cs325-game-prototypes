@@ -35,7 +35,10 @@ var mainState = {
 	
 	var bool = true;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
-	weapon.onDown.add(this.destroyBanana, this); 
+	weapon.onDown.add(this.destroyBanana, this);
+
+	var weapon1 = game.input.keyboard.addKey(Phaser.Keyboard.S);
+	weapon.onDown.add(this.winGame, this); 	
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -65,6 +68,11 @@ var mainState = {
     if(this.bool == true && this.score >= 250){
 		this.bool = false;
 		this.Banana.destroy();
+	}
+	},
+	winGame: function() {
+    if(this.score >= 500){
+		game.world.removeAll()
 	}
 	},	
 	restartGame: function() {
