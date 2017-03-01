@@ -5,6 +5,7 @@ var mainState = {
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/doctor.png');
 	game.load.image('banana', 'assets/banana.png');
+	game.load.audio('go', 'assets/go.wav');
     },
 
     create: function() { 
@@ -38,7 +39,8 @@ var mainState = {
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
-
+	this.beginSound = game.add.audio('go'); 
+	this.beginSound.play(); 
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
