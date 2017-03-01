@@ -6,6 +6,7 @@ var mainState = {
 	game.load.image('doctor', 'assets/doctor.png');
 	game.load.image('banana', 'assets/banana.png');
 	game.load.audio('go', 'assets/go.wav');
+	game.load.audio('shoulder', 'assets/shoulder.mp3');
     },
 
     create: function() { 
@@ -41,6 +42,8 @@ var mainState = {
 	weapon.onDown.add(this.restartG1, this);
 	this.beginSound = game.add.audio('go'); 
 	this.beginSound.play(); 
+	
+	this.deathSound = game.add.audio('shoulder');
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -95,6 +98,7 @@ var mainState = {
 	
 	
 	restartG: function() {
+	this.deathSound.play();	
 	this.audi.pause();
     game.state.start('main');
 	},
