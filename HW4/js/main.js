@@ -26,6 +26,8 @@ var mainState = {
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this); 
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 65, "500 pts to win!", { font: "30px Arial", fill: "#000000" });
+	
 	
 	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
 	game.physics.arcade.enable(this.enemy);
