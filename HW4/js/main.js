@@ -58,7 +58,10 @@ var mainState = {
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
-		}	
+		}
+	if(this.score > 500){
+		game.world.removeAll();
+	}		
     },
 	
 	jump: function() {
