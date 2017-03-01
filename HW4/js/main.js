@@ -106,7 +106,7 @@ var mainState = {
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana2: function(){
-		var banana = game.add.sprite(550,250, 'banana');
+		var banana = game.add.sprite(550,300, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
