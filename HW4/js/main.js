@@ -61,7 +61,8 @@ var mainState = {
 	if(this.score > 500){
 		game.world.removeAll();
 		this.bool = true;
-		var winText = game.add.text(game.world.centerX-300, game.world.centerY, 'Press Q to restart', {font:'32px Arial', fill: '#fff'});
+		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
+		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
 		
 	}		
     },
