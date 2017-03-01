@@ -64,7 +64,7 @@ var mainState = {
 	destroyBanana: function() {
     if(this.bool == true && this.score >= 250){
 		this.bool = false;
-		this.Banana.kill();
+		this.Banana.destroy();
 	}
 	},	
 	restartGame: function() {
