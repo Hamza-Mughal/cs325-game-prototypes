@@ -34,8 +34,8 @@ var mainState = {
     this.enemy.body.velocity.y = 0;
 	
 	var bool = true;
-	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.Q);
-	weapon.onDown.add(this.jump, this); 
+	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
+	weapon.onDown.add(this.destroyBanana, this); 
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -61,6 +61,12 @@ var mainState = {
 	jump: function() {
     this.bravo.body.velocity.y = -350;
 	},
+	destroyBanana: function() {
+    if(this.bool == true && score >= 250){
+		this.bool = false;
+		this.Banana.kill();
+	}
+	},	
 	restartGame: function() {
 	this.score += 1;
 	this.labelScore.text = this.score;  	
