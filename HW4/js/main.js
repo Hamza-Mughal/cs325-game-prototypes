@@ -92,7 +92,7 @@ var mainState = {
     game.state.start('main');
 	},
 	restartG1: function() {
-	if(bool == true){
+	if(this.bool == true){
 	this.audi.pause();
     game.state.start('main');
 	}
