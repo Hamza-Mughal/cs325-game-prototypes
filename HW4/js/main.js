@@ -35,7 +35,7 @@ var mainState = {
 	
 	var bool = true;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.Q);
-	this.weapon.onDown.add(this.jump, this); 
+	weapon.onDown.add(this.jump, this); 
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
