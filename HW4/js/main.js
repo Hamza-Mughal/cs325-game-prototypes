@@ -72,7 +72,7 @@ var mainState = {
 	},
 	winGame: function() {
     if(this.score >= 500){
-		game.world.removeAll()
+		game.world.removeAll();
 	}
 	},	
 	restartGame: function() {
