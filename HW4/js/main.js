@@ -23,7 +23,7 @@ var mainState = {
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
-	this.timer3 = game.time.events.loop(2800, this.addBanana1, this); 
+	this.timer3 = game.time.events.loop(2800, this.addBanana2, this); 
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 	
@@ -92,6 +92,7 @@ var mainState = {
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
+		
 	},
 	addBanana1: function(){
 		var banana = game.add.sprite(700,200, 'banana');
