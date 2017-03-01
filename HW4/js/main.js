@@ -37,6 +37,10 @@ var mainState = {
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
 
+	var winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won!', {font:'32px Arial', fill: '#fff'});
+	this.winText.visible = false;
+	var winText1 = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to Play Again', {font:'32px Arial', fill: '#fff'});
+	this.winText1.visible = false;	
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -77,6 +81,8 @@ var mainState = {
 	winGame: function() {
     if(this.score >= 500){
 		game.world.removeAll();
+		this.winText.visible = true;
+		this.winText1.visible = true;
 	}
 	},	
 	restartGame: function() {
@@ -94,8 +100,10 @@ var mainState = {
 	restartG1: function() {
 	if(this.bool == true){
 		this.bool = false;
-	this.audi.pause();
-    game.state.start('main');
+		this.winText.visible = false;
+		this.winText1.visible = false;		
+		this.audi.pause();
+		game.state.start('main');
 	}
 	},	
 	
