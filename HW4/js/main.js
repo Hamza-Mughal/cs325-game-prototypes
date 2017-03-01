@@ -51,9 +51,7 @@ var mainState = {
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
-		}
-	if (this.bravo.angle < 20)
-		this.bird.angle += 1;	
+		}	
     },
 	
 	jump: function() {
