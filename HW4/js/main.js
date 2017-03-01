@@ -33,11 +33,6 @@ var mainState = {
 	this.enemy.body.velocity.x = 0;
     this.enemy.body.velocity.y = 0;
 	
-	var winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won!', {font:'32px Arial', fill: '#fff'});
-	this.winText.visible = false;
-	var winText1 = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to Play Again', {font:'32px Arial', fill: '#fff'});
-	this.winText1.visible = false;		
-	
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
@@ -66,8 +61,6 @@ var mainState = {
 	if(this.score > 500){
 		game.world.removeAll();
 		this.bool = true;
-		this.winText.visible = true;
-		this.winText1.visible = true;	
 	}		
     },
 	
@@ -100,11 +93,9 @@ var mainState = {
 	},
 	restartG1: function() {
 	if(this.bool == true){
-		this.bool = false;
-		this.winText.visible = false;
-		this.winText1.visible = false;		
-		this.audi.pause();
-		game.state.start('main');
+	this.bool = false;
+	this.audi.pause();
+    game.state.start('main');
 	}
 	},	
 	
