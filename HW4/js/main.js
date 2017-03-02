@@ -161,7 +161,7 @@ var mainState = {
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana3: function(){
-		var banana = game.add.sprite(60,60, 'phone');
+		var banana = game.add.sprite(5,5, 'phone');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
