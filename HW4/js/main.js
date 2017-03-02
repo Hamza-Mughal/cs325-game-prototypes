@@ -47,7 +47,7 @@ var mainState = {
 	this.deathSound = game.add.audio('shoulder');
 	
 	this.endSound = game.add.audio('star');
-	this.endSound.volume = 3;	
+	this.endSound.volume = 1;	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
