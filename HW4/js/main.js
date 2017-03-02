@@ -67,13 +67,13 @@ var mainState = {
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
 
-	if(this.score > 500 && this.bool == false){
+	if(this.score > 500 && this.score < 600){
 		game.world.removeAll();
 		this.bool = true;
 		this.endSound.play(); 
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
 		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
-		
+		this.score += 100;
 	}		
     },
 	
