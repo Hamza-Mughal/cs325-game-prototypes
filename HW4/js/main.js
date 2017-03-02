@@ -6,7 +6,7 @@ var mainState = {
 	game.load.image('doctor', 'assets/doctor.png');
 	game.load.image('banana', 'assets/banana.png');
 	game.load.audio('go', 'assets/go.wav');
-	game.load.audio('shoulder', 'assets/shoulder.mp3');
+	game.load.audio('shoulder', 'assets/shoulder.wav');
 	game.load.audio('star', 'assets/star.wav');
     },
 
@@ -41,6 +41,11 @@ var mainState = {
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
+	
+	var bool1 = false;
+	var weapon1 = game.input.keyboard.addKey(Phaser.Keyboard.R);
+	weapon1.onDown.add(this.restartG1, this);
+	
 	this.beginSound = game.add.audio('go'); 
 	this.beginSound.play(); 
 	
@@ -57,8 +62,6 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
-	
-
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
 			this.enemy.body.velocity.x = Math.random()*500;
@@ -104,6 +107,9 @@ var mainState = {
 	restartG: function() {
 	this.deathSound.play();	
 	this.audi.pause();
+	for(var i = -100; i < 100000000000; i++){
+		
+	}
     game.state.start('main');
 	},
 	restartG1: function() {
