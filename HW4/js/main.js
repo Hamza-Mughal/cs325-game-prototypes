@@ -197,8 +197,8 @@ var mainState = {
 	},	
 	
 	addRowOfFires: function() {
-	this.score += 1;
-	this.labelScore.text = this.score;  
+	//this.score += 1;
+	//this.labelScore.text = this.score;  
     var hole = Math.floor(Math.random() * 7) + 1;
     for (var i = 0; i < 10; i++)
         if (i != hole-1 && i != hole && i != hole + 1) 
