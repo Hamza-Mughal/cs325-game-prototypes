@@ -67,7 +67,7 @@ var mainState = {
     update: function() {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
-	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
+	game.physics.arcade.overlap(this.bravo, this.power, this.addPowerUp, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
@@ -114,12 +114,15 @@ var mainState = {
 	//this.audi.pause();
     //game.state.start('main');
 	},
+
 	powerPoint: function() {
 	this.score += 10;
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
     //game.state.start('main');
 	},	
+
+
 	
 	
 	restartG: function() {
@@ -146,10 +149,11 @@ var mainState = {
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
-
+		
+		
 	},
 	addPowerUp: function(){
-		var x = (Math.random()*500)+80;
+		var x = (Math.random()*650)+80;
 		var y = (Math.random()*350)+90;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
