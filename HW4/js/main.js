@@ -7,7 +7,6 @@ var mainState = {
 	game.load.image('banana', 'assets/banana.png');
 	game.load.audio('go', 'assets/go.wav');
 	game.load.audio('shoulder', 'assets/shoulder.wav');
-	game.load.audio('star', 'assets/star.wav');
     },
 
     create: function() { 
@@ -41,18 +40,11 @@ var mainState = {
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
-	
-	var bool1 = false;
-	var weapon1 = game.input.keyboard.addKey(Phaser.Keyboard.R);
-	weapon1.onDown.add(this.restartG1, this);
-	
 	this.beginSound = game.add.audio('go'); 
 	this.beginSound.play(); 
 	
 	this.deathSound = game.add.audio('shoulder');
 	
-	this.endSound = game.add.audio('star');
-	this.endSound.volume = 1;	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -62,6 +54,8 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
+	
+
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
 			this.enemy.body.velocity.x = Math.random()*500;
@@ -71,13 +65,12 @@ var mainState = {
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
 
-	if(this.score > 500 && this.score < 600){
+	if(this.score > 500){
 		game.world.removeAll();
 		this.bool = true;
-		this.endSound.play(); 
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
 		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
-		this.score += 100;
+		
 	}		
     },
 	
@@ -107,11 +100,12 @@ var mainState = {
 	restartG: function() {
 	this.deathSound.play();	
 	this.audi.pause();
-	for(var i = -100; i < 100000000000; i++){
-		
-	}
-    game.state.start('main');
+    //game.state.start('main');
+	game.time.events.loop(Phaser.Timer.SECOND, restartG2, this);
 	},
+	restartG2: function() {
+    game.state.start('main');
+	},	
 	restartG1: function() {
 	if(this.bool == true){
 	this.bool = false;
