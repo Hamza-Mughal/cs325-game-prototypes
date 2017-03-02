@@ -36,7 +36,7 @@ var mainState = {
 	this.timer6 = game.time.events.loop(6000, this.playRing, this);
 	this.timer7 = game.time.events.loop(7200, this.playRing, this);
 	
-	this.timer8 = game.time.events.loop(9000, this.AddPowerUp, this);
+	this.timer8 = game.time.events.loop(9000, this.addPowerUp, this);
 	
 	
 	this.score = 0;
