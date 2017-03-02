@@ -137,6 +137,7 @@ var mainState = {
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
 		
+		
 	},
 	addBanana: function(){
 		var banana = game.add.sprite(450,400, 'banana');
