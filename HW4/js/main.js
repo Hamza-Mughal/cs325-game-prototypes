@@ -115,9 +115,7 @@ var mainState = {
     //game.state.start('main');
 	},
 	powerPoint: function() {
-		this.power.kill();
-		this.power.destroy();
-	this.score += 50;
+	this.score += 10;
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
     //game.state.start('main');
@@ -151,7 +149,7 @@ var mainState = {
 
 	},
 	addPowerUp: function(){
-		var x = (Math.random()*500)+50;
+		var x = (Math.random()*500)+80;
 		var y = (Math.random()*350)+90;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
@@ -159,7 +157,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -285;
+		fire.body.velocity.x = -325;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
