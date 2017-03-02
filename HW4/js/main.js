@@ -9,6 +9,7 @@ var mainState = {
 	game.load.audio('shoulder', 'assets/shoulder.wav');
 	game.load.image('phone', 'assets/phone.png');
 	game.load.audio('ringing', 'assets/ringing.mp3');
+	game.load.image('powerup', 'assets/powerup.png');
     },
 
     create: function() { 
@@ -21,6 +22,7 @@ var mainState = {
 	this.input.onDown.add(this.jump, this); 
 	
 	this.fires = game.add.group();
+	this.power = game.add.group();
 	
 	this.Banana = game.add.group();
 	
@@ -33,7 +35,8 @@ var mainState = {
 	
 	this.timer6 = game.time.events.loop(6000, this.playRing, this);
 	this.timer7 = game.time.events.loop(7200, this.playRing, this);
-
+	
+	this.timer8 = game.time.events.loop(9000, this.AddPowerUp, this);
 	
 	
 	this.score = 0;
@@ -139,6 +142,22 @@ var mainState = {
 		
 		
 	},
+	addPowerUp: function(){
+		var x = Math.random()*600;
+		var y = Math.random()*400;
+		var fire = game.add.sprite(x,y, 'powerup');
+		
+		this.power.add(fire);
+		
+		game.physics.arcade.enable(fire);
+		
+		fire.body.velocity.x = -300;
+		
+		fire.checkWorldBounds = true;
+		fire.outOfBoundsKill = true;
+		
+		
+	},	
 	addBanana: function(){
 		var banana = game.add.sprite(450,400, 'banana');
 		
