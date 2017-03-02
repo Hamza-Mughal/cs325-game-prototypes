@@ -116,7 +116,7 @@ var mainState = {
 	},
 
 	powerPoint: function() {
-	this.score += 10;
+	this.score += 5;
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
     //game.state.start('main');
@@ -161,7 +161,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -325;
+		fire.body.velocity.x = -400;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
