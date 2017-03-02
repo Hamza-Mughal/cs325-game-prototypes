@@ -7,6 +7,7 @@ var mainState = {
 	game.load.image('banana', 'assets/banana.png');
 	game.load.audio('go', 'assets/go.wav');
 	game.load.audio('shoulder', 'assets/shoulder.wav');
+	game.load.image('phone', 'assets/phone.png');
     },
 
     create: function() { 
@@ -25,7 +26,9 @@ var mainState = {
 	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
-	this.timer3 = game.time.events.loop(2600, this.addBanana2, this); 
+	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
+	this.timer4 = game.time.events.loop(3500, this.addBanana3, this); 	
+	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
 	this.labelScore1 = game.add.text(60, 90, "500 pts to win!", { font: "20px Arial", fill: "#000000" });
@@ -156,7 +159,18 @@ var mainState = {
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
-	},	
+	},
+	addBanana3: function(){
+		var banana = game.add.sprite(60,60, 'phone');
+		
+		this.Banana.add(banana);
+		game.physics.arcade.enable(banana);
+		
+		banana.body.velocity.x = 135;
+		
+		banana.checkWorldBounds = true;
+		banana.outOfBoundsKill = true;		
+	},		
 	
 	addRowOfFires: function() {
 	this.score += 1;
