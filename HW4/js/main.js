@@ -27,7 +27,7 @@ var mainState = {
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
-	this.timer4 = game.time.events.loop(9000, this.addBanana3, this);
+	this.timer4 = game.time.events.loop(8500, this.addBanana3, this);
 	this.timer5 = game.time.events.loop(7000, this.addBanana4, this);  	
 	
 	this.score = 0;
