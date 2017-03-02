@@ -143,15 +143,15 @@ var mainState = {
 		
 	},
 	addPowerUp: function(){
-		var x = Math.random()*600;
-		var y = Math.random()*400;
+		var x = (Math.random()*600)+75;
+		var y = (Math.random()*400)+90;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
 		this.power.add(fire);
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -300;
+		fire.body.velocity.x = -270;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
