@@ -67,7 +67,7 @@ var mainState = {
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
 
-	if(this.score > 500){
+	if(this.score > 500 && this.bool == false){
 		game.world.removeAll();
 		this.bool = true;
 		this.endSound.play(); 
