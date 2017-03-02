@@ -161,12 +161,12 @@ var mainState = {
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana3: function(){
-		var banana = game.add.sprite(5,60, 'phone');
+		var banana = game.add.sprite(1,60, 'phone');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = 50;
+		banana.body.velocity.x = 45;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
