@@ -67,7 +67,7 @@ var mainState = {
     update: function() {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
-	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint(this.power), null, this);
+	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
@@ -114,10 +114,9 @@ var mainState = {
 	//this.audi.pause();
     //game.state.start('main');
 	},
-	powerPoint: function(enemy) {
-		enemy.kill();
-		enemy.remove();
-		this.power.remove(enemy);
+	powerPoint: function() {
+		this.power.kill();
+		this.power.destroy();
 	this.score += 50;
 	this.labelScore.text = this.score;  	
 	//this.audi.pause();
