@@ -41,7 +41,7 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "500 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "750 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
@@ -81,7 +81,7 @@ var mainState = {
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
 
-	if(this.score > 500){
+	if(this.score > 750){
 		game.world.removeAll();
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
