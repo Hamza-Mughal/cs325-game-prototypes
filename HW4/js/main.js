@@ -29,9 +29,12 @@ var mainState = {
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
 	this.timer4 = game.time.events.loop(8200, this.addBanana3, this);
-	this.timer5 = game.time.events.loop(7000, this.playRing, this);
-	this.timer6 = game.time.events.loop(7800, this.addBanana3, this);
-	this.timer7 = game.time.events.loop(6500, this.playRing, this);
+	this.timer5 = game.time.events.loop(7000, this.addBanana4, this);
+	
+	this.timer6 = game.time.events.loop(6500, this.playRing, this);
+	this.timer7 = game.time.events.loop(7600, this.playRing, this);
+
+	
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
