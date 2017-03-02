@@ -7,6 +7,7 @@ var mainState = {
 	game.load.image('banana', 'assets/banana.png');
 	game.load.audio('go', 'assets/go.wav');
 	game.load.audio('shoulder', 'assets/shoulder.mp3');
+	game.load.audio('star', 'assets/star.wav');
     },
 
     create: function() { 
@@ -45,6 +46,7 @@ var mainState = {
 	
 	this.deathSound = game.add.audio('shoulder');
 	
+	this.endSound = game.add.audio('star'); 
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
     },
@@ -68,6 +70,7 @@ var mainState = {
 	if(this.score > 500){
 		game.world.removeAll();
 		this.bool = true;
+		this.endSound.play(); 
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
 		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
 		
