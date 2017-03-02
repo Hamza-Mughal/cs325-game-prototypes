@@ -8,6 +8,7 @@ var mainState = {
 	game.load.audio('go', 'assets/go.wav');
 	game.load.audio('shoulder', 'assets/shoulder.wav');
 	game.load.image('phone', 'assets/phone.png');
+	game.load.audio('ringing', 'assets/ringing.mp3');
     },
 
     create: function() { 
@@ -27,8 +28,10 @@ var mainState = {
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
-	this.timer4 = game.time.events.loop(8500, this.addBanana3, this);
-	this.timer5 = game.time.events.loop(7000, this.addBanana4, this);  	
+	this.timer4 = game.time.events.loop(8200, this.addBanana3, this);
+	this.timer5 = game.time.events.loop(7000, this.playRing, this);
+	this.timer6 = game.time.events.loop(7800, this.addBanana3, this);
+	this.timer7 = game.time.events.loop(6500, this.playRing, this);
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
@@ -48,6 +51,8 @@ var mainState = {
 	this.beginSound.play(); 
 	
 	this.deathSound = game.add.audio('shoulder');
+	
+	this.ringing = game.sound.play('ringing');
 	
 	this.audi = game.sound.play('ricco');
 	this.audi.play();
@@ -81,6 +86,9 @@ var mainState = {
 	jump: function() {
     this.bravo.body.velocity.y = -350;
 	},
+	playRing: function() {
+    this.ringing.play();
+	},	
 	destroyBanana: function() {
     if(this.bool == true && this.score >= 250){
 		this.bool = false;
