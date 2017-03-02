@@ -1,7 +1,7 @@
 var mainState = {
     preload: function() { 
 	game.load.image('bravo' , 'assets/bravo.png');
-	game.load.image('fire', 'assets/fire.png');
+	game.load.image('fire', 'assets/necklace.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/doctor.png');
 	game.load.image('banana', 'assets/banana.png');
