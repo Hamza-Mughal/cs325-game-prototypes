@@ -67,7 +67,7 @@ var mainState = {
     update: function() {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
-	game.physics.arcade.overlap(this.bravo, this.power, this.addPowerUp, null, this);
+	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
@@ -161,7 +161,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -400;
+		fire.body.velocity.x = -425;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
