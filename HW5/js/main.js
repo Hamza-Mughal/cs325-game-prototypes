@@ -110,7 +110,7 @@ window.onload = function() {
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
 		shipTrail.x = player.x+25;
-		shipTrail.y = player.y+125;
+		shipTrail.y = player.y+110;
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
 		}
