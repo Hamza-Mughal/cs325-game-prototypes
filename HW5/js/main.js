@@ -96,7 +96,7 @@ window.onload = function() {
 		laserSound = game.add.audio('laser');
 		explosions = game.add.group();
 		
-		game.time.events.add(1000, spawnpowerUp);
+		game.time.events.add(1000, spawnpowerUp, this);
     for (var i = 0; i < 300; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
