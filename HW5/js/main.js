@@ -121,7 +121,7 @@ window.onload = function() {
         explosionAnimation.anchor.setTo(0.5, 0.5);
         explosionAnimation.animations.add('kaboom');
     }
-		enem = game.add.sprite(game.world.centerX+300, game.world.centerY-250, 'doctor');
+		enem = game.add.sprite(0,0, 'doctor');
 		game.physics.enable(enem,Phaser.Physics.ARCADE);
 		enem.body.collideWorldBounds=true;
 		enem.enableBody = true;
@@ -202,6 +202,8 @@ window.onload = function() {
 		}
 		if(score >= 23400){
 			enem.visible = true;
+			enem.x = game.world.centerX+300;
+			enem.y = game.world.centerY-250;
 			enemMove = true;
 			if(lives == 0){winText.visible = true};
 	     if(Math.random() >.5){
