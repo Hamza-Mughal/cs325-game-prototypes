@@ -136,11 +136,17 @@ window.onload = function() {
 			laserSound.play();
 			needle.fire();
 		}
+		if(input.Up.isDown){
+			if(move == true){
+			player.body.velocity.y = 300;
+			}
+		 }		
 		if(input.down.isDown){
 			if(move == true){
 			player.body.velocity.y = 300;
 			}
 		 }
+		 
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
