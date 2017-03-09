@@ -126,6 +126,7 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
+			needle = game.add.weapon(2, 'needle');
 			//player.x = game.world.centerX;
 			//player.y = game.world.centerY + 200;
 			score+=500;
