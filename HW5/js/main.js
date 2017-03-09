@@ -87,7 +87,7 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-		game.physics.arcade.overlap(player,enemies,collisionHandler,null,this);
+		game.physics.arcade.overlap(needle,enemies,collisionHandler,null,this);
 		
 		
 		earth.tilePosition.y += 2;
@@ -172,6 +172,7 @@ window.onload = function() {
 	}
 	function collisionHandler(player, enemy){
 		enemy.kill();
+		needle.kill();
 		score+=100;
 		// effect = game.sound.play('bing');
 	}
