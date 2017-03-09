@@ -45,7 +45,7 @@ window.onload = function() {
 		game.load.audio('bongo', 'assets/guile.mp3');
 		game.load.audio('bing', 'assets/bong.mp3');
 		game.load.audio('frida', 'assets/friday.mp3');
-		game.load.spritesheet('kaboom', 'assets/games/tanks/explosion.png', 64, 64, 23);
+		game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
     }
     
     var bouncy;
