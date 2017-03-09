@@ -41,6 +41,7 @@ window.onload = function() {
 	var night;
 	var move;
 	var moveText;
+	var deathText;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -113,6 +114,8 @@ window.onload = function() {
 		winText.visible = false;
 		moveText = game.add.text(0,500,'Up/Down arrow now available', {font:'16px Arial', fill: '#fff'});
 		moveText.visible = false;
+		deathText = game.add.text(500,400,'You died due to collision!', {font:'32px Arial', fill: '#fff'});
+		deathText.visible = false;		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
@@ -173,6 +176,7 @@ window.onload = function() {
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 				game.physics.arcade.overlap(needle.bullets,fire,collisionHandlerpowerUp,null,this);
+				game.physics.arcade.overlap(player,enemies,collisionHandlerPlayer,null,this);
 		
     }
 	
@@ -238,6 +242,11 @@ window.onload = function() {
 		move = true;
 		moveText.visible = true;
 		powerUp.kill();
+		// effect = game.sound.play('bing');
+	}
+	function collisionHandlerPlayer(player, enemy){
+		player.kill();
+		deathText.visible = true;
 		// effect = game.sound.play('bing');
 	}	
 };
