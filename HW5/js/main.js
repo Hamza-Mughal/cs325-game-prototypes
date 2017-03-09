@@ -170,6 +170,7 @@ window.onload = function() {
 	}
 	function collisionHandler(needle, enemy){
 		enemy.kill();
+		needle.kill();
 		score+=100;
 		// effect = game.sound.play('bing');
 	}
