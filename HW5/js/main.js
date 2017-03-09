@@ -40,9 +40,9 @@ window.onload = function() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
 		game.load.image('player', 'assets/cowboy.png');
-		game.load.image('bullet', 'assets/bulletbill.png');
+		//game.load.image('bullet', 'assets/bulletbill.png');
 		game.load.image('enemy', 'assets/asteroid.png');
-		game.load.image('needle', 'assets/needle.png');
+		game.load.image('needle', 'assets/bulletbill.png');
 		game.load.audio('bongo', 'assets/guile.mp3');
 		game.load.audio('bing', 'assets/bong.mp3');
 		game.load.audio('frida', 'assets/friday.mp3');
