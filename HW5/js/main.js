@@ -77,7 +77,7 @@ window.onload = function() {
 		createEnemies();
 		
 		explosions = game.add.group();
-    for (var i = 0; i < 10; i++)
+    for (var i = 0; i < 40; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
         explosionAnimation.anchor.setTo(0.5, 0.5);
