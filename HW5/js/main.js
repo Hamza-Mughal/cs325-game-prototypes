@@ -50,7 +50,7 @@ window.onload = function() {
 	
 	var livesText;
 	var lives = 5;
-	
+	var rock;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -112,8 +112,13 @@ window.onload = function() {
 		fire = game.add.group();
 		fire.enableBody = true;
 		fire.physicsBodyType = Phaser.Physics.ARCADE;
+
+		rock = game.add.group();
+		rock.enableBody = true;
+		rock.physicsBodyType = Phaser.Physics.ARCADE;		
 		
 		game.time.events.add(5000, spawnpowerUp, this);
+		game.time.events.add(7000, spawnRock, this);
 		move = false;
     for (var i = 0; i < 300; i++)
     {
@@ -312,5 +317,16 @@ window.onload = function() {
 		
 		moveText.visible = false;
 		// effect = game.sound.play('bing');
-	}		
+	}
+	
+	function spawnRock(){
+		var x = game.world.centerX-200;
+		var y = game.world.centerY + 200;
+		var enemy = rock.create(x*48, y*50,'asteroid');
+		enemy.x = x;
+		enemy.y = y;
+		enemy.body.velocity.x = 100;
+		enemy.body.velocity.y = 0;
+		//fire = game.add.sprite(x,y, 'powerup');
+	}	
 };
