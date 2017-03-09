@@ -214,7 +214,7 @@ window.onload = function() {
 			if(lives == 0){winText.visible = true;enem.destroy();}
 		if(lives > 0){	
 	     if(Math.random() >.5){
-			enem.body.velocity.x = Math.random()*4500;
+			enem.body.velocity.x = Math.random()*8000;
 			enem.body.velocity.y = Math.random()*200;
 		}
 		else{
