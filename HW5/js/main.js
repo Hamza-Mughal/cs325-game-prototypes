@@ -147,18 +147,7 @@ window.onload = function() {
 		player.body.velocity.y = 0;
 		shipTrail.x = player.x+25;
 		shipTrail.y = player.y+110;
-	     if(Math.random() >.5){
-			 if(enemMove == true){
-			enemy.body.velocity.x = Math.random()*3200;
-			enemy.body.velocity.y = Math.random()*500;
-			 }
-		}
-		else{
-			if(enemMove == true){
-			enemy.body.velocity.x = -(Math.random()*3000);
-			enemy.body.velocity.y = -(Math.random()*400);
-			}
-		}		
+		
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
 		}
@@ -195,10 +184,18 @@ window.onload = function() {
 		//	player.y = game.world.centerY + 200;
 			score+=500;			
 		}
-		if(score == 23400){
+		if(score >= 23400){
 			enem.visible = true;
 			enemMove = true;
 			winText.visible = true;
+	     if(Math.random() >.5){
+			enem.body.velocity.x = Math.random()*3200;
+			enem.body.velocity.y = Math.random()*500;
+		}
+		else{
+			enem.body.velocity.x = -(Math.random()*3000);
+			enem.body.velocity.y = -(Math.random()*400);
+		}			
 		//	music.pause();
 		//	night = game.sound.play('frida');
 		//	score += 1;
