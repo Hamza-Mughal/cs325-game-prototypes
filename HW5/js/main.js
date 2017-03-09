@@ -46,7 +46,7 @@ window.onload = function() {
 	
 	var enem;
 	var enemMove;
-
+	var steto;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -61,7 +61,8 @@ window.onload = function() {
 		game.load.image('bullet', '/assets/bullet.png');
 		game.load.audio('laser', 'assets/laser.wav');
 		game.load.image('powerup', 'assets/powerup.png');
-		game.load.image('doctor', 'assets/doctor.png');
+		game.load.image('doctor', 'assets/bigasteroid.png');
+		game.load.image('stet', 'assets/stet.png');
     }
     
     var bouncy;
@@ -123,6 +124,12 @@ window.onload = function() {
 		enem.physicsBodyType = Phaser.Physics.ARCADE;
 		enem.visible = false;
 		enemMove = false;
+		
+		steto = game.add.group();
+		steto = game.add.weapon(5, 'stet');
+	    steto.bulletSpeed = -200;
+		steto.fireRate = 300;
+		steto.trackSprite(enem, true);
 		
 		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
 		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Saved Earth from a Fiery Doom!', {font:'32px Arial', fill: '#fff'});
@@ -194,10 +201,12 @@ window.onload = function() {
 		}
 		else{
 			enem.body.velocity.x = -(Math.random()*3000);
+				
 		}			
 		//	music.pause();
 		//	night = game.sound.play('frida');
 		//	score += 1;
+		steto.fire();
 		}
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
