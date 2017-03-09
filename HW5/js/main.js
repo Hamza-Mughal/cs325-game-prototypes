@@ -202,8 +202,8 @@ window.onload = function() {
 		}
 		if(score >= 23400){
 			enem.visible = true;
-			enem.x = game.world.centerX+300;
-			enem.y = game.world.centerY-250;
+			enem.x = 0;
+			enem.y = 200;
 			enemMove = true;
 			if(lives == 0){winText.visible = true};
 	     if(Math.random() >.5){
