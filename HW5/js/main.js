@@ -320,9 +320,9 @@ window.onload = function() {
 	}
 	
 	function spawnRock(){
-		var x = game.world.centerX;
+		var x = game.world.centerX-200;
 		var y = game.world.centerY + 200;
-		var enemy = rock.create(x, y,'asteroid');
+		var enemy = rock.create(x, y,'enemy');
 		enemy.x = x;
 		enemy.y = y;
 		enemy.body.velocity.x = 100;
