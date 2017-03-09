@@ -299,7 +299,8 @@ window.onload = function() {
 		// effect = game.sound.play('bing');
 	}
 	function collisionHandlerEnemy(player, enemy){
-		enem.kill();
+		enemy.kill();
+		enemy.destroy();
 		lives--;
 		
 		moveText.visible = false;
