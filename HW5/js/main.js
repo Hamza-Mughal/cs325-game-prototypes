@@ -112,7 +112,7 @@ window.onload = function() {
 			player.body.velocity.y = 300;
 		}
 		scoreText.text = 'Score:' + score;
-		if(score == 4000){
+	/*	if(score == 4000){
 			createEnemies2();
 			player.x = game.world.centerX;
 			player.y = game.world.centerY + 200;
@@ -131,6 +131,7 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
+		*/
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 		
     }
