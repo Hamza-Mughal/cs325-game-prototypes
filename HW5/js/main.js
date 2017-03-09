@@ -120,9 +120,9 @@ window.onload = function() {
 		if(input.up.isDown){
 			needle.fire();
 		}
-		if(input.down.isDown){
-			player.body.velocity.y = 300;
-		}
+		//if(input.down.isDown){
+		//	player.body.velocity.y = 300;
+		// }
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
@@ -193,7 +193,7 @@ window.onload = function() {
 	function collisionHandler(needle, enemy){
 		enemy.kill();
         var explosionAnimation = explosions.getFirstExists(false);
-        explosionAnimation.reset(enemy.x+200, enemy.y);
+        explosionAnimation.reset(enemy.x+150, enemy.y);
         explosionAnimation.play('kaboom', 30, false, true);		
 		score+=100;
 		// effect = game.sound.play('bing');
