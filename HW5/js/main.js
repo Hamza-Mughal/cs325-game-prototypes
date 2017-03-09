@@ -118,7 +118,7 @@ window.onload = function() {
 		rock.physicsBodyType = Phaser.Physics.ARCADE;		
 		
 		game.time.events.add(5000, spawnpowerUp, this);
-		game.time.events.add(7000, spawnRock, this);
+		game.time.events.add(10000, spawnRock, this);
 		move = false;
     for (var i = 0; i < 300; i++)
     {
