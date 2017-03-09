@@ -43,6 +43,7 @@ window.onload = function() {
 	var moveText;
 	var deathText;
 	var shootText;
+	var Health;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -118,7 +119,9 @@ window.onload = function() {
 		deathText = game.add.text(200,400,'You died due to collision!', {font:'32px Arial', fill: '#fff'});
 		deathText.visible = false;
 		shootText = game.add.text(0,525,'W to fire', {font:'16px Arial', fill: '#fff'});
-		shootText.visible = true;		
+		shootText.visible = true;
+		Health = new FlxHealthBar(player, 32, 4, 0, 100);
+		Health.trackParent(0, -5);		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
