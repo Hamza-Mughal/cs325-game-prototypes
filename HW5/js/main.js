@@ -45,6 +45,7 @@ window.onload = function() {
 	var shootText;
 	
 	var enem;
+	var enemMove;
 
     function preload() {
         // Load an image and call it 'logo'.
@@ -120,6 +121,7 @@ window.onload = function() {
 		enem.enableBody = true;
 		enem.physicsBodyType = Phaser.Physics.ARCADE;
 		enem.visible = false;
+		enemMove = false;
 		
 		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
 		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Saved Earth from a Fiery Doom!', {font:'32px Arial', fill: '#fff'});
@@ -145,6 +147,18 @@ window.onload = function() {
 		player.body.velocity.y = 0;
 		shipTrail.x = player.x+25;
 		shipTrail.y = player.y+110;
+	     if(Math.random() >.5){
+			 if(enemMove == true){
+			enemy.body.velocity.x = Math.random()*3200;
+			enemy.body.velocity.y = Math.random()*500;
+			 }
+		}
+		else{
+			if(enemMove == true){
+			enemy.body.velocity.x = -(Math.random()*3000);
+			enemy.body.velocity.y = -(Math.random()*400);
+			}
+		}		
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
 		}
@@ -183,6 +197,7 @@ window.onload = function() {
 		}
 		if(score == 23400){
 			enem.visible = true;
+			enemMove == true;
 			winText.visible = true;
 		//	music.pause();
 		//	night = game.sound.play('frida');
