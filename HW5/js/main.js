@@ -207,8 +207,8 @@ window.onload = function() {
 			enemMove = true;
 			if(lives == 0){winText.visible = true};
 		if(lives > 0){	
-	     if(Math.random() >.5){
-			enem.body.velocity.x = Math.random()*3200;
+	     if(Math.random()*1 >.5){
+			enem.body.velocity.x = Math.random()*3000;
 		}
 		else{
 			enem.body.velocity.x = -(Math.random()*3000);
