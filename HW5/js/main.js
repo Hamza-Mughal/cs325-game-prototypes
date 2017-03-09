@@ -105,6 +105,7 @@ window.onload = function() {
 		winText.visible = false;
 		
 		music = game.sound.play('bongo');
+		music.volume = 0.2;
     }
     
     function update() {
