@@ -77,7 +77,7 @@ window.onload = function() {
 		createEnemies();
 		
 		explosions = game.add.group();
-    for (var i = 0; i < 40; i++)
+    for (var i = 0; i < 300; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
         explosionAnimation.anchor.setTo(0.5, 0.5);
@@ -112,7 +112,7 @@ window.onload = function() {
 			player.body.velocity.y = 300;
 		}
 		scoreText.text = 'Score:' + score;
-	/*	if(score == 4000){
+		if(score == 4000){
 			createEnemies2();
 			player.x = game.world.centerX;
 			player.y = game.world.centerY + 200;
@@ -131,7 +131,7 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
-		*/
+		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 		
     }
