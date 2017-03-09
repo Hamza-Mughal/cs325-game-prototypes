@@ -131,6 +131,14 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
+		if (game.input.x < game.width - 20 &&
+        game.input.x > 20 &&
+        game.input.y > 20 &&
+        game.input.y < game.height - 20) {
+        var minDist = 200;
+        var dist = game.input.x - player.x;
+        player.body.velocity.x = MAXSPEED * game.math.clamp(dist / minDist, -1, 1);
+    }
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 		
