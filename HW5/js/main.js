@@ -122,7 +122,7 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
-				game.physics.arcade.overlap(needle,enemies,collisionHandler,null,this);
+				game.physics.arcade.overlap(needle,enemies,collisionHandler(enemy),null,this);
 		
     }
 	
@@ -168,7 +168,7 @@ window.onload = function() {
 	function descend(){
 		enemies.y += 10;
 	}
-	function collisionHandler(player, enemy){
+	function collisionHandler(enemy){
 		enemy.kill();
 		score+=100;
 		// effect = game.sound.play('bing');
