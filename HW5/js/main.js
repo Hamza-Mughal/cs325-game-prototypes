@@ -146,7 +146,7 @@ window.onload = function() {
 		shootText.visible = true;
 		
 		livesText = game.add.text(300,550,'Enemy lives: ', {font:'32px Arial', fill: '#fff'});
-		lives.Text.visible = false;
+		livesText.visible = false;
 		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
