@@ -126,15 +126,15 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
-			player.x = game.world.centerX;
-			player.y = game.world.centerY + 200;
+			//player.x = game.world.centerX;
+			//player.y = game.world.centerY + 200;
 			score+=500;
 			// winText.visible = true;
 		}
 		if(score == 11700){
 			createEnemies3();
-			player.x = game.world.centerX;
-			player.y = game.world.centerY + 200;
+		//	player.x = game.world.centerX;
+		//	player.y = game.world.centerY + 200;
 			score+=500;			
 		}
 		if(score == 23400){
