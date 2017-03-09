@@ -132,7 +132,7 @@ window.onload = function() {
 		if(input.right.isDown){
 			player.body.velocity.x = 300;
 		}
-		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
+		if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
 			laserSound.play();
 			needle.fire();
 		}
