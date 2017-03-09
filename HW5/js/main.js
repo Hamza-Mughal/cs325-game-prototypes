@@ -52,7 +52,7 @@ window.onload = function() {
 		game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
 		game.load.image('bullet', '/assets/bullet.png');
 		game.load.audio('laser', 'assets/laser.wav');
-		game.load.image('powerup', '/assets/powerup.png');
+		game.load.image('powerup', 'assets/powerup.png');
     }
     
     var bouncy;
