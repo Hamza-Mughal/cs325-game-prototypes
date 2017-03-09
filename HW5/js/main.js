@@ -114,7 +114,7 @@ window.onload = function() {
 		winText.visible = false;
 		moveText = game.add.text(0,500,'Up/Down arrow now available', {font:'16px Arial', fill: '#fff'});
 		moveText.visible = false;
-		deathText = game.add.text(500,400,'You died due to collision!', {font:'32px Arial', fill: '#fff'});
+		deathText = game.add.text(200,400,'You died due to collision!', {font:'32px Arial', fill: '#fff'});
 		deathText.visible = false;		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
@@ -247,6 +247,7 @@ window.onload = function() {
 	function collisionHandlerPlayer(player, enemy){
 		player.kill();
 		deathText.visible = true;
+		moveText.visible = false;
 		// effect = game.sound.play('bing');
 	}	
 };
