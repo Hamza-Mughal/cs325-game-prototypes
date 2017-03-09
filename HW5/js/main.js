@@ -300,7 +300,6 @@ window.onload = function() {
 	}
 	function collisionHandlerEnemy(player, enemy){
 		enemy.kill();
-		enemy.destroy();
 		lives--;
 		
 		moveText.visible = false;
