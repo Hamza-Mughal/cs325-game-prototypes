@@ -47,6 +47,10 @@ window.onload = function() {
 	var enem;
 	var enemMove;
 	var steto;
+	
+	var livesText;
+	var lives = 1;
+	
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -117,7 +121,7 @@ window.onload = function() {
         explosionAnimation.anchor.setTo(0.5, 0.5);
         explosionAnimation.animations.add('kaboom');
     }
-		enem = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
+		enem = game.add.sprite(game.world.centerX+300, game.world.centerY-250, 'doctor');
 		game.physics.enable(enem,Phaser.Physics.ARCADE);
 		enem.body.collideWorldBounds=true;
 		enem.enableBody = true;
@@ -140,6 +144,10 @@ window.onload = function() {
 		deathText.visible = false;
 		shootText = game.add.text(0,525,'W to fire', {font:'16px Arial', fill: '#fff'});
 		shootText.visible = true;
+		
+		livesText = game.add.text(300,550,'Enemy lives: ', {font:'32px Arial', fill: '#fff'});
+		lives.Text.visible = false;
+		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
@@ -195,7 +203,7 @@ window.onload = function() {
 		if(score >= 23400){
 			enem.visible = true;
 			enemMove = true;
-			winText.visible = true;
+			if(lives == 0){winText.visible = true};
 	     if(Math.random() >.5){
 			enem.body.velocity.x = Math.random()*3200;
 		}
@@ -206,12 +214,17 @@ window.onload = function() {
 		//	music.pause();
 		//	night = game.sound.play('frida');
 		//	score += 1;
+		livesText.visible = true;
+		livesText.text = 'Enemy lives: ' + lives;
 		steto.fire();
 		}
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 				game.physics.arcade.overlap(needle.bullets,fire,collisionHandlerpowerUp,null,this);
 				game.physics.arcade.overlap(player,enemies,collisionHandlerPlayer,null,this);
+				game.physics.arcade.overlap(player,steto.bullets,collisionHandlerPlayer,null,this);
+				
+				game.physics.arcade.overlap(needle.bullets,enem,collisionHandlerEnemy,null,this);
 		
     }
 	
@@ -284,5 +297,12 @@ window.onload = function() {
 		deathText.visible = true;
 		moveText.visible = false;
 		// effect = game.sound.play('bing');
-	}	
+	}
+	function collisionHandlerEnemy(player, enemy){
+		enem.kill();
+		lives--;
+		
+		moveText.visible = false;
+		// effect = game.sound.play('bing');
+	}		
 };
