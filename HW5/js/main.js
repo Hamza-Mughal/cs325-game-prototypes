@@ -43,7 +43,7 @@ window.onload = function() {
 	var moveText;
 	var deathText;
 	var shootText;
-	
+
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -120,7 +120,6 @@ window.onload = function() {
 		deathText.visible = false;
 		shootText = game.add.text(0,525,'W to fire', {font:'16px Arial', fill: '#fff'});
 		shootText.visible = true;
-		Health = new FlxHealthBar(wolf, 32, 4, 0, 100);		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
