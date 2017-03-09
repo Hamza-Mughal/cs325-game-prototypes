@@ -107,6 +107,7 @@ window.onload = function() {
 		fire = game.add.group();
 		fire.enableBody = true;
 		fire.physicsBodyType = Phaser.Physics.ARCADE;
+		
 		game.time.events.add(5000, spawnpowerUp, this);
 		move = false;
     for (var i = 0; i < 300; i++)
@@ -190,11 +191,9 @@ window.onload = function() {
 			winText.visible = true;
 	     if(Math.random() >.5){
 			enem.body.velocity.x = Math.random()*3200;
-			enem.body.velocity.y = Math.random()*500;
 		}
 		else{
 			enem.body.velocity.x = -(Math.random()*3000);
-			enem.body.velocity.y = -(Math.random()*400);
 		}			
 		//	music.pause();
 		//	night = game.sound.play('frida');
