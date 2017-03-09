@@ -40,6 +40,7 @@ window.onload = function() {
 	var effect;
 	var night;
 	var move;
+	var moveText;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -110,7 +111,8 @@ window.onload = function() {
 		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
 		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Saved Earth from a Fiery Doom!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
-		
+		moveText = game.add.text(0,450,'Up/Down arrow now available', {font:'32px Arial', fill: '#fff'});
+		moveText.visible = false;
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
@@ -234,6 +236,7 @@ window.onload = function() {
 	}
 	function collisionHandlerpowerUp(needle, powerUp){
 		move = true;
+		moveText.visible = true;
 		powerUp.kill();
 		// effect = game.sound.play('bing');
 	}	
