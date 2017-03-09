@@ -238,6 +238,7 @@ window.onload = function() {
 				game.physics.arcade.overlap(player,steto.bullets,collisionHandlerPlayer,null,this);
 				
 				game.physics.arcade.overlap(needle.bullets,enem,collisionHandlerEnemy,null,this);
+				game.physics.arcade.overlap(player,rock,collisionHandlerPlayer,null,this);
 		
     }
 	
@@ -320,12 +321,12 @@ window.onload = function() {
 	}
 	
 	function spawnRock(){
-		var x = game.world.centerX-200;
+		var x = game.world.centerX-230;
 		var y = game.world.centerY + 200;
 		var enemy = rock.create(x, y,'enemy');
 		enemy.x = x;
 		enemy.y = y;
-		enemy.body.velocity.x = 100;
+		enemy.body.velocity.x = 85;
 		enemy.body.velocity.y = 0;
 		//fire = game.add.sprite(x,y, 'powerup');
 	}	
