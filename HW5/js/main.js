@@ -211,7 +211,7 @@ window.onload = function() {
 			enem.body.velocity.x = Math.random()*3800;
 		}
 		else{
-			enem.body.velocity.x = -(Math.random()*3000);
+			enem.body.velocity.x = -(Math.random()*3200);
 				
 		}
 		steto.fire();		
