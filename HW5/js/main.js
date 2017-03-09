@@ -52,6 +52,7 @@ window.onload = function() {
 		game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
 		game.load.image('bullet', '/assets/bullet.png');
 		game.load.audio('laser', 'assets/laser.wav');
+		game.load.image('powerup', '/assets/powerup.png');
     }
     
     var bouncy;
@@ -94,6 +95,8 @@ window.onload = function() {
 		Up = game.input.keyboard.addKey(Phaser.Keyboard.W);
 		laserSound = game.add.audio('laser');
 		explosions = game.add.group();
+		
+		game.time.events.add(1000, spawnpowerUp);
     for (var i = 0; i < 300; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
@@ -206,5 +209,10 @@ window.onload = function() {
         explosionAnimation.play('kaboom', 30, false, true);		
 		score+=100;
 		// effect = game.sound.play('bing');
+	}
+	function spawnpowerUp(){
+		var x = (Math.random()*650)+80;
+		var y = (Math.random()*350)+90;
+		var fire = game.add.sprite(x,y, 'powerup');
 	}
 };
