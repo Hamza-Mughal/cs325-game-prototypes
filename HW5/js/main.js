@@ -141,7 +141,7 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
-			spawnpowerUp();
+			//	spawnpowerUp();
 			//player.x = game.world.centerX;
 			//player.y = game.world.centerY + 200;
 			score+=500;
@@ -161,7 +161,7 @@ window.onload = function() {
 		}
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
-				game.physics.arcade.overlap(needle.bullets,fire,collisionHandler,null,this);
+				game.physics.arcade.overlap(needle.bullets,fire,collisionHandlerpowerUp,null,this);
 		
     }
 	
