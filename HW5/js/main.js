@@ -39,6 +39,7 @@ window.onload = function() {
 	var music;
 	var effect;
 	var night;
+	var move;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -98,8 +99,8 @@ window.onload = function() {
 		fire = game.add.group();
 		fire.enableBody = true;
 		fire.physicsBodyType = Phaser.Physics.ARCADE;
-		
 		game.time.events.add(5000, spawnpowerUp, this);
+		move = false;
     for (var i = 0; i < 300; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
@@ -135,9 +136,11 @@ window.onload = function() {
 			laserSound.play();
 			needle.fire();
 		}
-		//if(input.down.isDown){
-		//	player.body.velocity.y = 300;
-		// }
+		if(input.down.isDown){
+			if(move == true){
+			player.body.velocity.y = 300;
+			}
+		 }
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
@@ -224,6 +227,7 @@ window.onload = function() {
 		//fire = game.add.sprite(x,y, 'powerup');
 	}
 	function collisionHandlerpowerUp(needle, powerUp){
+		move = true;
 		powerUp.kill();
 		// effect = game.sound.play('bing');
 	}	
