@@ -60,7 +60,7 @@ window.onload = function() {
         text.anchor.setTo( 0.5, 0.0 );
 		earth = game.add.tileSprite(0,0,800,600,'earthi');
 		
-		player = game.add.sprite(game.world.centerX, game.world.centerY+100, 'player');
+		player = game.add.sprite(game.world.centerX, game.world.centerY+150, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
 		
