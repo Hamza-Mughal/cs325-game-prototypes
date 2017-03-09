@@ -122,7 +122,7 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
-				game.physics.arcade.overlap(needle,enemies,collisionHandler(enemy),null,this);
+				game.physics.arcade.overlap(needle,enemies,collisionHandler(enemies),null,this);
 		
     }
 	
