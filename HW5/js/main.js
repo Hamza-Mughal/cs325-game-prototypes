@@ -193,7 +193,7 @@ window.onload = function() {
 	function collisionHandler(needle, enemy){
 		enemy.kill();
         var explosionAnimation = explosions.getFirstExists(false);
-        explosionAnimation.reset(enemy.x, enemy.y);
+        explosionAnimation.reset(enemy.x+100, enemy.y);
         explosionAnimation.play('kaboom', 30, false, true);		
 		score+=100;
 		// effect = game.sound.play('bing');
