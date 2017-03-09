@@ -118,7 +118,7 @@ window.onload = function() {
 		rock.physicsBodyType = Phaser.Physics.ARCADE;		
 		
 		game.time.events.add(5000, spawnpowerUp, this);
-		game.time.events.add(10000, spawnRock, this);
+		game.time.events.add(9500, spawnRock, this);
 		move = false;
     for (var i = 0; i < 300; i++)
     {
@@ -214,7 +214,7 @@ window.onload = function() {
 			if(lives == 0){winText.visible = true;enem.destroy();}
 		if(lives > 0){	
 	     if(Math.random() >.5){
-			enem.body.velocity.x = Math.random()*8000;
+			enem.body.velocity.x = Math.random()*10000;
 			enem.body.velocity.y = Math.random()*200;
 		}
 		else{
@@ -326,7 +326,7 @@ window.onload = function() {
 		var enemy = rock.create(x, y,'enemy');
 		enemy.x = x;
 		enemy.y = y;
-		enemy.body.velocity.x = 85;
+		enemy.body.velocity.x = 100;
 		enemy.body.velocity.y = 0;
 		//fire = game.add.sprite(x,y, 'powerup');
 	}	
