@@ -109,8 +109,8 @@ window.onload = function() {
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
-		shipTrail.x = player.x;
-		shipTrail.y = player.y-50;
+		shipTrail.x = player.x+20;
+		shipTrail.y = player.y+50;
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
 		}
