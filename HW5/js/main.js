@@ -141,6 +141,7 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
+			spawnpowerUp();
 			//player.x = game.world.centerX;
 			//player.y = game.world.centerY + 200;
 			score+=500;
@@ -218,6 +219,8 @@ window.onload = function() {
 		var x = (Math.random()*650)+80;
 		var y = (Math.random()*350)+90;
 		var enemy = fire.create(x*48, y*50,'powerup');
+		enemy.x = x;
+		enemy.y = y;
 		//fire = game.add.sprite(x,y, 'powerup');
 	}
 	function collisionHandlerpowerUp(needle, powerUp){
