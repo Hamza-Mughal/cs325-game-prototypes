@@ -95,6 +95,9 @@ window.onload = function() {
 		Up = game.input.keyboard.addKey(Phaser.Keyboard.W);
 		laserSound = game.add.audio('laser');
 		explosions = game.add.group();
+		fire = game.add.group();
+		fire.enableBody = true;
+		fire.physicsBodyType = Phaser.Physics.ARCADE;
 		
 		game.time.events.add(5000, spawnpowerUp, this);
     for (var i = 0; i < 300; i++)
@@ -214,7 +217,8 @@ window.onload = function() {
 	function spawnpowerUp(){
 		var x = (Math.random()*650)+80;
 		var y = (Math.random()*350)+90;
-		fire = game.add.sprite(x,y, 'powerup');
+		var enemy = fire.create(x*48, y*50,'powerup');
+		//fire = game.add.sprite(x,y, 'powerup');
 	}
 	function collisionHandlerpowerUp(needle, powerUp){
 		powerUp.kill();
