@@ -208,11 +208,13 @@ window.onload = function() {
 			enemMove = true;
 			if(lives == 0){winText.visible = true;enem.destroy();}
 		if(lives > 0){	
-	     if(Math.random()*1 >.5){
-			enem.body.velocity.x = Math.random()*3800;
+	     if(Math.random() >.5){
+			enem.body.velocity.x = Math.random()*4500;
+			enem.body.velocity.y = Math.random()*200;
 		}
 		else{
 			enem.body.velocity.x = -(Math.random()*3200);
+			enem.body.velocity.y = -(Math.random()*400);
 				
 		}
 		steto.fire();		
