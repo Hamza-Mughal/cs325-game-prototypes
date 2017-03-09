@@ -43,6 +43,8 @@ window.onload = function() {
 	var moveText;
 	var deathText;
 	var shootText;
+	
+	var enem;
 
     function preload() {
         // Load an image and call it 'logo'.
@@ -58,6 +60,7 @@ window.onload = function() {
 		game.load.image('bullet', '/assets/bullet.png');
 		game.load.audio('laser', 'assets/laser.wav');
 		game.load.image('powerup', 'assets/powerup.png');
+		game.load.image('doctor', 'assets/doctor.png');
     }
     
     var bouncy;
@@ -110,7 +113,14 @@ window.onload = function() {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
         explosionAnimation.anchor.setTo(0.5, 0.5);
         explosionAnimation.animations.add('kaboom');
-    }		
+    }
+		enem = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
+		game.physics.enable(enem,Phaser.Physics.ARCADE);
+		enem.body.collideWorldBounds=true;
+		enem.enableBody = true;
+		enem.physicsBodyType = Phaser.Physics.ARCADE;
+		enem.visible = false;
+		
 		scoreText = game.add.text(0,550,'Score:', {font:'32px Arial', fill: '#fff'});
 		winText = game.add.text(game.world.centerX-300, game.world.centerY, 'You Saved Earth from a Fiery Doom!', {font:'32px Arial', fill: '#fff'});
 		winText.visible = false;
@@ -172,6 +182,7 @@ window.onload = function() {
 			score+=500;			
 		}
 		if(score == 23400){
+			enem.visible = true;
 			winText.visible = true;
 		//	music.pause();
 		//	night = game.sound.play('frida');
