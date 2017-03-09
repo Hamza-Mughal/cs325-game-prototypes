@@ -34,7 +34,7 @@ window.onload = function() {
 	
 	var Up;
 	var laserSound;
-	
+	var fire;
 	var shipTrail;
 	var music;
 	var effect;
@@ -96,7 +96,7 @@ window.onload = function() {
 		laserSound = game.add.audio('laser');
 		explosions = game.add.group();
 		
-		game.time.events.add(1000, spawnpowerUp, this);
+		game.time.events.add(5000, spawnpowerUp, this);
     for (var i = 0; i < 300; i++)
     {
         var explosionAnimation = explosions.create(0, 0, 'kaboom', [0], false);
@@ -157,6 +157,7 @@ window.onload = function() {
 		}
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
+				game.physics.arcade.overlap(needle.bullets,fire,collisionHandler,null,this);
 		
     }
 	
@@ -213,6 +214,10 @@ window.onload = function() {
 	function spawnpowerUp(){
 		var x = (Math.random()*650)+80;
 		var y = (Math.random()*350)+90;
-		var fire = game.add.sprite(x,y, 'powerup');
+		fire = game.add.sprite(x,y, 'powerup');
 	}
+	function collisionHandlerpowerUp(needle, powerUp){
+		powerUp.kill();
+		// effect = game.sound.play('bing');
+	}	
 };
