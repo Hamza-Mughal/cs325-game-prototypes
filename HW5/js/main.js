@@ -87,8 +87,6 @@ window.onload = function() {
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-		game.physics.arcade.overlap(needle,enemies,collisionHandler,null,this);
-		game.physics.arcade.overlap(needle.bullets,enemy,collisionHandler,null,this);
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
@@ -124,6 +122,7 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
+				game.physics.arcade.overlap(needle,enemies,collisionHandler,null,this);
 		
     }
 	
