@@ -35,7 +35,7 @@ window.onload = function() {
 	var Up;
 	var laserSound;
 	var fire;
-	var shipTrail;
+	var Trail;
 	var music;
 	var effect;
 	var night;
@@ -96,15 +96,15 @@ window.onload = function() {
 		needle.trackSprite(player, true);
 		
 		createEnemies();
-		shipTrail = game.add.emitter(player.x, player.y + 10, 400);
-		shipTrail.width = 10;
-		shipTrail.makeParticles('bullet');
-		shipTrail.setXSpeed(30, -30);
-		shipTrail.setYSpeed(200, 180);
-		shipTrail.setRotation(50,-50);
-		shipTrail.setAlpha(1, 0.01, 800);
-		shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000, Phaser.Easing.Quintic.Out);
-		shipTrail.start(false, 5000, 10);
+		Trail = game.add.emitter(player.x, player.y + 10, 400);
+		Trail.width = 10;
+		Trail.makeParticles('bullet');
+		Trail.setXSpeed(30, -30);
+		Trail.setYSpeed(200, 180);
+		Trail.setRotation(50,-50);
+		Trail.setAlpha(1, 0.01, 800);
+		Trail.setScale(0.05, 0.4, 0.05, 0.4, 2000, Phaser.Easing.Quintic.Out);
+		Trail.start(false, 5000, 10);
 		
 		Up = game.input.keyboard.addKey(Phaser.Keyboard.W);
 		laserSound = game.add.audio('laser');
@@ -162,8 +162,8 @@ window.onload = function() {
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
-		shipTrail.x = player.x+25;
-		shipTrail.y = player.y+110;
+		Trail.x = player.x+25;
+		Trail.y = player.y+110;
 		
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
@@ -190,15 +190,15 @@ window.onload = function() {
 		if(score == 4000){
 			createEnemies2();
 			//	spawnpowerUp();
-			//player.x = game.world.centerX;
-			//player.y = game.world.centerY + 200;
+			player.x = game.world.centerX;
+			player.y = game.world.centerY + 200;
 			score+=500;
 			// winText.visible = true;
 		}
 		if(score == 11700){
 			createEnemies3();
-		//	player.x = game.world.centerX;
-		//	player.y = game.world.centerY + 200;
+			player.x = game.world.centerX;
+			player.y = game.world.centerY + 200;
 			score+=500;			
 		}
 		if(score >= 23400){
