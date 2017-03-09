@@ -171,6 +171,7 @@ window.onload = function() {
 	function collisionHandler(needle, enemy){
 		enemy.kill();
 		needle.kill();
+		needle.destroy();
 		score+=100;
 		// effect = game.sound.play('bing');
 	}
