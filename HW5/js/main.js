@@ -32,6 +32,7 @@ window.onload = function() {
 	var needle;
 	var explosions;
 	
+	var shipTrail;
 	var music;
 	var effect;
 	var night;
@@ -46,6 +47,7 @@ window.onload = function() {
 		game.load.audio('bing', 'assets/bong.mp3');
 		game.load.audio('frida', 'assets/friday.mp3');
 		game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
+		game.load.image('bullet', '/assets/bullet.png');
     }
     
     var bouncy;
@@ -58,7 +60,7 @@ window.onload = function() {
         text.anchor.setTo( 0.5, 0.0 );
 		earth = game.add.tileSprite(0,0,800,600,'earthi');
 		
-		player = game.add.sprite(game.world.centerX, game.world.centerY + 200, 'player');
+		player = game.add.sprite(game.world.centerX, game.world.centerY + 150, 'player');
 		game.physics.enable(player,Phaser.Physics.ARCADE);
 		input = game.input.keyboard.createCursorKeys();
 		
@@ -75,7 +77,15 @@ window.onload = function() {
 		needle.trackSprite(player, true);
 		
 		createEnemies();
-		
+   shipTrail = game.add.emitter(player.x, player.y + 10, 400);
+ shipTrail.width = 10;
+ shipTrail.makeParticles('bullet');
+  shipTrail.setXSpeed(30, -30);
+  shipTrail.setYSpeed(200, 180);
+   shipTrail.setRotation(50,-50);
+  shipTrail.setAlpha(1, 0.01, 800);
+   shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000, Phaser.Easing.Quintic.Out);
+   shipTrail.start(false, 5000, 10);
 		explosions = game.add.group();
     for (var i = 0; i < 300; i++)
     {
@@ -99,6 +109,7 @@ window.onload = function() {
 		earth.tilePosition.y += 2;
 		player.body.velocity.x = 0;
 		player.body.velocity.y = 0;
+		shipTrail.x = player.x;
 		if(input.left.isDown){
 			player.body.velocity.x = -300;
 		}
@@ -131,14 +142,6 @@ window.onload = function() {
 		//	night = game.sound.play('frida');
 		//	score += 1;
 		}
-		if (game.input.x < game.width - 20 &&
-        game.input.x > 20 &&
-        game.input.y > 20 &&
-        game.input.y < game.height - 20) {
-        var minDist = 200;
-        var dist = game.input.x - player.x;
-        player.body.velocity.x = MAXSPEED * game.math.clamp(dist / minDist, -1, 1);
-    }
 		
 				game.physics.arcade.overlap(needle.bullets,enemies,collisionHandler,null,this);
 		
