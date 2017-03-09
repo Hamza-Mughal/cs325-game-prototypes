@@ -32,6 +32,9 @@ window.onload = function() {
 	var needle;
 	var explosions;
 	
+	var Up;
+	var laserSound;
+	
 	var shipTrail;
 	var music;
 	var effect;
@@ -48,6 +51,7 @@ window.onload = function() {
 		game.load.audio('frida', 'assets/friday.mp3');
 		game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
 		game.load.image('bullet', '/assets/bullet.png');
+		game.load.audio('laser', 'assets/laser.wav');
     }
     
     var bouncy;
@@ -77,15 +81,18 @@ window.onload = function() {
 		needle.trackSprite(player, true);
 		
 		createEnemies();
-   shipTrail = game.add.emitter(player.x, player.y + 10, 400);
- shipTrail.width = 10;
- shipTrail.makeParticles('bullet');
-  shipTrail.setXSpeed(30, -30);
-  shipTrail.setYSpeed(200, 180);
-   shipTrail.setRotation(50,-50);
-  shipTrail.setAlpha(1, 0.01, 800);
-   shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000, Phaser.Easing.Quintic.Out);
-   shipTrail.start(false, 5000, 10);
+		shipTrail = game.add.emitter(player.x, player.y + 10, 400);
+		shipTrail.width = 10;
+		shipTrail.makeParticles('bullet');
+		shipTrail.setXSpeed(30, -30);
+		shipTrail.setYSpeed(200, 180);
+		shipTrail.setRotation(50,-50);
+		shipTrail.setAlpha(1, 0.01, 800);
+		shipTrail.setScale(0.05, 0.4, 0.05, 0.4, 2000, Phaser.Easing.Quintic.Out);
+		shipTrail.start(false, 5000, 10);
+		
+		Up = game.input.keyboard.addKey(Phaser.Keyboard.W);
+		laserSound = game.add.audio('laser');
 		explosions = game.add.group();
     for (var i = 0; i < 300; i++)
     {
@@ -118,6 +125,7 @@ window.onload = function() {
 			player.body.velocity.x = 300;
 		}
 		if(input.up.isDown){
+			laserSound.play();
 			needle.fire();
 		}
 		//if(input.down.isDown){
@@ -126,7 +134,6 @@ window.onload = function() {
 		scoreText.text = 'Score:' + score;
 		if(score == 4000){
 			createEnemies2();
-			needle = game.add.weapon(2, 'needle');
 			//player.x = game.world.centerX;
 			//player.y = game.world.centerY + 200;
 			score+=500;
