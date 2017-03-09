@@ -197,7 +197,7 @@ window.onload = function() {
 		}
 		if(score == 23400){
 			enem.visible = true;
-			enemMove == true;
+			enemMove = true;
 			winText.visible = true;
 		//	music.pause();
 		//	night = game.sound.play('frida');
