@@ -42,6 +42,7 @@ window.onload = function() {
 	var move;
 	var moveText;
 	var deathText;
+	var shootText;
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'earthi', 'assets/mbe_earth.jpg' );
@@ -115,7 +116,9 @@ window.onload = function() {
 		moveText = game.add.text(0,500,'Up/Down arrow now available', {font:'16px Arial', fill: '#fff'});
 		moveText.visible = false;
 		deathText = game.add.text(200,400,'You died due to collision!', {font:'32px Arial', fill: '#fff'});
-		deathText.visible = false;		
+		deathText.visible = false;
+		shootText = game.add.text(0,525,'W to fire', {font:'16px Arial', fill: '#fff'});
+		shootText.visible = true;		
 		music = game.sound.play('bongo');
 		music.volume = 0.1;
     }
