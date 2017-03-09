@@ -49,7 +49,7 @@ window.onload = function() {
 	var steto;
 	
 	var livesText;
-	var lives = 1;
+	var lives = 5;
 	
     function preload() {
         // Load an image and call it 'logo'.
@@ -131,6 +131,7 @@ window.onload = function() {
 		
 		steto = game.add.group();
 		steto = game.add.weapon(5, 'stet');
+		steto.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
 	    steto.bulletSpeed = -200;
 		steto.fireRate = 300;
 		steto.trackSprite(enem, true);
@@ -205,7 +206,7 @@ window.onload = function() {
 			enem.x = 0;
 			enem.y = 50;
 			enemMove = true;
-			if(lives == 0){winText.visible = true};
+			if(lives == 0){winText.visible = true;enem.destroy();}
 		if(lives > 0){	
 	     if(Math.random()*1 >.5){
 			enem.body.velocity.x = Math.random()*3800;
