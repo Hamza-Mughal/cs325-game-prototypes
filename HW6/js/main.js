@@ -52,7 +52,7 @@ Game5.StateA.prototype = {
   create: function () {
 	this.game.add.tileSprite(0, 0, 800, 600, 'background');
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-	this.text = this.add.text(200, 500, 'Press the SPACEBAR to continue', style);
+	this.text = this.add.text(200, 500, 'Press SPACEBAR to continue', style);
 
   },
   
