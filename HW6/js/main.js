@@ -127,7 +127,6 @@ Game5.StateB.prototype = {
 		this.enemy.body.collideWorldBounds=true;
 		this.game.physics.enable(this.enemy,Phaser.Physics.ARCADE);
 		
-		this.steto = game.add.group();
 		this.steto = game.add.weapon(5, 'stet');
 	    this.steto.bulletSpeed = -200;
 		this.steto.fireRate = 300;
