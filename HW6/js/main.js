@@ -115,6 +115,10 @@ Game5.StateB.prototype = {
   
   create: function () {
 	this.game.add.tileSprite(0, 0, 800, 600, 'roomi');
+		this.player = game.add.sprite(game.world.centerX-400, game.world.centerY+200, 'player');
+		this.game.physics.enable(player,Phaser.Physics.ARCADE);
+		this.input = game.input.keyboard.createCursorKeys();
+		this.player.body.collideWorldBounds=true;
   },
   
 
