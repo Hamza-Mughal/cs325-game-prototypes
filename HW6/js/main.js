@@ -121,13 +121,13 @@ Game5.StateB.prototype = {
 		if(this.keys.up.isDown){
 		}
 		if(this.keys.right.isDown){
-			this.gotoStateE();
+			this.gotoStateC();
 		}	  
 		if(this.keys.down.isDown){
-			this.gotoStateE();
+			this.gotoStateC();
 		}	  
 		if(this.keys.left.isDown){
-			this.gotoStateE();
+			this.gotoStateC();
 		}		  
   },
 
@@ -138,23 +138,18 @@ Game5.StateB.prototype = {
 
     }
 	
-  gotoStateE: function () {
-
-        this.game.state.start('StateE', this.score);
-
-    }	
 	
   
   };
 
-  Game5.StateE = function (game) {
+  Game5.StateC = function (game) {
 this.background;
 this.text;
 
 };
 
 
-Game5.StateE.prototype = {
+Game5.StateC.prototype = {
 
   preload: function () {
 
@@ -190,7 +185,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
 game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
-game.state.add('StateE', Game5.StateE);
+game.state.add('StateC', Game5.StateC);
 
 
 game.state.start('StateA');
