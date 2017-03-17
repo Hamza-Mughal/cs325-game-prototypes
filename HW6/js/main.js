@@ -30,9 +30,9 @@ var score= 0;
   //var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
   Game5.StateA = function (game) {
   this.text;
-
   this.background;
   this.points;
+  this.space;
 };
 
 
@@ -55,12 +55,15 @@ Game5.StateA.prototype = {
 	this.points = this.add.text(155,75,'You are tasked with an important task... \nto protect a person', style1);
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(200, 500, 'Press SPACEBAR to continue', style);
-
+	this.space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   },
   
 
   update: function () {
-
+    if (this.space.isDown)
+      {
+        this.gotoState2();
+      }
   },
 
   
@@ -72,6 +75,43 @@ Game5.StateA.prototype = {
   
   };
   
+  
+  Game5.StateB = function (game) {
+
+};
+
+
+
+
+
+
+Game5.StateB.prototype = {
+
+  preload: function () {
+    // Load an image and call it 'logo'.
+    this.load.image( 'background', 'assets/swat.jpg' );
+
+  },
+  
+  
+  create: function () {
+
+  },
+  
+
+  update: function () {
+
+  },
+
+  
+  gotoStateC: function () {
+
+        this.game.state.start('StateC', this.score);
+
+    }
+  
+  };  
+  
  
 
 
@@ -79,5 +119,6 @@ Game5.StateA.prototype = {
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
 game.state.add('StateA', Game5.StateA);
+game.state.add('StateB', Game5.StateB);
 
 game.state.start('StateA');
