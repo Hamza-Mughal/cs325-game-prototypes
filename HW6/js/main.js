@@ -200,7 +200,7 @@ Game5.StateF.prototype = {
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
 	this.game.add.tileSprite(0, 0, 800, 600, 'background');
-	var style = { font: "25px Verdana", fill: "#ffffff", align: "center" };
+	var style = { font: "25px Verdana", fill: "#ff0000", align: "center" };
 	this.text = this.add.text(300,200,'You Failed To Protect The Package\nHit Space To Reset ', style);	
 	this.space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);	
   },
