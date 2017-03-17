@@ -17,7 +17,7 @@ Game5.State1.prototype = {
   preload: function () {
     // Load an image and call it 'logo'.
     
-    this.load.image( 'background', 'swat.jpg' );
+    this.load.image( 'background', 'assets/swat.jpg' );
     
   },
   
@@ -31,6 +31,7 @@ Game5.State1.prototype = {
     var style = { font: "25px Verdana", fill: "#000000", align: "center" };
     this.win_text = this.add.text(200, 500, '(Press the SPACEBAR to continue)', style);
   },
+  
   
 
   update: function () {
