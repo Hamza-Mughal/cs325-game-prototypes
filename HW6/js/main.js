@@ -126,6 +126,12 @@ Game5.StateB.prototype = {
 		this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
 		this.enemy.body.collideWorldBounds=true;
 		this.game.physics.enable(this.enemy,Phaser.Physics.ARCADE);
+		
+		this.steto = game.add.group();
+		this.steto = game.add.weapon(5, 'stet');
+	    this.steto.bulletSpeed = -200;
+		this.steto.fireRate = 300;
+		this.steto.trackSprite(this.enemy, 60, 50, true);		
   },
   
 
