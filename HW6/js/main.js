@@ -136,6 +136,13 @@ Game5.StateB.prototype = {
   
 
   update: function () {
+	  	this.player.body.velocity.y = 0;
+		if(input.up.isDown){
+			this.player.body.velocity.y = -300;
+		}
+		if(input.down.isDown){
+			this.player.body.velocity.y = 300;
+		}
 	  
   },
 
