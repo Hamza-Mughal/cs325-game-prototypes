@@ -88,8 +88,7 @@ Game5.StateA.prototype = {
 Game5.StateB.prototype = {
 
   preload: function () {
-    // Load an image and call it 'logo'.
-    this.load.image( 'background', 'assets/swat.jpg' );
+
 
   },
   
