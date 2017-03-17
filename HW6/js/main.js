@@ -147,14 +147,86 @@ Game5.StateB.prototype = {
 	
   
   };
-
+  
   Game5.StateC = function (game) {
+this.background;
+this.text;
+this.text1;
+this.text2;
+this.text3;
+this.text4;
+this.timer;
+this.time;
+this.keys;
+};
+
+
+Game5.StateC.prototype = {
+
+  preload: function () {
+		this.load.image('roomi', 'assets/room.jpg');
+
+
+  },
+  
+  
+  create: function () {
+	this.game.stage.backgroundColor = '#94fcc0';
+	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+	this.time = 500;
+	
+	this.keys = this.input.keyboard.createCursorKeys();
+	
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(300,200,'The Derivate of e^x is ', style);
+	this.text1 = this.add.text(325,250,'↑  : 0', style);
+	this.text2 = this.add.text(325,275,'→ : ln(x)', style);
+	this.text3 = this.add.text(325,300,'↓  : e^x', style);
+	this.text4 = this.add.text(325,325,'← : xe^(x-1)', style);
+  },
+  
+
+  update: function () {
+	 this.timer.text = 'Time Left: ' + this.time;
+	  this.time--;
+	  
+		if(this.keys.up.isDown){
+			this.time = this.time - 50;			
+		}
+		if(this.keys.right.isDown){
+			this.time = this.time - 50;
+		}	  
+		if(this.keys.down.isDown){
+			this.gotoStateD();
+		}	  
+		if(this.keys.left.isDown){
+			this.time = this.time - 50;
+		}
+
+		if(this.time <= 0){
+			this.game.state.start('StateF', this.score);
+		}
+  },
+
+  
+  gotoStateD: function () {
+
+        this.game.state.start('StateD', this.score);
+
+    }
+	
+
+	
+  
+  };
+  
+  Game5.StateD = function (game) {
 this.background;
 this.text;
 
 };
 
-Game5.StateC.prototype = {
+Game5.StateD.prototype = {
 
   preload: function () {
 
@@ -233,6 +305,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
 game.state.add('StateC', Game5.StateC);
+game.state.add('StateD', Game5.StateD);
 game.state.add('StateF', Game5.StateF);
 
 
