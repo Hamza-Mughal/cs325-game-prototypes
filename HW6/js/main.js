@@ -135,6 +135,7 @@ Game5.StateB.prototype = {
   
 
   update: function () {
+
 	  	this.player.body.velocity.y = 0;
 		if(this.input.up.isDown){
 			this.player.body.velocity.y = -300;
@@ -142,7 +143,14 @@ Game5.StateB.prototype = {
 		if(this.input.down.isDown){
 			this.player.body.velocity.y = 300;
 		}
-
+	     if(Math.random() >.5){
+			this.enemy.body.velocity.y = Math.random()*3200;
+			this.enemy.body.velocity.x = Math.random()*500;
+		}
+		else{
+			this.enemy.body.velocity.y = -(Math.random()*3000);
+			this.enemy.body.velocity.x = -(Math.random()*400);
+		}		
 	
 	  
   },
