@@ -142,7 +142,9 @@ Game5.StateB.prototype = {
 		if(this.input.down.isDown){
 			this.player.body.velocity.y = 300;
 		}
-
+		
+	  this.enemy.body.velocity.x = 0;
+      this.enemy.body.velocity.y = 0;
 	
 	  
   },
