@@ -4,7 +4,7 @@ var Game5 = {};
 
 var score= 0;
 
-
+ var music;
 
 
 
@@ -33,7 +33,7 @@ var score= 0;
   this.background;
   this.points;
   this.space;
-  this.music;
+
 };
 
 
@@ -57,7 +57,7 @@ Game5.StateA.prototype = {
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(200, 500, 'Press SPACEBAR to continue', style);
 	this.space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	this.music = game.sound.play('run');
+	music = game.sound.play('run');
   },
   
 
@@ -313,7 +313,7 @@ Game5.StateE.prototype = {
 	this.game.stage.backgroundColor = '#94fcc0';
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'You safely delivered the package!', style);
-	this.music.pause();
+	music.pause();
 	this.song = game.sound.play('running');
   },
   
