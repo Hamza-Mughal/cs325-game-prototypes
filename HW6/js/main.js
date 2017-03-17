@@ -129,7 +129,11 @@ Game5.StateB.prototype = {
 		}	  
 		if(this.keys.left.isDown){
 			this.time = this.time - 50;
-		}		  
+		}
+
+		if(this.time <= 0){
+			this.game.state.start('StateF', this.score);
+		}
   },
 
   
@@ -178,7 +182,39 @@ Game5.StateC.prototype = {
   
   }; 
   
+  Game5.StateF = function (game) {
+this.background;
+this.text;
 
+};
+
+Game5.StateF.prototype = {
+
+  preload: function () {
+
+
+  },
+  
+  
+  create: function () {
+	this.game.stage.backgroundColor = '#94fcc0';
+
+  },
+  
+
+  update: function () {
+		  
+  },
+
+  
+  gotoStateC: function () {
+
+        this.game.state.start('StateC', this.score);
+
+    }
+	
+  
+  };
  
   
  
@@ -190,6 +226,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
 game.state.add('StateC', Game5.StateC);
+game.state.add('StateF', Game5.StateF);
 
 
 game.state.start('StateA');
