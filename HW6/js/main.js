@@ -128,7 +128,7 @@ Game5.StateB.prototype = {
     }
   gotoStateH: function () {
 
-        this.game.state.start('StateC', this.score);
+        this.game.state.start('StateH', this.score);
 
     }	
   
