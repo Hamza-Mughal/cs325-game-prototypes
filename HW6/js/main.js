@@ -313,6 +313,7 @@ Game5.StateE.prototype = {
 	this.game.stage.backgroundColor = '#94fcc0';
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'You safely delivered the package!', style);
+	this.music.pause();
 	this.song = game.sound.play('running');
   },
   
