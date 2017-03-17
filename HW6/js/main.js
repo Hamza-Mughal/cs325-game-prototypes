@@ -145,11 +145,9 @@ Game5.StateB.prototype = {
 		}
 	     if(Math.random() >.5){
 			this.enemy.body.velocity.y = Math.random()*3200;
-			this.enemy.body.velocity.x = Math.random()*500;
 		}
 		else{
 			this.enemy.body.velocity.y = -(Math.random()*3000);
-			this.enemy.body.velocity.x = -(Math.random()*400);
 		}		
 	
 	  
