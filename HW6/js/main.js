@@ -45,14 +45,14 @@ Game5.StateA.prototype = {
   preload: function () {
     // Load an image and call it 'logo'.
     this.load.image( 'background', 'assets/swat.jpg' );
-	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-	this.text = this.add.text(200, 500, 'Press the SPACEBAR to continue', style);
+
   },
   
   
   create: function () {
 	this.game.add.tileSprite(0, 0, 800, 600, 'background');
-
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(200, 500, 'Press the SPACEBAR to continue', style);
 
   },
   
