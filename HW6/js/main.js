@@ -1,71 +1,80 @@
 "use strict";
 
-  Game5.State1 = function (game) {
+var Game5 = {};
 
+var score= 0;
+
+
+
+
+
+
+
+
+
+
+  // You might want to start with a template that uses GameStates:
+  //     https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic
+  
+  // You can copy-and-paste the code from any of the examples at http://examples.phaser.io here.
+  // You will need to change the fourth parameter to "new Phaser.Game()" from
+  // 'phaser-example' to 'game', which is the id of the HTML element where we
+  // want the game to go.
+  // The assets (and code) can be found at: https://github.com/photonstorm/phaser/tree/master/examples/assets
+  // You will need to change the paths you pass to "game.load.image()" or any other
+  // loading functions to reflect where you are putting the assets.
+  // All loading functions will typically all be found inside "preload()".
+  
+  //"use strict";
+  
+  //var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+  Game5.StateA = function (game) {
   this.text;
-  this.yes;
-  this.no;
+
   this.background;
-  this.keys;
-  this.space;
-  this.win_text;
+
 };
 
-//This is State 1
-Game5.State1.prototype = {
+
+
+
+
+//This is State A
+Game5.StateA.prototype = {
 
   preload: function () {
     // Load an image and call it 'logo'.
-    
-    this.load.image( 'background', 'assets/swat.jpg' );
-    
+    this.load.image( 'good_guy', 'assets/swat.jpg' );
+
   },
   
   
   create: function () {
-    // Create a sprite at the center of the screen using the 'logo' image.
-   this.game.add.tileSprite(0, 0, 800, 600, 'background');
-    this.keys = this.input.keyboard.createCursorKeys();
-    this.space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	this.game.add.tileSprite(0, 0, 800, 600, 'background');
 
-    var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-    this.win_text = this.add.text(200, 500, '(Press the SPACEBAR to continue)', style);
+
   },
-  
   
 
   update: function () {
-    // Accelerate the 'logo' sprite towards the cursor,
-    // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-    // in X or Y.
-    if (this.space.isDown)
-      {
-     //   this.gotoState2();
-      }
-      
-     
-  },
-  
-  
-  
-  gotoState2: function () {
 
-     //   this.game.state.start('State2', this.score);
+  },
+
+  
+  gotoStateB: function () {
+
+        this.game.state.start('StateB', this.score);
 
     }
-
-
+  
   };
-
-
-
-
-
+  
+ 
 
 
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
-game.state.add('State1', Game5.State1);
+game.state.add('StateA', Game5.StateA);
 
-game.state.start('State1');
+game.state.start('StateA');
