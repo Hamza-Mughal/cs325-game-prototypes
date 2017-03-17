@@ -114,16 +114,18 @@ Game5.StateB.prototype = {
   
   
   create: function () {
+	  
 	this.game.add.tileSprite(0, 0, 800, 600, 'roomi');
+	
+			this.input = game.input.keyboard.createCursorKeys();
+			
 		this.player = game.add.sprite(game.world.centerX-400, game.world.centerY+200, 'player');
-		this.game.physics.enable(player,Phaser.Physics.ARCADE);
-		this.input = game.input.keyboard.createCursorKeys();
+		this.game.physics.enable(this.player,Phaser.Physics.ARCADE);
 		this.player.body.collideWorldBounds=true;
 		
 		this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
 		this.enemy.body.collideWorldBounds=true;
-		this.enemy.enableBody = true;
-		this.enemy.physicsBodyType = Phaser.Physics.ARCADE;		
+		this.game.physics.enable(this.enemy,Phaser.Physics.ARCADE);
   },
   
 
