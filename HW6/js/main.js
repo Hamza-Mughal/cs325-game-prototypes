@@ -151,6 +151,44 @@ Game5.StateB.prototype = {
   };
   
   
+    Game5.StateC = function (game) {
+
+};
+
+
+Game5.StateC.prototype = {
+
+  preload: function () {
+
+
+
+  },
+  
+  
+  create: function () {
+
+  },
+  
+
+  update: function () {
+	
+	  
+  },
+
+  
+  gotoStateC: function () {
+
+
+    }
+  gotoStateH: function () {
+
+       // this.game.state.start('StateC', this.score);
+
+    }	
+	
+  
+  };
+  
  
   
  
@@ -161,5 +199,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
 game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
+game.state.add('StateC', Game5.StateC);
 
 game.state.start('StateA');
