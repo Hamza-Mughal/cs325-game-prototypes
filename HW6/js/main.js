@@ -32,7 +32,7 @@ var score= 0;
   this.text;
 
   this.background;
-
+  this.points;
 };
 
 
@@ -51,6 +51,8 @@ Game5.StateA.prototype = {
   
   create: function () {
 	this.game.add.tileSprite(0, 0, 800, 600, 'background');
+	var style1 = { font: "25px Verdana", fill: "#ffffff", align: "center" };
+	this.points = this.add.text(155,100,'You are tasked with an important task... \nto protect a person', style1);
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(200, 500, 'Press SPACEBAR to continue', style);
 
