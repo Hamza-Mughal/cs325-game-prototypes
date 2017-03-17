@@ -141,6 +141,11 @@ Game5.StateB.prototype = {
         this.game.state.start('StateC', this.score);
 
     }
+  gotoStateH: function () {
+
+       // this.game.state.start('StateC', this.score);
+
+    }	
 	
   
   };
