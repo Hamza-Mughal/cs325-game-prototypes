@@ -62,7 +62,7 @@ Game5.StateA.prototype = {
   update: function () {
     if (this.space.isDown)
       {
-        this.gotoState2();
+        this.gotoStateB();
       }
   },
 
@@ -77,7 +77,7 @@ Game5.StateA.prototype = {
   
   
   Game5.StateB = function (game) {
-
+this.background;
 };
 
 
@@ -94,7 +94,7 @@ Game5.StateB.prototype = {
   
   
   create: function () {
-
+	this.game.stage.backgroundColor = '#94fcc0';
   },
   
 
