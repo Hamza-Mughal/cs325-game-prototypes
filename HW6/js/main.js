@@ -148,7 +148,7 @@ Game5.StateB.prototype = {
     }	
   
   };
-  Game5.StateB = function (game) {
+  Game5.StateH = function (game) {
 this.background;
 this.text;
 this.keys;
