@@ -296,20 +296,22 @@ Game5.StateD.prototype = {
   Game5.StateE = function (game) {
 this.background;
 this.text;
-
+this.song;
 };
 
 Game5.StateE.prototype = {
 
   preload: function () {
-
+	game.load.audio('running', 'assets/song.mp3');
 
   },
   
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
-
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(300,200,'You safely delivered the package!', style);
+	this.song = game.sound.play('running');
   },
   
 
