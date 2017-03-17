@@ -78,25 +78,6 @@ Game5.StateA.prototype = {
   
   Game5.StateB = function (game) {
 this.background;
-    this.room;
-	this.player;
-	this.input;
-	this.enemy;
-	
-	this.needle;
-	this.bulletTime = 0;
-	this.steto;
-	this.bullets;
-this.winText;
-this.loseText;
-this.loseText2;
-	
-this.music;
-	
-this.livesText;
-this.lives = 3;
-	
-this.bool = true;
 };
 
 
@@ -104,52 +85,20 @@ Game5.StateB.prototype = {
 
   preload: function () {
 		this.load.image('roomi', 'assets/room.jpg');
-		this.load.image('player', 'assets/gown.png');
-		this.load.image('doctor', 'assets/doctor.png');
-		this.load.image('needle', 'assets/needle.png');
-		this.load.image('stet', 'assets/stet.png');
-		this.load.audio('running', 'assets/running.mp3');
+
 
   },
   
   
   create: function () {
 	  
-	this.game.add.tileSprite(0, 0, 800, 600, 'roomi');
+	this.game.stage.backgroundColor = '#94fcc0';
 	
-			this.input = game.input.keyboard.createCursorKeys();
-			
-		this.player = game.add.sprite(game.world.centerX-400, game.world.centerY+200, 'player');
-		this.game.physics.enable(this.player,Phaser.Physics.ARCADE);
-		this.player.body.collideWorldBounds=true;
-		
-		this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
-		this.enemy.body.collideWorldBounds=true;
-		this.game.physics.enable(this.enemy,Phaser.Physics.ARCADE);
-		
-		this.steto = game.add.weapon(5, 'stet');
-	    this.steto.bulletSpeed = -200;
-		this.steto.fireRate = 300;
-		this.steto.trackSprite(this.enemy, 60, 50, true);		
   },
   
 
   update: function () {
 
-	  	this.player.body.velocity.y = 0;
-		if(this.input.up.isDown){
-			this.player.body.velocity.y = -300;
-		}
-		if(this.input.down.isDown){
-			this.player.body.velocity.y = 300;
-		}
-	     if(Math.random() >.5){
-			this.enemy.body.velocity.y = Math.random()*3200;
-		}
-		else{
-			this.enemy.body.velocity.y = -(Math.random()*3000);
-		}		
-	
 	  
   },
 
