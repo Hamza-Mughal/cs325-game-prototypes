@@ -117,6 +117,21 @@ Game5.StateB.prototype = {
   update: function () {
 	 this.timer.text = 'Time Left: ' + this.time;
 	  this.time--;
+		if(this.keys.up.isDown){
+			gotoStateC();
+		}
+		if(this.keys.right.isDown){
+			gotoStateH();
+			
+		}
+		if(this.keys.down.isDown){
+			gotoStateH();
+			
+		}
+		if(this.keys.left.isDown){
+			gotoStateH();
+			
+		}		
 	  
   },
 
