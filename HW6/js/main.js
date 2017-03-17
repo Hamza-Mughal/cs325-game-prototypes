@@ -186,19 +186,22 @@ Game5.StateC.prototype = {
 this.background;
 this.text;
 
+
 };
 
 Game5.StateF.prototype = {
 
   preload: function () {
-
+	this.load.image( 'background', 'assets/chair.jpg' );
 
   },
   
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
-
+	this.game.add.tileSprite(0, 0, 800, 600, 'background');
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(300,200,'You Failed To Protect The Package\nHit Space To Reset ', style);	
   },
   
 
