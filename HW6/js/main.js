@@ -121,7 +121,6 @@ Game5.StateB.prototype = {
 		this.player.body.collideWorldBounds=true;
 		
 		this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
-		this.game.physics.enable(enemy,Phaser.Physics.ARCADE);
 		this.enemy.body.collideWorldBounds=true;
 		this.enemy.enableBody = true;
 		this.enemy.physicsBodyType = Phaser.Physics.ARCADE;		
