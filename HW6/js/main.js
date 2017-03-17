@@ -57,7 +57,7 @@ Game5.StateA.prototype = {
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(200, 500, 'Press SPACEBAR to continue', style);
 	this.space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	this.song = game.sound.play('run');
+	this.music = game.sound.play('run');
   },
   
 
