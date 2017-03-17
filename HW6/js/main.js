@@ -267,6 +267,7 @@ Game5.StateD.prototype = {
 		}
 		if(this.keys.right.isDown){
 			this.gotoStateE();		
+			
 		}	  
 		if(this.keys.down.isDown){
 			this.time = this.time - 50;
