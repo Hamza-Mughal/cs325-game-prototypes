@@ -100,10 +100,10 @@ Game5.StateB.prototype = {
 	
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'The Derivate of x is ', style);
-	this.text1 = this.add.text(300,250,'1', style);
-	this.text2 = this.add.text(300,250,'0', style);
-	this.text3 = this.add.text(300,250,'x^2', style);
-	this.text4 = this.add.text(300,250,'Dog', style);
+	this.text1 = this.add.text(325,250,'1', style);
+	this.text2 = this.add.text(325,275,'0', style);
+	this.text3 = this.add.text(325,300,'x^2', style);
+	this.text4 = this.add.text(325,325,'Dog', style);
   },
   
 
