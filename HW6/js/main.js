@@ -83,6 +83,8 @@ this.text1;
 this.text2;
 this.text3;
 this.text4;
+this.timer;
+this.time = 500;
 };
 
 
@@ -97,19 +99,21 @@ Game5.StateB.prototype = {
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
+	this.timer = game.add.text(100,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+	
 	
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'The Derivate of x is ', style);
-	this.text1 = this.add.text(325,250,'1', style);
-	this.text2 = this.add.text(325,275,'0', style);
-	this.text3 = this.add.text(325,300,'x^2', style);
-	this.text4 = this.add.text(325,325,'Dog', style);
+	this.text1 = this.add.text(325,250,'↑: 1', style);
+	this.text2 = this.add.text(325,275,'→: 0', style);
+	this.text3 = this.add.text(325,300,'↓: x^2', style);
+	this.text4 = this.add.text(325,325,'←: Dog', style);
   },
   
 
   update: function () {
-
-	  
+	 this.timer.text = 'Time Left: ' + this.time;
+	  this.time--;
   },
 
   
