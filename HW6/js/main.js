@@ -220,13 +220,85 @@ Game5.StateC.prototype = {
   
   };
   
-  Game5.StateD = function (game) {
+   Game5.StateD = function (game) {
+this.background;
+this.text;
+this.text1;
+this.text2;
+this.text3;
+this.text4;
+this.timer;
+this.time;
+this.keys;
+};
+
+
+Game5.StateD.prototype = {
+
+  preload: function () {
+		this.load.image('roomi', 'assets/room.jpg');
+
+
+  },
+  
+  
+  create: function () {
+	this.game.stage.backgroundColor = '#94fcc0';
+	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+	this.time = 500;
+	
+	this.keys = this.input.keyboard.createCursorKeys();
+	
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(300,200,'The AntiDerivate of 1 is ', style);
+	this.text1 = this.add.text(325,250,'↑  : 1', style);
+	this.text2 = this.add.text(325,275,'→ : x', style);
+	this.text3 = this.add.text(325,300,'↓  : e^x', style);
+	this.text4 = this.add.text(325,325,'← : x^2', style);
+  },
+  
+
+  update: function () {
+	 this.timer.text = 'Time Left: ' + this.time;
+	  this.time--;
+	  
+		if(this.keys.up.isDown){
+			this.time = this.time - 50;			
+		}
+		if(this.keys.right.isDown){
+			this.gotoStateE();		
+		}	  
+		if(this.keys.down.isDown){
+			this.time = this.time - 50;
+		}	  
+		if(this.keys.left.isDown){
+			this.time = this.time - 50;
+		}
+
+		if(this.time <= 0){
+			this.game.state.start('StateF', this.score);
+		}
+  },
+
+  
+  gotoStateE: function () {
+
+        this.game.state.start('StateE', this.score);
+
+    }
+	
+
+	
+  
+  }; 
+  
+  Game5.StateE = function (game) {
 this.background;
 this.text;
 
 };
 
-Game5.StateD.prototype = {
+Game5.StateE.prototype = {
 
   preload: function () {
 
