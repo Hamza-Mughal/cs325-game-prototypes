@@ -379,6 +379,7 @@ game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
 game.state.add('StateC', Game5.StateC);
 game.state.add('StateD', Game5.StateD);
+game.state.add('StateE', Game5.StateE);
 game.state.add('StateF', Game5.StateF);
 
 
