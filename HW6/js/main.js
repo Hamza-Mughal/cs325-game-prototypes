@@ -118,18 +118,18 @@ Game5.StateB.prototype = {
 	 this.timer.text = 'Time Left: ' + this.time;
 	  this.time--;
 		if(this.keys.up.isDown){
-			gotoStateC();
+			this.gotoStateC();
 		}
 		if(this.keys.right.isDown){
-			gotoStateH();
+			this.gotoStateH();
 			
 		}
 		if(this.keys.down.isDown){
-			gotoStateH();
+			this.gotoStateH();
 			
 		}
 		if(this.keys.left.isDown){
-			gotoStateH();
+			this.gotoStateH();
 			
 		}		
 	  
@@ -159,8 +159,6 @@ Game5.StateH.prototype = {
 
   preload: function () {
 		this.load.image('chair', 'assets/chair.jpg');
-
-
   },
   
   
