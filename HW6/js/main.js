@@ -255,9 +255,9 @@ Game5.StateD.prototype = {
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'The AntiDerivate of 1 is ', style);
 	this.text1 = this.add.text(325,250,'↑  : 1', style);
-	this.text2 = this.add.text(325,275,'→ : x', style);
+	this.text2 = this.add.text(325,275,'→ : x + c', style);
 	this.text3 = this.add.text(325,300,'↓  : e^x', style);
-	this.text4 = this.add.text(325,325,'← : x^2', style);
+	this.text4 = this.add.text(325,325,'← : x', style);
   },
   
 
