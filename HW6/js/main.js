@@ -108,15 +108,16 @@ Game5.StateB.prototype = {
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
 	this.text = this.add.text(300,200,'The Derivate of x is ', style);
 	this.text1 = this.add.text(325,250,'↑  : 1', style);
-	this.text2 = this.add.text(325,275,'→: 0', style);
+	this.text2 = this.add.text(325,275,'→ : 0', style);
 	this.text3 = this.add.text(325,300,'↓  : x^2', style);
-	this.text4 = this.add.text(325,325,'←: Dog', style);
+	this.text4 = this.add.text(325,325,'← : Dog', style);
   },
   
 
   update: function () {
 	 this.timer.text = 'Time Left: ' + this.time;
 	  this.time--;
+	  
   },
 
   
@@ -125,8 +126,56 @@ Game5.StateB.prototype = {
         this.game.state.start('StateC', this.score);
 
     }
+  gotoStateH: function () {
+
+        this.game.state.start('StateC', this.score);
+
+    }	
   
-  };  
+  };
+  Game5.StateB = function (game) {
+this.background;
+this.text;
+this.keys;
+};
+
+
+Game5.StateH.prototype = {
+
+  preload: function () {
+		this.load.image('chair', 'assets/chair.jpg');
+
+
+  },
+  
+  
+  create: function () {
+	this.background = game.add.tileSprite(0,0,800,600,'chair');
+	
+	this.keys = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	
+	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
+	this.text = this.add.text(400,200,'You failed...\nHit Space to try again ', style);
+  },
+  
+
+  update: function () {
+    if (this.space.isDown)
+      {
+        this.gotoStateA();
+      }
+	  
+  },
+
+  
+  gotoStateA: function () {
+
+        this.game.state.start('StateA', this.score);
+
+    }
+	
+  
+  };   
   
  
 
@@ -136,5 +185,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
 game.state.add('StateA', Game5.StateA);
 game.state.add('StateB', Game5.StateB);
+game.state.add('StateH', Game5.StateH);
 
 game.state.start('StateA');
