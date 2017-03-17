@@ -78,28 +78,48 @@ Game5.StateA.prototype = {
   
   Game5.StateB = function (game) {
 this.background;
+    this.room;
+	this.player;
+	this.input;
+	this.enemy;
+	
+	this.needle;
+	this.bulletTime = 0;
+	this.steto;
+	this.bullets;
+this.winText;
+this.loseText;
+this.loseText2;
+	
+this.music;
+	
+this.livesText;
+this.lives = 3;
+	
+this.bool = true;
 };
-
-
-
-
 
 
 Game5.StateB.prototype = {
 
   preload: function () {
-
+		this.load.image('roomi', 'assets/room.jpg');
+		this.load.image('player', 'assets/gown.png');
+		this.load.image('doctor', 'assets/doctor.png');
+		this.load.image('needle', 'assets/needle.png');
+		this.load.image('stet', 'assets/stet.png');
+		this.load.audio('running', 'assets/running.mp3');
 
   },
   
   
   create: function () {
-	this.game.stage.backgroundColor = '#94fcc0';
+	this.game.add.tileSprite(0, 0, 800, 600, 'roomi');
   },
   
 
   update: function () {
-
+	  
   },
 
   
