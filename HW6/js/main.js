@@ -97,7 +97,7 @@ Game5.StateB.prototype = {
 
   preload: function () {
 		this.load.image('roomi', 'assets/room.jpg');
-		this.load.image('mao', 'assets/mao.jpg');
+		this.load.image('mao', 'assets/mao.png');
 
   },
   
