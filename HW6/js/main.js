@@ -89,6 +89,7 @@ this.text4;
 this.timer;
 this.time;
 this.keys;
+this.face;
 };
 
 
@@ -96,13 +97,14 @@ Game5.StateB.prototype = {
 
   preload: function () {
 		this.load.image('roomi', 'assets/room.jpg');
-
+		this.load.image('mao', 'assets/mao.jpg');
 
   },
   
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
+	this.face = game.add.sprite(50, 50, 'mao');
 	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
 	this.time = 500;
 	
