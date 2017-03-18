@@ -104,18 +104,18 @@ Game5.StateB.prototype = {
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
-	this.face = game.add.sprite(300, 25, 'mao');
-	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+	this.face = game.add.sprite(300, 30, 'mao');
+	this.timer = game.add.text(50,225,'Time Left: ', {font:'32px Arial', fill: '#000000'});
 	this.time = 500;
 	
 	this.keys = this.input.keyboard.createCursorKeys();
 	
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-	this.text = this.add.text(300,200,'The Derivate of x is ', style);
-	this.text1 = this.add.text(325,250,'↑  : 1', style);
-	this.text2 = this.add.text(325,275,'→ : 0', style);
-	this.text3 = this.add.text(325,300,'↓  : x^2', style);
-	this.text4 = this.add.text(325,325,'← : Dog', style);
+	this.text = this.add.text(300,225,'The Derivative of x is ', style);
+	this.text1 = this.add.text(325,275,'↑  : 1', style);
+	this.text2 = this.add.text(325,300,'→ : 0', style);
+	this.text3 = this.add.text(325,325,'↓  : x^2', style);
+	this.text4 = this.add.text(325,350,'← : Dog', style);
   },
   
 
@@ -178,18 +178,18 @@ Game5.StateC.prototype = {
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
-		this.face = game.add.sprite(300, 25, 'mao');
-	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+		this.face = game.add.sprite(300, 30, 'mao');
+	this.timer = game.add.text(50,225,'Time Left: ', {font:'32px Arial', fill: '#000000'});
 	this.time = 500;
 	
 	this.keys = this.input.keyboard.createCursorKeys();
 	
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-	this.text = this.add.text(300,200,'The Derivate of e^x is ', style);
-	this.text1 = this.add.text(325,250,'↑  : 0', style);
-	this.text2 = this.add.text(325,275,'→ : ln(x)', style);
-	this.text3 = this.add.text(325,300,'↓  : e^x', style);
-	this.text4 = this.add.text(325,325,'← : xe^(x-1)', style);
+	this.text = this.add.text(300,225,'The Derivative of e^x is ', style);
+	this.text1 = this.add.text(325,275,'↑  : 0', style);
+	this.text2 = this.add.text(325,300,'→ : ln(x)', style);
+	this.text3 = this.add.text(325,325,'↓  : e^x', style);
+	this.text4 = this.add.text(325,350,'← : xe^(x-1)', style);
   },
   
 
@@ -252,18 +252,18 @@ Game5.StateD.prototype = {
   
   create: function () {
 	this.game.stage.backgroundColor = '#94fcc0';
-		this.face = game.add.sprite(300, 25, 'mao');	
-	this.timer = game.add.text(50,200,'Time Left: ', {font:'32px Arial', fill: '#000000'});
+		this.face = game.add.sprite(300, 30, 'mao');	
+	this.timer = game.add.text(50,225,'Time Left: ', {font:'32px Arial', fill: '#000000'});
 	this.time = 500;
 	
 	this.keys = this.input.keyboard.createCursorKeys();
 	
 	var style = { font: "25px Verdana", fill: "#000000", align: "center" };
-	this.text = this.add.text(300,200,'The AntiDerivate of 1 is ', style);
-	this.text1 = this.add.text(325,250,'↑  : 1', style);
-	this.text2 = this.add.text(325,275,'→ : x + c', style);
-	this.text3 = this.add.text(325,300,'↓  : e^x', style);
-	this.text4 = this.add.text(325,325,'← : x', style);
+	this.text = this.add.text(300,225,'The AntiDerivate of 1 is ', style);
+	this.text1 = this.add.text(325,275,'↑  : 1', style);
+	this.text2 = this.add.text(325,300,'→ : x + c', style);
+	this.text3 = this.add.text(325,325,'↓  : e^x', style);
+	this.text4 = this.add.text(325,350,'← : x', style);
   },
   
 
