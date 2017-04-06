@@ -78,9 +78,6 @@ playGame.prototype = {
 		}
 		if(key1.down.isDown){
 			start2.visible = false;
-		}
-		if(key1.right.isDown){
-			moveCar();
 		}		
      }
 }
