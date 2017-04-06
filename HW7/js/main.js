@@ -66,6 +66,7 @@ playGame.prototype = {
 	start2 = game.add.tileSprite(0,0,800,600,'start2');
 	start2.visible = false;
 	song = game.sound.play('song');
+	song.volume = 0.2;
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
