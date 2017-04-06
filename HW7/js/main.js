@@ -20,7 +20,7 @@ var text2;
 var music;
 var effect;
 window.onload = function() {	
-	game = new Phaser.Game(600, 500, Phaser.AUTO, "");
+	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
      game.state.add("PlayGame",playGame);
      game.state.start("PlayGame");
 }
