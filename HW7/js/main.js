@@ -71,6 +71,7 @@ playGame.prototype = {
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
+			  song.pause();
                game.state.start("PlayGame");     
           });
 		if(key1.up.isDown){
