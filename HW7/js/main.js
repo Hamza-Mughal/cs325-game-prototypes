@@ -22,7 +22,7 @@ playGame.prototype = {
 	preload: function(){
           game.load.image("road", "assets/road1.jpg");
           game.load.image("car", "assets/car.png");
-          game.load.image("obstacle", "assets/obstacle.png");
+          game.load.image("obstacle", "assets/cartooncar.png");
 	},
   	create: function(){
           game.add.image(0, 0, "road");
