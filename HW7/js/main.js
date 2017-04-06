@@ -19,7 +19,7 @@ var key2;
 var text1;
 var text2;
 var music;
-
+var effect;
 window.onload = function() {	
 	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
      game.state.add("PlayGame",playGame);
@@ -36,6 +36,7 @@ playGame.prototype = {
 		  game.load.image("start1", "assets/start1.png");
 		  game.load.image("start2", "assets/start2.png");
 		  game.load.audio('song', 'assets/song.mp3');
+		  game.load.audio('vroom', 'assets/vroom.m4a');
 	},
   	create: function(){
           game.add.image(0, 0, "road");
@@ -85,6 +86,8 @@ playGame.prototype = {
 function moveCar(e){
      var carToMove = Math.floor(e.position.x / (game.width / 2));
      if(cars[carToMove].canMove){
+		 effect = game.sound.play('vroom');
+		 effect.volume = 1;
           cars[carToMove].canMove = false;
           cars[carToMove].side = 1 - cars[carToMove].side;
           var moveTween = game.add.tween(cars[carToMove]).to({ 
