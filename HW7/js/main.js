@@ -29,7 +29,7 @@ playGame.prototype = {
           game.physics.startSystem(Phaser.Physics.ARCADE);
           carGroup = game.add.group();
           obstacleGroup = game.add.group();
-          for(var i = 0; i < 2; i++){
+          for(var i = 0; i < 1; i++){
                cars[i] = game.add.sprite(0, game.height - 40, "car");
                cars[i].positions = [game.width * (i * 4 + 1) / 8, game.width * (i * 4 + 3) / 8];
                cars[i].anchor.set(0.5);
