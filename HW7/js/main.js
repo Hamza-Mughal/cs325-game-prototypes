@@ -61,11 +61,17 @@ playGame.prototype = {
 	key1 = game.input.keyboard.createCursorKeys();	  
 	start1 = game.add.tileSprite(0,0,800,600,'start1');
 	text1 = game.add.text(200,200,'Hit ↑ To Continue', {font:'32px Arial', fill: '#ff0000'});
+	start2 = game.add.tileSprite(0,0,800,600,'start2');
+	start2.visible = false;
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
                game.state.start("PlayGame");     
           });
+		if(key1.up.isDown){
+			start1.visible = false;
+			start2.visible = true;
+		}  
      }
 }
  
