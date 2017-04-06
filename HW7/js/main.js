@@ -1,7 +1,7 @@
 var game;
  
 var cars = [];
-var carColors = [0xff0000, 0x0000ff];
+var carColors = [0xff0000];
 var carTurnSpeed = 250;
  
 var carGroup;
@@ -18,7 +18,7 @@ var key2;
 
 var text1;
 var text2;
-
+var music;
 
 window.onload = function() {	
 	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
@@ -35,6 +35,7 @@ playGame.prototype = {
           game.load.image("obstacle", "assets/copcar.png");
 		  game.load.image("start1", "assets/start1.png");
 		  game.load.image("start2", "assets/start2.png");
+		  game.load.audio('song', 'assets/song.mp3');
 	},
   	create: function(){
           game.add.image(0, 0, "road");
@@ -62,9 +63,9 @@ playGame.prototype = {
           });
 	key1 = game.input.keyboard.createCursorKeys();	  
 	start1 = game.add.tileSprite(0,0,800,600,'start1');
-	
 	start2 = game.add.tileSprite(0,0,800,600,'start2');
 	start2.visible = false;
+	song = game.sound.play('song');
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
