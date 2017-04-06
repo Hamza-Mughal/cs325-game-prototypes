@@ -15,6 +15,9 @@ var start2;
 
 var key1;
 var key2;
+
+var text1;
+var text2;
 window.onload = function() {	
 	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
      game.state.add("PlayGame",playGame);
@@ -55,7 +58,9 @@ playGame.prototype = {
                game.add.existing(obstacle);
                obstacleGroup.add(obstacle);
           });
-	start1 = game.add.tileSprite(0,0,800,600,'start1');	
+	key1 = game.input.keyboard.createCursorKeys();	  
+	start1 = game.add.tileSprite(0,0,800,600,'start1');
+	text1 = game.add.text(200,200,'Hit ↑ To Continue', {font:'32px Arial', fill: '#000000'});
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
