@@ -1,7 +1,7 @@
 var game;
  
 var cars = [];
-var carColors = [0xff0000];
+//var carColors = [0xff0000];
 var carTurnSpeed = 250;
  
 var carGroup;
@@ -47,7 +47,7 @@ playGame.prototype = {
                cars[i] = game.add.sprite(0, game.height - 40, "car");
                cars[i].positions = [game.width * (i * 4 + 1) / 8, game.width * (i * 4 + 3) / 8];
                cars[i].anchor.set(0.5);
-               cars[i].tint = carColors[i];  
+              // cars[i].tint = carColors[i];  
                cars[i].canMove = true;
                cars[i].side = i;
                cars[i].x = cars[i].positions[cars[i].side];
@@ -105,7 +105,7 @@ Obstacle = function (game) {
 	Phaser.Sprite.call(this, game, game.width * (position * 2 + 1) / 8, -20, "obstacle");
 	game.physics.enable(this, Phaser.Physics.ARCADE);
      this.anchor.set(0.5);
-     this.tint = carColors[Math.floor(position / 2)];
+    // this.tint = carColors[Math.floor(position / 2)];
 };
  
 Obstacle.prototype = Object.create(Phaser.Sprite.prototype);
