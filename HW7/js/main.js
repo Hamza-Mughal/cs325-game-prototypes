@@ -11,7 +11,7 @@ var obstacleSpeed = 120;
 var obstacleDelay = 1500;
  
 window.onload = function() {	
-	game = new Phaser.Game(800, 600, Phaser.AUTO, "");
+	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
      game.state.add("PlayGame",playGame);
      game.state.start("PlayGame");
 }
