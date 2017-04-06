@@ -55,7 +55,7 @@ playGame.prototype = {
                game.add.existing(obstacle);
                obstacleGroup.add(obstacle);
           });
-	start1 = game.add.tileSprite(0,0,500,500,'start1');	
+	start1 = game.add.tileSprite(0,0,800,600,'start1');	
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
