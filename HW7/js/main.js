@@ -60,7 +60,7 @@ playGame.prototype = {
           });
 	key1 = game.input.keyboard.createCursorKeys();	  
 	start1 = game.add.tileSprite(0,0,800,600,'start1');
-	text1 = game.add.text(200,200,'Hit ↑ To Continue', {font:'32px Arial', fill: '#000000'});
+	text1 = game.add.text(200,200,'Hit ↑ To Continue', {font:'32px Arial', fill: '#ff0000'});
 	},
      update: function(){
           game.physics.arcade.collide(carGroup, obstacleGroup, function(){
