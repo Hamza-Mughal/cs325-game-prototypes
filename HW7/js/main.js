@@ -71,7 +71,7 @@ function moveCar(e){
 }
  
 Obstacle = function (game) {
-     var position = game.rnd.between(0, 3);
+     var position = game.rnd.between(0, 1);
 	Phaser.Sprite.call(this, game, game.width * (position * 2 + 1) / 8, -20, "obstacle");
 	game.physics.enable(this, Phaser.Physics.ARCADE);
      this.anchor.set(0.5);
