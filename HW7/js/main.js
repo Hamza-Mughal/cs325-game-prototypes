@@ -73,8 +73,10 @@ playGame.prototype = {
 		if(key1.up.isDown){
 			start1.visible = false;
 			start2.visible = true;
-
 		}
+		if(key1.down.isDown){
+			start2.visible = false;
+		}		
      }
 }
  
