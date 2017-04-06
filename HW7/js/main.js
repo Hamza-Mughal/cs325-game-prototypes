@@ -18,6 +18,9 @@ var key2;
 
 var text1;
 var text2;
+
+var bool1 = true;
+var bool2 = true;
 window.onload = function() {	
 	game = new Phaser.Game(500, 500, Phaser.AUTO, "");
      game.state.add("PlayGame",playGame);
@@ -61,6 +64,8 @@ playGame.prototype = {
 	key1 = game.input.keyboard.createCursorKeys();	  
 	start1 = game.add.tileSprite(0,0,800,600,'start1');
 	text1 = game.add.text(200,200,'Hit ↑ To Continue', {font:'32px Arial', fill: '#ff0000'});
+	text2 = game.add.text(200,200,'Hit ↓ To Play', {font:'32px Arial', fill: '#ff0000'});
+	text2.visible = false;
 	start2 = game.add.tileSprite(0,0,800,600,'start2');
 	start2.visible = false;
 	},
@@ -69,9 +74,14 @@ playGame.prototype = {
                game.state.start("PlayGame");     
           });
 		if(key1.up.isDown){
+			if(bool1 == true){
 			start1.visible = false;
+			text1.visible = false;
 			start2.visible = true;
+			text2.visible = true;
+			bool1 = false;
 		}  
+		}
      }
 }
  
