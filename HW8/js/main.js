@@ -48,7 +48,7 @@ Game5.StateA.prototype = {
   
   
   create: function () {
-	this.game.add.tileSprite(0, 0, 800, 600, 'background');
+	this.game.add.tileSprite(0, 0, 500, 500, 'background');
 	this.game.time.events.add(Phaser.Timer.SECOND * 4, addEnemy, this);
   },
   
