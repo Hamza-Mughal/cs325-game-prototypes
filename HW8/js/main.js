@@ -43,11 +43,6 @@ var mainState = {
 	this.labelScore1 = game.add.text(60, 90, "750 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
-	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
-	game.physics.arcade.enable(this.enemy);
-	this.enemy.body.collideWorldBounds=true;
-	this.enemy.body.velocity.x = 0;
-    this.enemy.body.velocity.y = 0;
 	
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
@@ -76,15 +71,6 @@ var mainState = {
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
-
-	     if(Math.random() >.5){
-			this.enemy.body.velocity.y = Math.random()*3200;
-			this.enemy.body.velocity.x = Math.random()*500;
-		}
-		else{
-			this.enemy.body.velocity.y = -(Math.random()*3000);
-			this.enemy.body.velocity.x = -(Math.random()*400);
-		}
 
 	if(this.score > 750){
 		game.world.removeAll();
