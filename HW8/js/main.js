@@ -63,10 +63,7 @@ Game5.StateA.prototype = {
 	  this.enemy.enableBody = true;
 	  
   }
-  
-  gotoStateB: function () {
-        this.game.state.start('StateB', this.score);
-    }
+
   
   };
 
