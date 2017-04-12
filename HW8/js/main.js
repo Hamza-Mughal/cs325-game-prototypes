@@ -20,12 +20,11 @@ var mainState = {
 	game.physics.arcade.enable(this.bravo);
 	this.input = game.input.keyboard.createCursorKeys();
 	
-	this.fires = game.add.group();
 	this.power = game.add.group();
 	
 	this.Banana = game.add.group();
 	
-	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
+
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
@@ -59,7 +58,6 @@ var mainState = {
     },
 
     update: function() {
-	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
 	if(this.input.up.isDown){
@@ -129,20 +127,7 @@ var mainState = {
 	}
 	},	
 	
-	addFire: function(x,y){
-		var fire = game.add.sprite(x,y, 'fire');
-		
-		this.fires.add(fire);
-		
-		game.physics.arcade.enable(fire);
-		
-		fire.body.velocity.x = -200;
-		
-		fire.checkWorldBounds = true;
-		fire.outOfBoundsKill = true;
-		
-		
-	},
+
 	addPowerUp: function(){
 		var x = (Math.random()*650)+80;
 		var y = (Math.random()*350)+90;
@@ -216,14 +201,6 @@ var mainState = {
 		banana.outOfBoundsKill = true;		
 	},	
 	
-	addRowOfFires: function() {
-	//this.score += 1;
-	//this.labelScore.text = this.score;  
-    var hole = Math.floor(Math.random() * 7) + 1;
-    for (var i = 0; i < 10; i++)
-        if (i != hole-1 && i != hole && i != hole + 1) 
-            this.addFire(400, i * 60 + 10);		
-	},
 };
 
 var game = new Phaser.Game(800, 600);
