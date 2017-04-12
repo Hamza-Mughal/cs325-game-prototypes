@@ -43,7 +43,7 @@ Game5.StateA.prototype = {
   preload: function () {
     // Load an image and call it 'logo'.
     this.load.image( 'background', 'assets/road1.jpg' );
-	this.load.image( 'enemy', 'assets/copcay.png' );
+	this.load.image( 'enemy', 'assets/copcar.png' );
   },
   
   
