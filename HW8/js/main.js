@@ -18,7 +18,6 @@ var mainState = {
 	
 	this.bravo = game.add.sprite(100, 245, 'bravo');
 	game.physics.arcade.enable(this.bravo);
-	
 	this.input = game.input.keyboard.createCursorKeys();
 	
 	this.fires = game.add.group();
@@ -26,9 +25,12 @@ var mainState = {
 	
 	this.Banana = game.add.group();
 	
+	this.timer = game.time.events.loop(1750, this.addRowOfFires, this); 
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
 	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
+	this.timer4 = game.time.events.loop(7700, this.addBanana3, this);
+	this.timer5 = game.time.events.loop(6500, this.addBanana4, this);
 	
 	this.timer6 = game.time.events.loop(6000, this.playRing, this);
 	this.timer7 = game.time.events.loop(7200, this.playRing, this);
@@ -37,18 +39,34 @@ var mainState = {
 	
 	
 	this.score = 0;
-
+	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "750 pts to win!", { font: "20px Arial", fill: "#000000" });
+	
+	
+	this.enemy = game.add.sprite(game.world.centerX+300, game.world.centerY-200, 'doctor');
+	game.physics.arcade.enable(this.enemy);
+	this.enemy.body.collideWorldBounds=true;
+	this.enemy.body.velocity.x = 0;
+    this.enemy.body.velocity.y = 0;
 	
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
+	this.beginSound = game.add.audio('go'); 
+	this.beginSound.play(); 
+	
+	this.deathSound = game.add.audio('shoulder');
+	
+	this.ringing = game.sound.play('ringing');
+	
+	this.audi = game.sound.play('ricco');
+	this.audi.play();
     },
 
     update: function() {
 	game.physics.arcade.overlap(this.bravo, this.fires, this.restartGame, null, this);
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
-	
 	if(this.input.up.isDown){
 		this.bravo.body.velocity.y = 200;
 	}
@@ -67,7 +85,14 @@ var mainState = {
 			this.enemy.body.velocity.y = -(Math.random()*3000);
 			this.enemy.body.velocity.x = -(Math.random()*400);
 		}
-	
+
+	if(this.score > 750){
+		game.world.removeAll();
+		this.bool = true;
+		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
+		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
+		
+	}		
     },
 	
 	jump: function() {
@@ -182,10 +207,37 @@ var mainState = {
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
 	},
-
-
+	addBanana3: function(){
+		var banana = game.add.sprite(1,60, 'phone');
+		
+		this.Banana.add(banana);
+		game.physics.arcade.enable(banana);
+		
+		banana.body.velocity.x = 47;
+		
+		banana.checkWorldBounds = true;
+		banana.outOfBoundsKill = true;		
+	},
+	addBanana4: function(){
+		var banana = game.add.sprite(1,500, 'phone');
+		
+		this.Banana.add(banana);
+		game.physics.arcade.enable(banana);
+		
+		banana.body.velocity.x = 47;
+		
+		banana.checkWorldBounds = true;
+		banana.outOfBoundsKill = true;		
+	},	
 	
-
+	addRowOfFires: function() {
+	//this.score += 1;
+	//this.labelScore.text = this.score;  
+    var hole = Math.floor(Math.random() * 7) + 1;
+    for (var i = 0; i < 10; i++)
+        if (i != hole-1 && i != hole && i != hole + 1) 
+            this.addFire(400, i * 60 + 10);		
+	},
 };
 
 var game = new Phaser.Game(800, 600);
