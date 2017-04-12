@@ -31,6 +31,7 @@ var score= 0;
   Game5.StateA = function (game) {
   this.background;
   this.enemy;
+  this.enemies;
 };
 
 
@@ -50,17 +51,23 @@ Game5.StateA.prototype = {
   create: function () {
 	this.game.add.tileSprite(0, 0, 500, 500, 'background');
 	this.game.time.events.add(Phaser.Timer.SECOND * 4, addEnemy, this);
+	this.enemies = this.game.add.group();
   },
   
 
   update: function () {
-	this.enemy.body.velocity.y = 200;
+	  
   },
 
   addEnemy: function(){
-	  this.enemy = game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'enemy');
-	  this.enemy.physicsBodyType = Phaser.Physics.ARCADE;
-	  this.enemy.enableBody = true;
+	  var banana = game.add.sprite(450,400, 'enemy');
+	  this.enemies.add(banana);
+		game.physics.arcade.enable(banana);
+		
+		banana.body.velocity.y = 200;
+		
+		banana.checkWorldBounds = true;
+		banana.outOfBoundsKill = true;		  
 	  
   }
 
