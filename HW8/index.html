@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Protect Or Die</title>
+    <title>Jump, Jump, Jump!</title>
     <script src="js/phaser.js"></script>
     <script src="js/main.js"></script>
 
@@ -22,71 +22,80 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Protect Or Die</h2>
+<h2>Jump, Jump, Jump!</h2>
 <ul>
 
 <li><strong>High Concept:</strong>
-Protect the package by surviving!
+Avoid dieing to retrieve your precious items.
 </li>
 
 <li><strong>Theme:</strong>
-Person who needs protection
+Snob and Phone calls aren't returned
 </li>
 
 <li><strong>Mandated Variety:</strong>
-Input: Keyboard
-Randomness: Deterministic
-play style: Achiever
+Input: Mouse primarily, with keyboard to restart game. Randomness: deterministic.
+Play styles: Performed, Achiever, Competitor. Genres: Adventure, platformer.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-Player should experience accomplishment
+Players should feel a rush of accomplishment as they successfully avoid obstacles to win.
 </li>
 
 <li><strong>Gameplay:</strong>
-Player can hit spacebar, and the arrow keys. Core mechanic is to use arrow key to select the correct answer. If player chooses wrong answer, it deducts from the timer.
-If timer hits 0, the player loses.
+<li>Mouse: Make player move upwards.</li>
+<li>W: Restart game at end.</li>
+<li>Game automatically restarts if out of bounds or collide with obstacle.</li>
+<li>Player earns points touching the necklaces.</li>
+<li>Player needs minimum of 500 points to win the game.</li>
+<li>Touch the power up to gain extra points, but be aware of your surrounding!</li>
 </li>
 
 <li><strong>Prototype Goal:</strong>
-Prototyping the difficulty of questions/use of game states/arrow keys
+Using mouse to move player up, also determining if obstacles are set up correctly and at correct speeds.
 </li>
 
 <li><strong>Features:</strong>
-Player is trying to safely deliver the package by answering math questions in a timely manner
+Obstacles move at random speeds, and spawn at seperate times. Auditory cue given when phone obstacles approach. Power up to gain extra points.
 </li>
 
 <li><strong>Setting/Premise:</strong>
-Set in 1940s New York where a package needs to be delivered. However the delivery man is stopped by mathematical questions.
+Set in the medieval ages where gorillas and humans ruled together. Nabil is a high class elite member (a snob), while the gorilla is a low peasent.
+The gorilla wants to get in touch with Nabil, however he wont returns his calls. So the only thing he can do is kill Nabil!
 </li>
 
 <li><strong>Story:</strong>
-A package needs to be delivered to a destination - it will determine the fate of Earth itself!
+Nabil is a member of the elite. He spends most of his days thinking about how rich he is and touches his necklaces  non stop. A gorilla appeared at his doorstep
+one day to ask him for his money. As soon as Nabil saw the gorilla, he laughed and said he does not talk to peasants. The gorilla was shocked and left, and then
+began to call Nabil's home. Nabil did not pick up which enraged the gorilla. The gorilla learned psychic powers and transported Nabil into an evil world where
+the gorilla tries to kill Nabil.
 </li>
 
 <li><strong>Target Audience:</strong>
-Trying to reach high school students.
+Targeted towards audiences who enjoy platforming games that can be a challenge to beat.
 </li>
 
 <li><strong>Play Time:</strong>
-About 1 minute.
-
+Depending on RNG, gameplay can take up to 30 seconds to 1 minute.
 </li>
 
 <li><strong>Strategies:</strong>
-Choosing correct answer and knowing simple Calculus will help.
+Pre determine when and where next obstacle will spawn so you can move appropriately to avoid them.
 </li>
 
 <li><strong>Prototype Assets:</strong>
-Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
 <ul>
-<li>Swat: <a href="http://images.onset.freedom.com/ocregister/article/n0uwwt-b781217958z.120140211161434000gha1hv3tg.1.jpg">Swat</a></li>
-<li>Tied man: <a href="http://www.clipartguide.com/_named_clipart_images/0060-0808-1917-5811_Mob_Informant_Tied_to_a_Chair_clipart_image.jpg">Tied man</a></li>
+Player sprite made by myself, DK sprite semi-made by myself.
+<li>Necklace: <a href="http://www.clipartkid.com/images/29/necklace-aqua-beads-clip-art-at-clker-com-vector-clip-art-online-4VbePd-clipart.png">Necklace</a></li>
+<li>Telephone: <a href="http://www.mediatourmontecatini.com/wp-content/uploads/2014/12/telefono.png">Telephone</a></li>
+<li>DK: <a href="http://files.gamebanana.com/img/ico/sprays/54f2862be0933.png">DK Face</a></li>
+<li>Music: <a href="https://www.youtube.com/watch?v=P5iSWG8RHAs">Ricco Harbor</a></li>
+<li>Mario sounds: <a href="http://www.themushroomkingdom.net/wav.shtml">Mario Sounds</a></li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-Game could be close to any trivia game.
+Game most likely resembles any dodging game. Only code borrowed is creating the walls to spawn (which has been reworked by me) from Flappy Bird tutorial.
 </li>
 
 </ul>
