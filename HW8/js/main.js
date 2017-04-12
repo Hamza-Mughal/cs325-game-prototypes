@@ -49,7 +49,7 @@ Game5.StateA.prototype = {
   
   create: function () {
 	this.game.add.tileSprite(0, 0, 800, 600, 'background');
-	game.time.events.add(Phaser.Timer.SECOND * 4, addEnemy, this);
+	this.game.time.events.add(Phaser.Timer.SECOND * 4, addEnemy, this);
   },
   
 
@@ -58,7 +58,7 @@ Game5.StateA.prototype = {
   },
 
   addEnemy: function(){
-	  this.enemy = game.add.sprite(game.world.centerX, game.world.centerY, 'enemy');
+	  this.enemy = game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'enemy');
 	  this.enemy.physicsBodyType = Phaser.Physics.ARCADE;
 	  this.enemy.enableBody = true;
 	  
