@@ -10,10 +10,12 @@ var mainState = {
 	game.load.image('phone', 'assets/phone.png');
 	game.load.audio('ringing', 'assets/ringing.mp3');
 	game.load.image('powerup', 'assets/dog.png');
+	game.load.image('road', 'assets/road.png');
     },
 
     create: function() { 
-	game.stage.backgroundColor = '#94fcc0';
+	// game.stage.backgroundColor = '#94fcc0';
+	this.road = game.add.image(0, 0, 'road');
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	
 	this.bravo = game.add.sprite(100, 245, 'bravo');
@@ -36,7 +38,7 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "200 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "100 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	
@@ -60,7 +62,7 @@ var mainState = {
         this.restartG();
 	
 
-	if(this.score > 200){
+	if(this.score > 100){
 		game.world.removeAll();
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
