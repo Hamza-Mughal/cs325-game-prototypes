@@ -123,7 +123,7 @@ var mainState = {
 
 	addPowerUp: function(){
 		var x = (Math.random()*500)+300;
-		var y = (Math.random()*350)+90;
+		var y = (Math.random()*150)+300;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
 		this.power.add(fire);
