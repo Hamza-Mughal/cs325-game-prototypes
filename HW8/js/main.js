@@ -11,6 +11,7 @@ var mainState = {
 	game.load.audio('ringing', 'assets/ringing.mp3');
 	game.load.image('powerup', 'assets/dog.png');
 	game.load.image('road', 'assets/road.png');
+	game.load.audio('song', 'assets/song.mp3');
     },
 
     create: function() { 
@@ -46,6 +47,8 @@ var mainState = {
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
 	
+	this.song = game.sound.play('song');
+	this.song.volume = 0.2;	
 
     },
 
@@ -104,10 +107,12 @@ var mainState = {
 	
 	
 	restartG: function() {
+	this.song.pause();
     game.state.start('main');
 	},
 	restartG1: function() {
 	if(this.bool == true){
+	this.song.pause();
 	this.bool = false;
     game.state.start('main');
 	}
