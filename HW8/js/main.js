@@ -56,10 +56,10 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
 	if(this.input.up.isDown){
-		this.bravo.body.velocity.y = -200;
+		this.bravo.body.velocity.y = -215;
 	}
 		if(this.input.down.isDown){
-		this.bravo.body.velocity.y = 200;
+		this.bravo.body.velocity.y = 215;
 	}
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
@@ -261,7 +261,7 @@ var mainE = {
 
     update: function() {
 		if(this.input.isDown){
-		
+		this.song.pause();
 		game.state.start('bmain');
 		}		
     },
