@@ -12,6 +12,7 @@ var mainState = {
 	game.load.image('powerup', 'assets/dog.png');
 	game.load.image('road', 'assets/road.png');
 	game.load.audio('song', 'assets/song.mp3');
+	game.load.audio('vroom', 'assets/vroom.mp3');
     },
 
     create: function() { 
@@ -38,8 +39,8 @@ var mainState = {
 	
 	
 	this.score = 0;
-	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "100 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore = game.add.text(400, 60, "0", { font: "30px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(400, 90, "120 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	
@@ -56,17 +57,20 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
 	if(this.input.up.isDown){
+		this.effect = game.sound.play('vroom');
 		this.bravo.body.velocity.y = -200;
 	}
 		if(this.input.down.isDown){
+		this.effect = game.sound.play('vroom');
 		this.bravo.body.velocity.y = 200;
 	}
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
 	
 
-	if(this.score > 100){
+	if(this.score > 120){
 		game.world.removeAll();
+		this.song.pause();
 		game.state.start('emain');
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
@@ -258,6 +262,7 @@ var mainE = {
 
     update: function() {
 		if(this.input.isDown){
+		
 		game.state.start('bmain');
 		}		
     },
