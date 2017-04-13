@@ -193,7 +193,7 @@ var mainState = {
 	},	
 	
 };
-
+ 
 var mainB = {
     preload: function() { 
 		game.load.image('car', 'assets/prof.png');
@@ -218,9 +218,30 @@ var mainC = {
 
     create: function() { 
 		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.input = game.input.keyboard.createCursorKeys();
     },
 
     update: function() {
+			if(this.input.up.isDown){
+		game.state.start('dmain');
+	}
+    },
+};
+
+var mainD = {
+    preload: function() { 
+		game.load.image('car', 'assets/car1.png');
+    },
+
+    create: function() { 
+		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.input = game.input.keyboard.createCursorKeys();
+    },
+
+    update: function() {
+			if(this.input.down.isDown){
+		game.state.start('main');
+	}		
     },
 };
 
@@ -228,6 +249,7 @@ var game = new Phaser.Game(800, 600);
 
 game.state.add('bmain', mainB);
 game.state.add('cmain', mainC);
+game.state.add('dmain', mainD);
 game.state.add('main', mainState); 
 
 game.state.start('bmain');
