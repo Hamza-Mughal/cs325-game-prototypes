@@ -26,8 +26,8 @@ var mainState = {
 	
 
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
-	this.timer2 = game.time.events.loop(2200, this.addBanana1, this); 
-	this.timer3 = game.time.events.loop(2600, this.addBanana2, this);
+	this.timer2 = game.time.events.loop(2400, this.addBanana1, this); 
+	this.timer3 = game.time.events.loop(3100, this.addBanana2, this);
 
 	
 	
@@ -134,14 +134,14 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -400;
+		banana.body.velocity.x = -370;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
 		
 	},
 	addBanana1: function(){
-		var banana = game.add.sprite(700,200, 'banana');
+		var banana = game.add.sprite(800,200, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
@@ -152,12 +152,12 @@ var mainState = {
 		banana.outOfBoundsKill = true;		
 	},
 	addBanana2: function(){
-		var banana = game.add.sprite(550,300, 'banana');
+		var banana = game.add.sprite(800,300, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -175;
+		banana.body.velocity.x = -200;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
