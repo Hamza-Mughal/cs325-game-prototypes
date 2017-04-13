@@ -200,7 +200,7 @@ var mainB = {
     },
 
     create: function() { 
-		this.car = game.add.tileSprite(0,0,800,600,'road');
+		this.car = game.add.tileSprite(0,0,800,600,'car');
 
     },
 
