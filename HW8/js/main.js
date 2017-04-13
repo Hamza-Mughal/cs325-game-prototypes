@@ -194,8 +194,25 @@ var mainState = {
 	
 };
 
+var mainB = {
+    preload: function() { 
+		game.load.image('car', 'assets/car.png');
+    },
+
+    create: function() { 
+		this.car = game.add.tileSprite(0,0,800,600,'road');
+
+    },
+
+    update: function() {
+		
+    },
+	
+};
+
 var game = new Phaser.Game(800, 600);
 
+game.state.add('bmain', mainB);
 game.state.add('main', mainState); 
 
-game.state.start('main');
+game.state.start('bmain');
