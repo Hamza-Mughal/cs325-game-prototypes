@@ -28,9 +28,9 @@ var mainState = {
 	this.Banana = game.add.group();
 	
 
-	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
+	this.timer1 = game.time.events.loop(2000, this.addBanana, this);
 	this.timer2 = game.time.events.loop(2600, this.addBanana1, this); 
-	this.timer3 = game.time.events.loop(3300, this.addBanana2, this);
+	this.timer3 = game.time.events.loop(3250, this.addBanana2, this);
 
 	
 	
@@ -122,7 +122,7 @@ var mainState = {
 	
 
 	addPowerUp: function(){
-		var x = (Math.random()*500)+200;
+		var x = (Math.random()*500)+300;
 		var y = (Math.random()*350)+90;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
@@ -143,7 +143,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -325;
+		banana.body.velocity.x = -305;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
