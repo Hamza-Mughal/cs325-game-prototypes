@@ -138,7 +138,7 @@ var mainState = {
 		
 	},	
 	addBanana: function(){
-		var banana = game.add.sprite(800,400, 'banana');
+		var banana = game.add.sprite(800,410, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
@@ -150,7 +150,7 @@ var mainState = {
 		
 	},
 	addBanana1: function(){
-		var banana = game.add.sprite(800,200, 'banana');
+		var banana = game.add.sprite(800,185, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
