@@ -130,7 +130,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -300;
+		fire.body.velocity.x = -280;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
@@ -143,7 +143,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -370;
+		banana.body.velocity.x = -325;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
@@ -155,7 +155,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -285;
+		banana.body.velocity.x = -265;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
@@ -166,7 +166,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -225;
+		banana.body.velocity.x = -215;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
