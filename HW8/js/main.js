@@ -12,7 +12,7 @@ var mainState = {
 	game.load.image('powerup', 'assets/dog.png');
 	game.load.image('road', 'assets/road.png');
 	game.load.audio('song', 'assets/song.mp3');
-	game.load.audio('vroom', 'assets/vroom.mp3');
+	game.load.audio('vroom', 'assets/vroom.m4a');
     },
 
     create: function() { 
