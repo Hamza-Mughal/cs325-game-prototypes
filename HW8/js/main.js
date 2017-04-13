@@ -61,7 +61,6 @@ var mainState = {
 		this.bravo.body.velocity.y = -200;
 	}
 		if(this.input.down.isDown){
-		this.effect = game.sound.play('vroom');
 		this.bravo.body.velocity.y = 200;
 	}
     if (this.bravo.y < 0 || this.bravo.y > 600)
