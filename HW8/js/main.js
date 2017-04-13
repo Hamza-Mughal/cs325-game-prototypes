@@ -15,7 +15,7 @@ var mainState = {
 
     create: function() { 
 	// game.stage.backgroundColor = '#94fcc0';
-	this.road = game.add.image(0, 0, 'road');
+	this.road = game.add.tileSprite(0,0,800,600,'road');
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	
 	this.bravo = game.add.sprite(100, 245, 'bravo');
