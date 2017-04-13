@@ -39,7 +39,7 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "150 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "100 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	
@@ -65,8 +65,9 @@ var mainState = {
         this.restartG();
 	
 
-	if(this.score > 150){
+	if(this.score > 100){
 		game.world.removeAll();
+		game.state.start('emain');
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
 		var winText = game.add.text(game.world.centerX-300, game.world.centerY+100, 'Press W to restart', {font:'32px Arial', fill: '#fff'});
@@ -245,11 +246,29 @@ var mainD = {
     },
 };
 
+var mainE = {
+    preload: function() { 
+		game.load.image('car', 'assets/win.jpg');
+    },
+
+    create: function() { 
+		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    },
+
+    update: function() {
+		if(this.input.isDown){
+		game.state.start('bmain');
+		}		
+    },
+};
+
 var game = new Phaser.Game(800, 600);
 
 game.state.add('bmain', mainB);
 game.state.add('cmain', mainC);
 game.state.add('dmain', mainD);
+game.state.add('emain', mainE);
 game.state.add('main', mainState); 
 
 game.state.start('bmain');
