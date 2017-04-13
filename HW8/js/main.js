@@ -38,7 +38,7 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "100 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "150 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	
@@ -62,7 +62,7 @@ var mainState = {
         this.restartG();
 	
 
-	if(this.score > 100){
+	if(this.score > 150){
 		game.world.removeAll();
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
@@ -123,7 +123,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -405;
+		fire.body.velocity.x = -300;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
