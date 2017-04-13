@@ -4,7 +4,7 @@ var mainState = {
 	game.load.image('fire', 'assets/necklace.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/dk.png');
-	game.load.image('banana', 'assets/banana.png');
+	game.load.image('banana', 'assets/copcar.png');
 	game.load.audio('go', 'assets/go.wav');
 	game.load.audio('shoulder', 'assets/shoulder.wav');
 	game.load.image('phone', 'assets/phone.png');
@@ -36,7 +36,7 @@ var mainState = {
 	
 	this.score = 0;
 	this.labelScore = game.add.text(60, 60, "0", { font: "30px Arial", fill: "#000000" });
-	this.labelScore1 = game.add.text(60, 90, "750 pts to win!", { font: "20px Arial", fill: "#000000" });
+	this.labelScore1 = game.add.text(60, 90, "200 pts to win!", { font: "20px Arial", fill: "#000000" });
 	
 	
 	
@@ -60,7 +60,7 @@ var mainState = {
         this.restartG();
 	
 
-	if(this.score > 750){
+	if(this.score > 200){
 		game.world.removeAll();
 		this.bool = true;
 		var winText1 = game.add.text(game.world.centerX-300, game.world.centerY, 'You Won', {font:'32px Arial', fill: '#fff'});
