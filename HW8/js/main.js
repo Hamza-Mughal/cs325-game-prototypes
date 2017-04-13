@@ -9,7 +9,7 @@ var mainState = {
 	game.load.audio('shoulder', 'assets/shoulder.wav');
 	game.load.image('phone', 'assets/phone.png');
 	game.load.audio('ringing', 'assets/ringing.mp3');
-	game.load.image('powerup', 'assets/powerup.png');
+	game.load.image('powerup', 'assets/dog.png');
     },
 
     create: function() { 
@@ -113,7 +113,7 @@ var mainState = {
 	
 
 	addPowerUp: function(){
-		var x = (Math.random()*650)+80;
+		var x = (Math.random()*500)+200;
 		var y = (Math.random()*350)+90;
 		var fire = game.add.sprite(x,y, 'powerup');
 		
@@ -121,7 +121,7 @@ var mainState = {
 		
 		game.physics.arcade.enable(fire);
 		
-		fire.body.velocity.x = -425;
+		fire.body.velocity.x = -405;
 		
 		fire.checkWorldBounds = true;
 		fire.outOfBoundsKill = true;
@@ -146,7 +146,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -225;
+		banana.body.velocity.x = -285;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
@@ -157,7 +157,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -200;
+		banana.body.velocity.x = -210;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
