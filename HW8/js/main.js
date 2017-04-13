@@ -129,12 +129,12 @@ var mainState = {
 		
 	},	
 	addBanana: function(){
-		var banana = game.add.sprite(450,400, 'banana');
+		var banana = game.add.sprite(800,400, 'banana');
 		
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -200;
+		banana.body.velocity.x = -400;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
