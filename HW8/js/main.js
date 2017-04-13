@@ -12,7 +12,6 @@ var mainState = {
 	game.load.image('powerup', 'assets/dog.png');
 	game.load.image('road', 'assets/road.png');
 	game.load.audio('song', 'assets/song.mp3');
-	game.load.audio('vroom', 'assets/vroom.m4a');
     },
 
     create: function() { 
@@ -57,7 +56,6 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
 	if(this.input.up.isDown){
-		this.effect = game.sound.play('vroom');
 		this.bravo.body.velocity.y = -200;
 	}
 		if(this.input.down.isDown){
