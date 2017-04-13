@@ -102,14 +102,11 @@ var mainState = {
 	
 	
 	restartG: function() {
-	this.deathSound.play();	
-	this.audi.pause();
     game.state.start('main');
 	},
 	restartG1: function() {
 	if(this.bool == true){
 	this.bool = false;
-	this.audi.pause();
     game.state.start('main');
 	}
 	},	
