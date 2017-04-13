@@ -1,6 +1,6 @@
 var mainState = {
     preload: function() { 
-	game.load.image('bravo' , 'assets/bravo.png');
+	game.load.image('bravo' , 'assets/ncar.png');
 	game.load.image('fire', 'assets/necklace.png');
 	game.load.audio('ricco', 'assets/ricco.mp3');
 	game.load.image('doctor', 'assets/dk.png');
@@ -43,15 +43,8 @@ var mainState = {
 	var bool = false;
 	var weapon = game.input.keyboard.addKey(Phaser.Keyboard.W);
 	weapon.onDown.add(this.restartG1, this);
-	this.beginSound = game.add.audio('go'); 
-	this.beginSound.play(); 
 	
-	this.deathSound = game.add.audio('shoulder');
-	
-	this.ringing = game.sound.play('ringing');
-	
-	this.audi = game.sound.play('ricco');
-	this.audi.play();
+
     },
 
     update: function() {
