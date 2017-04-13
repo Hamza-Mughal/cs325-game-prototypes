@@ -29,8 +29,8 @@ var mainState = {
 	
 
 	this.timer1 = game.time.events.loop(1900, this.addBanana, this);
-	this.timer2 = game.time.events.loop(2400, this.addBanana1, this); 
-	this.timer3 = game.time.events.loop(3100, this.addBanana2, this);
+	this.timer2 = game.time.events.loop(2600, this.addBanana1, this); 
+	this.timer3 = game.time.events.loop(3300, this.addBanana2, this);
 
 	
 	
@@ -166,7 +166,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -215;
+		banana.body.velocity.x = -235;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
