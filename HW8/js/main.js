@@ -65,7 +65,7 @@ var mainState = {
         this.restartG();
 	
 
-	if(this.score > 120){
+	if(this.score >= 120){
 		game.world.removeAll();
 		this.song.pause();
 		game.state.start('emain');
@@ -166,7 +166,7 @@ var mainState = {
 		this.Banana.add(banana);
 		game.physics.arcade.enable(banana);
 		
-		banana.body.velocity.x = -210;
+		banana.body.velocity.x = -225;
 		
 		banana.checkWorldBounds = true;
 		banana.outOfBoundsKill = true;		
@@ -250,10 +250,12 @@ var mainD = {
 var mainE = {
     preload: function() { 
 		game.load.image('car', 'assets/win.jpg');
+		game.load.audio('song', 'assets/teeth.mp3');
     },
 
     create: function() { 
 		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.song = game.sound.play('song');
 		this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     },
 
