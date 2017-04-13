@@ -56,10 +56,10 @@ var mainState = {
 	game.physics.arcade.overlap(this.bravo, this.Banana, this.restartG, null, this);
 	game.physics.arcade.overlap(this.bravo, this.power, this.powerPoint, null, this);
 	if(this.input.up.isDown){
-		this.bravo.body.velocity.y = 200;
+		this.bravo.body.velocity.y = -200;
 	}
 		if(this.input.down.isDown){
-		this.bravo.body.velocity.y = -200;
+		this.bravo.body.velocity.y = 200;
 	}
     if (this.bravo.y < 0 || this.bravo.y > 600)
         this.restartG();
@@ -196,23 +196,38 @@ var mainState = {
 
 var mainB = {
     preload: function() { 
+		game.load.image('car', 'assets/prof.png');
+    },
+
+    create: function() { 
+		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    },
+
+    update: function() {
+		if(this.input.isDown){
+			game.state.start('cmain');
+		}
+    },
+};
+
+var mainC = {
+    preload: function() { 
 		game.load.image('car', 'assets/car.png');
     },
 
     create: function() { 
 		this.car = game.add.tileSprite(0,0,800,600,'car');
-
     },
 
     update: function() {
-		
     },
-	
 };
 
 var game = new Phaser.Game(800, 600);
 
 game.state.add('bmain', mainB);
+game.state.add('cmain', mainC);
 game.state.add('main', mainState); 
 
 game.state.start('bmain');
