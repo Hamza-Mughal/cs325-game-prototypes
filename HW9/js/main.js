@@ -32,6 +32,7 @@ var mainB = {
 		game.physics.arcade.enable(this.player);
 		
 		this.enemy = game.add.sprite(600, 500, 'enemy');
+		game.physics.arcade.enable(this.enemy);
 		
 		this.input = game.input.keyboard.createCursorKeys();
 		
