@@ -85,7 +85,6 @@ var mainC = {
 var mainD = {
     preload: function() { 
 		game.load.image('background' , 'assets/battle.png');
-		this.input = game.input.keyboard.createCursorKeys();
     },
 
     create: function() { 
@@ -95,6 +94,7 @@ var mainD = {
 		var enemyHP = 100;
 		this.labelScore = game.add.text(580, 480, "100", { font: "30px Arial", fill: "#000000" });
 		this.labelScore1 = game.add.text(160, 45, "100", { font: "30px Arial", fill: "#000000" });	
+		this.input = game.input.keyboard.createCursorKeys();		
     },
 
     update: function() {
