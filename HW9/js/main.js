@@ -90,7 +90,8 @@ var mainD = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
-		this.timeCheck = 0;
+		this.pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.A);		
+		this.bool = 0;
 		this.defense = 0;
 		this.playerHP = 100;
 		this.enemyHP = 100;
@@ -101,40 +102,36 @@ var mainD = {
     },
 
     update: function() {
-			if(game.time.now - timeCheck > 3000){
-	if(this.input.up.isDown){
+	if(this.bool == 1 && pauseKey.isDown){
+		this.bool = 0;
+	}
+	if(this.input.up.isDown && this.bool == 0){
 		this.enemyHP = this.enemyHP - (4+this.defense);
 		this.labelScore.text = this.enemyHP;  		
 		this.playerHP = this.playerHP - 3;
 		this.labelScore1.text = this.playerHP;
-		this.time;
+		this.bool = 1;
 	}
-	if(this.input.down.isDown){
+	if(this.input.down.isDown && this.bool == 0){
 		this.enemyHP = this.enemyHP - (3+this.defense);
 		var x1 = this.enemyHP;
 		this.labelScore.text = this.enemyHP;  		 		
 		this.playerHP = this.playerHP - 5;
 		var x2 = this.playerHP;
 		this.labelScore1.text = this.playerHP; 
-		this.time;		
+this.bool = 1;		
 	}	
-	if(this.input.right.isDown){
+	if(this.input.right.isDown && this.bool == 0){
 		game.state.start('bmain');
+		
 	}
-	if(this.input.left.isDown){
+	if(this.input.left.isDown && this.bool == 0){
 		this.defense = this.defense+2;
 		this.playerHP = this.playerHP - 4;
-		this.labelScore1.text = this.playerHP;
-this.time;		
-			}
-			}
-else{
-
-}	
+		this.labelScore1.text = this.playerHP; 
+this.bool = 1;		
+	}		
     },
-	time: function(){
-		this.timeCheck = game.time.now;
-	}
 };
 
 var mainE = {
