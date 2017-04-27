@@ -140,10 +140,13 @@ var mainE = {
     create: function() { 
 this.background = game.add.tileSprite(0,0,800,600,'background');
 this.song = game.sound.play('winmusic');
+this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     },
 
     update: function() {
-
+		if(this.input.isDown){
+			game.state.start('main');
+		}
     },
 };
 
