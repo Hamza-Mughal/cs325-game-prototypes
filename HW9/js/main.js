@@ -133,11 +133,13 @@ var mainD = {
 
 var mainE = {
     preload: function() { 
-
+	game.load.image('background' , 'assets/battleend.png');
+	game.load.audio('winmusic', 'assets/winmusic.mp3');
     },
 
     create: function() { 
-
+this.background = game.add.tileSprite(0,0,800,600,'background');
+this.song = game.sound.play('winmusic');
     },
 
     update: function() {
