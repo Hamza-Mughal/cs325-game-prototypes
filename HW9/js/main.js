@@ -102,19 +102,17 @@ var mainD = {
     update: function() {	
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP + (4+this.defense);
-		var x1 = this.enemyHP;
-		this.labelScore.text = ": " + this.x1;  		
+		this.labelScore.text = this.enemyHP;  		
 		this.playerHP = this.playerHP + 3;
-		var x2 = this.playerHP;
-		this.labelScore1.text = ": " + this.x2; 					
+		this.labelScore1.text = this.playerHP; 					
 	}
 	if(this.input.down.isDown){
 		this.enemyHP = this.enemyHP + (3+this.defense);
 		var x1 = this.enemyHP;
-		this.labelScore.text = ": " + this.x1;  		 		
+		this.labelScore.text = this.enemyHP;  		 		
 		this.playerHP = this.playerHP + 5;
 		var x2 = this.playerHP;
-		this.labelScore1.text = ": " + this.x2; 	
+		this.labelScore1.text = this.playerHP; 	
 	}	
 	if(this.input.right.isDown){
 		game.state.start('bmain');
@@ -123,7 +121,7 @@ var mainD = {
 		this.defense = this.defense+2;
 		this.playerHP = this.playerHP + 4;
 		var x2 = this.playerHP;
-		this.labelScore1.text = ": " + this.x2; 	
+		this.labelScore1.text = this.playerHP; 	
 	}		
     },
 };
