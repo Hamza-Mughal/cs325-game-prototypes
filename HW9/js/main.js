@@ -90,21 +90,24 @@ var mainD = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
+		var timeCheck;
 		this.defense = 0;
 		this.playerHP = 100;
 		this.enemyHP = 100;
-		this.labelScore = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
-		this.labelScore1 = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
+		this.labelScore1 = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
+		this.labelScore = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
 		this.input = game.input.keyboard.createCursorKeys();
 		this.song = game.sound.play('music');		
     },
 
-    update: function() {	
+    update: function() {
+			if(game.time.now - timeCheck > 3000){
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP - (4+this.defense);
 		this.labelScore.text = this.enemyHP;  		
 		this.playerHP = this.playerHP - 3;
-		this.labelScore1.text = this.playerHP; 					
+		this.labelScore1.text = this.playerHP;
+		this.time;
 	}
 	if(this.input.down.isDown){
 		this.enemyHP = this.enemyHP - (3+this.defense);
@@ -112,7 +115,8 @@ var mainD = {
 		this.labelScore.text = this.enemyHP;  		 		
 		this.playerHP = this.playerHP - 5;
 		var x2 = this.playerHP;
-		this.labelScore1.text = this.playerHP; 	
+		this.labelScore1.text = this.playerHP; 
+		this.time;		
 	}	
 	if(this.input.right.isDown){
 		game.state.start('bmain');
@@ -120,9 +124,17 @@ var mainD = {
 	if(this.input.left.isDown){
 		this.defense = this.defense+2;
 		this.playerHP = this.playerHP - 4;
-		this.labelScore1.text = this.playerHP; 	
-	}		
+		this.labelScore1.text = this.playerHP;
+this.time;		
+			}
+			}
+else{
+
+}	
     },
+	time: function(){
+		this.timeCheck = game.time.now;
+	}
 };
 
 var mainE = {
