@@ -90,7 +90,7 @@ var mainD = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
-		var timeCheck;
+		var timeCheck = 0;
 		this.defense = 0;
 		this.playerHP = 100;
 		this.enemyHP = 100;
