@@ -1,17 +1,35 @@
 var mainState = {
     preload: function() { 
-	game.load.image('bravo' , 'assets/ncar.png');
+		game.load.image('background' , 'assets/grass.jpg');
 
     },
 
     create: function() { 
 	// game.stage.backgroundColor = '#94fcc0';
-
-
+this.background = game.add.tileSprite(0,0,800,600,'background');
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+		this.player = game.add.sprite(50, 50, 'player');
+		game.physics.arcade.enable(this.player);
+		this.player.body.collideWorldBounds=true;
+		this.input = game.input.keyboard.createCursorKeys();
     },
 
     update: function() {
-
+		this.player.body.velocity.y = 0;
+		this.player.body.velocity.x = 0;
+		
+	if(this.input.up.isDown){
+		this.player.body.velocity.y = -150;
+	}
+	if(this.input.down.isDown){
+		this.player.body.velocity.y = 150;
+	}	
+	if(this.input.right.isDown){
+		this.player.body.velocity.x = 150;
+	}
+	if(this.input.left.isDown){
+		this.player.body.velocity.x = -150;
+	}
     },
 	
 
@@ -30,7 +48,7 @@ var mainB = {
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.player = game.add.sprite(50, 50, 'player');
 		game.physics.arcade.enable(this.player);
-		
+		this.player.body.collideWorldBounds=true;
 		this.enemy = game.add.sprite(600, 500, 'enemy');
 		game.physics.arcade.enable(this.enemy);
 		
@@ -109,7 +127,7 @@ var mainD = {
 		this.enemyHP = this.enemyHP - (4+this.defense);
 		this.labelScore.text = this.enemyHP;  		
 		this.playerHP = this.playerHP - 3;
-		this.labelScore1.text = this.playerHP; 					
+		this.labelScore1.text = this.playerHP;	
 	}
 	if(this.input.down.isDown){
 		this.enemyHP = this.enemyHP - (3+this.defense);
@@ -124,7 +142,9 @@ var mainD = {
 		game.state.start('bmain');
 	}
 	if(this.input.left.isDown){
-		this.defense = this.defense+2;
+		if(this.defense < 6){
+		this.defense = this.defense+3;
+		}
 		this.playerHP = this.playerHP - 4;
 		this.labelScore1.text = this.playerHP; 	
 	}		
