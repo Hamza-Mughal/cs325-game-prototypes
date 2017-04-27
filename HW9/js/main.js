@@ -27,7 +27,7 @@ var mainB = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
-		this.player = game.add.sprite(50, 50, 'bravo');
+		this.player = game.add.sprite(50, 50, 'player');
 		this.enemy = game.add.sprite(600, 500, 'enemy');
 		
     },
