@@ -91,8 +91,8 @@ var mainD = {
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
 		var defense = 0;
-		var playerHP = 100;
-		var enemyHP = 100;
+		var playerHP = 0;
+		var enemyHP = -;
 		this.labelScore = game.add.text(580, 490, ": ", { font: "30px Arial", fill: "#000000" });
 		this.labelScore1 = game.add.text(185, 45, ": ", { font: "30px Arial", fill: "#000000" });	
 		this.input = game.input.keyboard.createCursorKeys();
@@ -100,25 +100,27 @@ var mainD = {
     },
 
     update: function() {
+		this.labelScore.text = ": " + this.enemyHP; 
+		this.labelScore1.text = ": " +this.playerHP;   		
 	if(this.input.up.isDown){
-		this.enemyHP = this.enemyHP - (4+this.defense);
-		this.labelScore.text = ": " + this.enemyHP;  		
-		this.playerHP = this.playerHP - 3;
-		this.labelScore1.text = ": " +this.playerHP;  			
+		this.enemyHP = this.enemyHP + (4+this.defense);
+		//this.labelScore.text = ": " + this.enemyHP;  		
+		this.playerHP = this.playerHP + 3;
+		//this.labelScore1.text = ": " +this.playerHP;  			
 	}
 	if(this.input.down.isDown){
-		this.enemyHP = this.enemyHP - (3+this.defense);
-		this.labelScore.text = ": " +this.enemyHP;  		
-		this.playerHP = this.playerHP - 5;
-		this.labelScore1.text = ": " +this.playerHP; 		
+		this.enemyHP = this.enemyHP + (3+this.defense);
+		//this.labelScore.text = ": " +this.enemyHP;  		
+		this.playerHP = this.playerHP + 5;
+		//this.labelScore1.text = ": " +this.playerHP; 		
 	}	
 	if(this.input.right.isDown){
 		game.state.start('bmain');
 	}
 	if(this.input.left.isDown){
 		this.defense = this.defense+2;
-		this.playerHP = this.playerHP - 4;
-		this.labelScore1.text = ": " +this.playerHP; 		
+		this.playerHP = this.playerHP + 4;
+		//this.labelScore1.text = ": " +this.playerHP; 		
 	}		
     },
 };
