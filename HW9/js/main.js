@@ -99,20 +99,22 @@ var mainD = {
 		this.song = game.sound.play('music');		
     },
 
-    update: function() {
-		this.labelScore.text = ": " + this.enemyHP; 
-		this.labelScore1.text = ": " +this.playerHP;   		
+    update: function() {	
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP + (4+this.defense);
-		//this.labelScore.text = ": " + this.enemyHP;  		
+		var x1 = this.enemyHP;
+		this.labelScore.text = ": " + this.x1;  		
 		this.playerHP = this.playerHP + 3;
-		//this.labelScore1.text = ": " +this.playerHP;  			
+		var x2 = this.playerHP;
+		this.labelScore1.text = ": " + this.x2; 					
 	}
 	if(this.input.down.isDown){
 		this.enemyHP = this.enemyHP + (3+this.defense);
-		//this.labelScore.text = ": " +this.enemyHP;  		
+		var x1 = this.enemyHP;
+		this.labelScore.text = ": " + this.x1;  		 		
 		this.playerHP = this.playerHP + 5;
-		//this.labelScore1.text = ": " +this.playerHP; 		
+		var x2 = this.playerHP;
+		this.labelScore1.text = ": " + this.x2; 	
 	}	
 	if(this.input.right.isDown){
 		game.state.start('bmain');
@@ -120,7 +122,8 @@ var mainD = {
 	if(this.input.left.isDown){
 		this.defense = this.defense+2;
 		this.playerHP = this.playerHP + 4;
-		//this.labelScore1.text = ": " +this.playerHP; 		
+		var x2 = this.playerHP;
+		this.labelScore1.text = ": " + this.x2; 	
 	}		
     },
 };
