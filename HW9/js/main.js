@@ -33,8 +33,12 @@ var mainB = {
     },
 
     update: function() {
-
+		game.physics.arcade.overlap(this.player, this.enemy, this.over, null, this);
     },
+	
+	over: function(){
+		game.state.start('cmain');
+	},
 };
 
 var mainC = {
