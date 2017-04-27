@@ -92,8 +92,8 @@ var mainD = {
 		var defense = 0;
 		var playerHP = 100;
 		var enemyHP = 100;
-		this.labelScore = game.add.text(580, 480, "100", { font: "30px Arial", fill: "#000000" });
-		this.labelScore1 = game.add.text(160, 45, "100", { font: "30px Arial", fill: "#000000" });	
+		this.labelScore = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
+		this.labelScore1 = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
 		this.input = game.input.keyboard.createCursorKeys();		
     },
 
