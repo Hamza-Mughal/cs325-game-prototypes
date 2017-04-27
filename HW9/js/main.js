@@ -89,6 +89,7 @@ var mainD = {
     },
 
     create: function() { 
+		this.song = game.sound.play('music');	
 		this.background = game.add.tileSprite(0,0,800,600,'background');
 		this.pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.A);		
 		this.defense = 0;
@@ -96,8 +97,7 @@ var mainD = {
 		this.enemyHP = 100;
 		this.labelScore1 = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
 		this.labelScore = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
-		this.input = game.input.keyboard.createCursorKeys();
-		this.song = game.sound.play('music');		
+		this.input = game.input.keyboard.createCursorKeys();	
     },
 
     update: function() {	
@@ -116,6 +116,7 @@ var mainD = {
 		this.labelScore1.text = this.playerHP; 	
 	}	
 	if(this.input.right.isDown){
+		this.song.pause();
 		game.state.start('bmain');
 	}
 	if(this.input.left.isDown){
