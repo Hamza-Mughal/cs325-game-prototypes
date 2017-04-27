@@ -27,6 +27,7 @@ var mainB = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
+		game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.player = game.add.sprite(50, 50, 'player');
 		game.physics.arcade.enable(this.player);
 		
@@ -38,6 +39,9 @@ var mainB = {
 
     update: function() {
 		game.physics.arcade.overlap(this.player, this.enemy, this.over, null, this);
+		
+		this.player.body.velocity.y = 0;
+		this.player.body.velocity.x = 0;
 		
 	if(this.input.up.isDown){
 		this.player.body.velocity.y = -150;
