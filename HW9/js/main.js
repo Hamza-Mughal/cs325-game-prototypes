@@ -85,6 +85,7 @@ var mainC = {
 var mainD = {
     preload: function() { 
 		game.load.image('background' , 'assets/battle.png');
+		game.load.audio('music', 'assets/music.mp3');
     },
 
     create: function() { 
@@ -94,29 +95,30 @@ var mainD = {
 		var enemyHP = 100;
 		this.labelScore = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
 		this.labelScore1 = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
-		this.input = game.input.keyboard.createCursorKeys();		
+		this.input = game.input.keyboard.createCursorKeys();
+		this.song = game.sound.play('music');		
     },
 
     update: function() {
 	if(this.input.up.isDown){
-		enemyHP = enemyHP - (4+defense);
-		this.labelScore1.text = enemyHP;  		
-		playerHP = playerHP - 3;
-		this.labelScore1.text = playerHP;  			
+		this.enemyHP = this.enemyHP - (4+this.defense);
+		this.labelScore.text = this.enemyHP;  		
+		this.playerHP = this.playerHP - 3;
+		this.labelScore1.text = this.playerHP;  			
 	}
 	if(this.input.down.isDown){
-		enemyHP = enemyHP - (3+defense);
-		this.labelScore1.text = enemyHP;  		
-		playerHP = playerHP - 5;
-		this.labelScore1.text = playerHP; 		
+		this.enemyHP = this.enemyHP - (3+this.defense);
+		this.labelScore.text = this.enemyHP;  		
+		this.playerHP = this.playerHP - 5;
+		this.labelScore1.text = this.playerHP; 		
 	}	
 	if(this.input.right.isDown){
 		game.state.start('bmain');
 	}
 	if(this.input.left.isDown){
-		defense = defense+2;
-		playerHP = playerHP - 4;
-		this.labelScore1.text = playerHP; 		
+		this.defense = this.defense+2;
+		this.playerHP = this.playerHP - 4;
+		this.labelScore1.text = this.playerHP; 		
 	}		
     },
 };
