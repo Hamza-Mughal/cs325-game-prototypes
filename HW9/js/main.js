@@ -1,7 +1,7 @@
 var mainState = {
     preload: function() { 
 		game.load.image('background' , 'assets/grass.jpg');
-
+game.load.audio('music', 'assets/city.mp3');
     },
 
     create: function() { 
@@ -12,6 +12,7 @@ this.background = game.add.tileSprite(0,0,800,600,'background');
 		game.physics.arcade.enable(this.player);
 		this.player.body.collideWorldBounds=true;
 		this.input = game.input.keyboard.createCursorKeys();
+		this.song = game.sound.play('music');
     },
 
     update: function() {
@@ -41,6 +42,7 @@ var mainB = {
 		game.load.image('background' , 'assets/grass.jpg');
 		game.load.image('player' , 'assets/player.png');
 		game.load.image('enemy' , 'assets/enemy.png');
+		game.load.audio('music', 'assets/city.mp3');
     },
 
     create: function() { 
@@ -53,6 +55,7 @@ var mainB = {
 		game.physics.arcade.enable(this.enemy);
 		
 		this.input = game.input.keyboard.createCursorKeys();
+		this.song = game.sound.play('music');
 		
     },
 
@@ -78,6 +81,7 @@ var mainB = {
     },
 	
 	over: function(){
+		this.song.pause();
 		game.state.start('cmain');
 	},
 };
