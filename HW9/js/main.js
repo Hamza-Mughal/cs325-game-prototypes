@@ -84,11 +84,16 @@ var mainC = {
 
 var mainD = {
     preload: function() { 
-
+		game.load.image('background' , 'assets/battle.png');
+		this.input = game.input.keyboard.createCursorKeys();
     },
 
     create: function() { 
-
+		this.background = game.add.tileSprite(0,0,800,600,'background');
+		var playerHP = 100;
+		var enemyHP = 100;
+		this.labelScore = game.add.text(400, 400, "100", { font: "30px Arial", fill: "#000000" });
+		this.labelScore = game.add.text(100, 60, "100", { font: "30px Arial", fill: "#000000" });	
     },
 
     update: function() {
