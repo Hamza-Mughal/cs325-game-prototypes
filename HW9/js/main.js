@@ -90,14 +90,34 @@ var mainD = {
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
+		var defense = 0;
 		var playerHP = 100;
 		var enemyHP = 100;
 		this.labelScore = game.add.text(580, 480, "100", { font: "30px Arial", fill: "#000000" });
-		this.labelScore = game.add.text(160, 45, "100", { font: "30px Arial", fill: "#000000" });	
+		this.labelScore1 = game.add.text(160, 45, "100", { font: "30px Arial", fill: "#000000" });	
     },
 
     update: function() {
-
+	if(this.input.up.isDown){
+		enemyHP = enemyHP - (4+defense);
+		this.labelScore1.text = enemyHP;  		
+		playerHP = playerHP - 3;
+		this.labelScore1.text = playerHP;  			
+	}
+	if(this.input.down.isDown){
+		enemyHP = enemyHP - (3+defense);
+		this.labelScore1.text = enemyHP;  		
+		playerHP = playerHP - 5;
+		this.labelScore1.text = playerHP; 		
+	}	
+	if(this.input.right.isDown){
+		game.state.start('bmain');
+	}
+	if(this.input.left.isDown){
+		defense = defense+2;
+		playerHP = playerHP - 4;
+		this.labelScore1.text = playerHP; 		
+	}		
     },
 };
 
