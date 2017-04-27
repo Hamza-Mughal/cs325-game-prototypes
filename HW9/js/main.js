@@ -66,15 +66,18 @@ var mainB = {
 
 var mainC = {
     preload: function() { 
-
+		game.load.image('car', 'assets/prof.png');
     },
 
     create: function() { 
-
+		this.car = game.add.tileSprite(0,0,800,600,'car');
+		this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     },
 
     update: function() {
-
+		if(this.input.isDown){
+			game.state.start('dmain');
+		}
 
     },
 };
