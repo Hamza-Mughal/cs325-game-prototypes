@@ -28,12 +28,30 @@ var mainB = {
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
 		this.player = game.add.sprite(50, 50, 'player');
+		game.physics.arcade.enable(this.player);
+		
 		this.enemy = game.add.sprite(600, 500, 'enemy');
+		
+		this.input = game.input.keyboard.createCursorKeys();
 		
     },
 
     update: function() {
 		game.physics.arcade.overlap(this.player, this.enemy, this.over, null, this);
+		
+	if(this.input.up.isDown){
+		this.player.body.velocity.y = -150;
+	}
+	if(this.input.down.isDown){
+		this.player.body.velocity.y = 150;
+	}	
+	if(this.input.right.isDown){
+		this.player.body.velocity.x = 150;
+	}
+	if(this.input.left.isDown){
+		this.player.body.velocity.x = -150;
+	}	
+	
     },
 	
 	over: function(){
