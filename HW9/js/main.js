@@ -100,7 +100,11 @@ var mainD = {
 		this.input = game.input.keyboard.createCursorKeys();	
     },
 
-    update: function() {	
+    update: function() {
+		if(this.enemyHP <= 0){
+			this.song.pause();
+			game.state.start('emain');
+		}
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP - (4+this.defense);
 		this.labelScore.text = this.enemyHP;  		
