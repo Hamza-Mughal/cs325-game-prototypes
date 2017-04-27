@@ -165,6 +165,7 @@ this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     update: function() {
 		if(this.input.isDown){
+			this.song.pause();
 			game.state.start('main');
 		}
     },
