@@ -92,8 +92,8 @@ var mainD = {
 		this.background = game.add.tileSprite(0,0,800,600,'background');
 		var playerHP = 100;
 		var enemyHP = 100;
-		this.labelScore = game.add.text(600, 500, "100", { font: "30px Arial", fill: "#000000" });
-		this.labelScore = game.add.text(150, 55, "100", { font: "30px Arial", fill: "#000000" });	
+		this.labelScore = game.add.text(580, 480, "100", { font: "30px Arial", fill: "#000000" });
+		this.labelScore = game.add.text(160, 45, "100", { font: "30px Arial", fill: "#000000" });	
     },
 
     update: function() {
