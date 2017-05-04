@@ -239,7 +239,7 @@ var mainF = {
 		}
 	}
 	if(this.bool == 1){
-		if(this.enemyHP <= 10){
+		if(this.enemyHP <= 15){
 			this.bool = 0;
 			this.enemyHP = this.enemyHP + 40;
 			this.labelScore.text = this.enemyHP;
