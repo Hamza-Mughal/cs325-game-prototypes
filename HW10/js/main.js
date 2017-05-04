@@ -204,7 +204,9 @@ var mainF = {
 		this.labelScore1 = game.add.text(585, 485, "100", { font: "30px Arial", fill: "#000000" });
 		this.labelScore = game.add.text(200, 35, "100", { font: "30px Arial", fill: "#000000" });	
 		this.input = game.input.keyboard.createCursorKeys();
+		this.pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.A);
 		this.bool = 1;
+		this.bool2 = 1;
     },
 
     update: function() {
@@ -215,7 +217,21 @@ var mainF = {
 	if(this.input.right.isDown){
 		//this.song.pause();
 		game.state.start('main');
-	}	
+	}
+	if(this.pauseKey.isDown){
+		if(this.bool2 == 1){
+			if(this.playerHP + 75 >= 100){
+				this.playerHP = 100;
+				this.labelScore1.text = this.playerHP;
+				this.bool2 = 0;
+			}
+			else{
+				this.playerHP += 75;
+				this.labelScore1.text = this.playerHP;
+				this.bool2 = 0;
+			}
+		}
+	}
 	if(this.bool == 1){
 		if(this.enemyHP < 20){
 			this.bool = 0;
