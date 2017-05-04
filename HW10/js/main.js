@@ -272,11 +272,13 @@ var mainF = {
 
 var mainG = {
     preload: function() { 
-
+	game.load.image('background' , 'assets/finalbattle1.PNG');
+	game.load.audio('winmusic', 'assets/finalwin.mp3');
     },
 
     create: function() { 
-
+		this.background = game.add.tileSprite(0,0,800,600,'background');
+		this.song = game.sound.play('winmusic');	
     },
 
     update: function() {
