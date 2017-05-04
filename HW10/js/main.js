@@ -210,7 +210,7 @@ var mainF = {
     update: function() {
 		if(this.playerHP <= 0){
 			this.song.pause();
-			game.state.start('main');			
+			game.state.start('bmain');			
 		}
 	if(this.enemyHP <= 20){
 		if(this.bool == 1){
