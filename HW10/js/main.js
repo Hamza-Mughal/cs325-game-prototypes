@@ -212,13 +212,7 @@ var mainF = {
 		this.song.pause();
 		game.state.start('bmain');
 	}		
-	if(this.bool == 1){
-		if(this.enemyHP < 20){
-			this.bool = 0;
-			this.enemyHP = this.enemyHP + 50;
-			this.labelScore.text = this.enemyHP;
-		}
-	}	
+	
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP - ((Math.floor((Math.random(2)+3)))+this.defense);
 		this.labelScore.text = this.enemyHP;  		
