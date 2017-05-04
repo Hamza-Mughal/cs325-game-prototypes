@@ -4,6 +4,7 @@ var mainState = {
 		game.load.audio('music', 'assets/peak.mp3');
 		game.load.image('player' , 'assets/player.png');		
 		game.load.image('enemy' , 'assets/boss.png');
+		
     },
 
     create: function() { 
