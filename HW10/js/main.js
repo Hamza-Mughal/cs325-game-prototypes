@@ -139,6 +139,10 @@ var mainD = {
 			this.song.pause();
 			game.state.start('emain');
 		}
+		if(this.playerHP <= 0){
+			this.song.pause();
+			game.state.start('bmain');			
+		}
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP - (4+this.defense);
 		this.labelScore.text = this.enemyHP;  		
