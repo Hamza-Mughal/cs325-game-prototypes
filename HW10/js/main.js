@@ -162,7 +162,7 @@ var mainD = {
 		game.state.start('bmain');
 	}
 	if(this.input.left.isDown){
-		if(this.defense < 6){
+		if(this.defense < 3){
 		this.defense = this.defense+3;
 		}
 		this.playerHP = this.playerHP - 4;
@@ -241,7 +241,7 @@ var mainF = {
 	if(this.bool == 1){
 		if(this.enemyHP <= 10){
 			this.bool = 0;
-			this.enemyHP = this.enemyHP + 45;
+			this.enemyHP = this.enemyHP + 40;
 			this.labelScore.text = this.enemyHP;
 		}
 	}	
@@ -261,7 +261,7 @@ var mainF = {
 	}	
 
 	if(this.input.left.isDown){
-		if(this.defense < 6){
+		if(this.defense < 3){
 		this.defense = this.defense+3;
 		}
 		this.playerHP = this.playerHP - (Math.floor(Math.random(3)+5));
