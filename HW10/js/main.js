@@ -208,9 +208,9 @@ var mainF = {
     },
 
     update: function() {
-	if(this.input.right.isDown){
+	if(this.playerHP <= 0){
 		this.song.pause();
-		game.state.start('main');
+		game.state.start('bmain');
 	}		
 	if(this.bool == 1){
 		if(this.enemyHP < 20){
