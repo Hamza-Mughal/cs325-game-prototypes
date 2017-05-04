@@ -193,11 +193,11 @@ this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 var mainF = {
     preload: function() { 
-	game.load.image('background' , 'assets/finalbattle.png');
+	game.load.image('background' , 'assets/finalbattle.PNG');
     },
 
     create: function() { 
-this.background = game.add.tileSprite(0,0,800,600,'background');
+		this.background = game.add.tileSprite(0,0,800,600,'background');
 		this.defense = 0;
 		this.playerHP = 100;
 		this.enemyHP = 100;
