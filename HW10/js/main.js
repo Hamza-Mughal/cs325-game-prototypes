@@ -264,7 +264,7 @@ var mainF = {
 		if(this.defense < 3){
 		this.defense = this.defense+3;
 		}
-		this.playerHP = this.playerHP - (Math.floor(Math.random(3)+4));
+		this.playerHP = this.playerHP - (Math.floor(Math.random(2)+4));
 		this.labelScore1.text = this.playerHP; 	
 	}
     },
