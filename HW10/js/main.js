@@ -194,10 +194,12 @@ this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 var mainF = {
     preload: function() { 
 	game.load.image('background' , 'assets/finalbattle.PNG');
+	game.load.audio('winmusic', 'assets/battlemusic.mp3');
     },
 
     create: function() { 
 		this.background = game.add.tileSprite(0,0,800,600,'background');
+		this.song = game.sound.play('winmusic');		
 		this.defense = 0;
 		this.playerHP = 100;
 		this.enemyHP = 100;
@@ -211,11 +213,15 @@ var mainF = {
 
     update: function() {
 	if(this.playerHP <= 0){
-		// this.song.pause();
+		 this.song.pause();
 		game.state.start('bmain');
 	}
+	if(this.enemyHP <= 0){
+		 this.song.pause();
+		game.state.start('gmain');
+	}	
 	if(this.input.right.isDown){
-		//this.song.pause();
+		this.song.pause();
 		game.state.start('main');
 	}
 	if(this.pauseKey.isDown){
@@ -264,6 +270,20 @@ var mainF = {
     },
 };
 
+var mainG = {
+    preload: function() { 
+
+    },
+
+    create: function() { 
+
+    },
+
+    update: function() {
+
+    },
+};
+
 var game = new Phaser.Game(800, 600);
 
 game.state.add('bmain', mainB);
@@ -271,6 +291,7 @@ game.state.add('cmain', mainC);
 game.state.add('dmain', mainD);
 game.state.add('emain', mainE);
 game.state.add('main', mainState);
-game.state.add('fmain', mainF); 
+game.state.add('fmain', mainF);
+game.state.add('gmain', mainG); 
 
 game.state.start('bmain');
