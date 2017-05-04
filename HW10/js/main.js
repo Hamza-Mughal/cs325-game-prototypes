@@ -210,7 +210,7 @@ var mainF = {
     update: function() {
 		if(this.playerHP <= 0){
 			this.song.pause();
-			game.state.start('bmain');			
+			game.state.start('main');			
 		}
 	if(this.enemyHP <= 20){
 		if(this.bool == 1){
@@ -222,7 +222,7 @@ var mainF = {
 	if(this.input.up.isDown){
 		this.enemyHP = this.enemyHP - ((Math.floor((Math.random(2)+3)))+this.defense);
 		this.labelScore.text = this.enemyHP;  		
-		this.playerHP = this.playerHP - (Math.random(4)+3);
+		this.playerHP = this.playerHP - (Math.floor(Math.random(4)+3));
 		this.labelScore1.text = this.playerHP;	
 	}
 	if(this.input.down.isDown){
