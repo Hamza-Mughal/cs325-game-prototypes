@@ -239,9 +239,9 @@ var mainF = {
 		}
 	}
 	if(this.bool == 1){
-		if(this.enemyHP <= 15){
+		if(this.enemyHP <= 20){
 			this.bool = 0;
-			this.enemyHP = this.enemyHP + 40;
+			this.enemyHP = this.enemyHP + 45;
 			this.labelScore.text = this.enemyHP;
 		}
 	}	
