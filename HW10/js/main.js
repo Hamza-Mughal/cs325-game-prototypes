@@ -212,8 +212,8 @@ var mainF = {
 		this.song.pause();
 		game.state.start('main');
 	}		
-	if(this.enemyHP <= 20){
-		if(this.bool == 1){
+	if(this.bool == 1){
+		if(this.enemyHP < 20){
 			this.bool = 0;
 			this.enemyHP = this.enemyHP + 50;
 			this.labelScore.text = this.enemyHP;
