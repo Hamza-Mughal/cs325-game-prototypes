@@ -193,11 +193,17 @@ this.input = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 var mainF = {
     preload: function() { 
-
+	game.load.image('background' , 'assets/finalbattle.png');
     },
 
     create: function() { 
-
+this.background = game.add.tileSprite(0,0,800,600,'background');
+		this.defense = 0;
+		this.playerHP = 100;
+		this.enemyHP = 100;
+		this.labelScore1 = game.add.text(580, 490, "100", { font: "30px Arial", fill: "#000000" });
+		this.labelScore = game.add.text(185, 45, "100", { font: "30px Arial", fill: "#000000" });	
+		this.input = game.input.keyboard.createCursorKeys();
     },
 
     update: function() {
