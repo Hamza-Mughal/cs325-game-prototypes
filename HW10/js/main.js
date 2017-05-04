@@ -226,13 +226,13 @@ var mainF = {
 	}
 	if(this.pauseKey.isDown){
 		if(this.bool2 == 1){
-			if(this.playerHP + 75 >= 100){
+			if(this.playerHP + 70 >= 100){
 				this.playerHP = 100;
 				this.labelScore1.text = this.playerHP;
 				this.bool2 = 0;
 			}
 			else{
-				this.playerHP += 75;
+				this.playerHP += 70;
 				this.labelScore1.text = this.playerHP;
 				this.bool2 = 0;
 			}
