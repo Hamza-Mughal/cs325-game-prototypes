@@ -241,7 +241,7 @@ var mainF = {
 	if(this.bool == 1){
 		if(this.enemyHP <= 10){
 			this.bool = 0;
-			this.enemyHP = this.enemyHP + 50;
+			this.enemyHP = this.enemyHP + 45;
 			this.labelScore.text = this.enemyHP;
 		}
 	}	
